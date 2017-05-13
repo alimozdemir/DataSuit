@@ -8,8 +8,6 @@ namespace DataSuit.Infrastructures
 {
     public class RangeDoubleProvider : IRangeProvider<double>
     {
-        private static Random rnd = new Random((int)DateTime.Now.Ticks);
-
         private double current, minValue, maxValue;
         public double Current => current;
 
@@ -25,7 +23,7 @@ namespace DataSuit.Infrastructures
 
         public void MoveNext()
         {
-            current = minValue + rnd.NextDouble() * (maxValue - minValue);
+            current = minValue + Utility.Rand.NextDouble() * (maxValue - minValue);
         }
 
         public void SetData(double min, double max)

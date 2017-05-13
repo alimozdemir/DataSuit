@@ -9,7 +9,6 @@ namespace DataSuit.Enums
         Static,
         Sequential,
         Random,
-        Range,
-        API
+        Range
     }
 }
