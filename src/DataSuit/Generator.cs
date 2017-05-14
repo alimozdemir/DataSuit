@@ -10,18 +10,6 @@ namespace DataSuit
 {
     public class Generator
     {
-        public static async Task JsonAsync(string url)
-        {
-            if (Uri.IsWellFormedUriString(url, UriKind.Relative))
-            {
-                await Utility.Client.GetAsync(url);
-            }
-
-        }
-    }
-
-    public class Generator<TClass, TargetClass>
-    {
         public static bool AddProvider(string key, IDataProvider provider)
         {
             return Common.Settings.AddProvider(key, provider);
@@ -32,10 +20,17 @@ namespace DataSuit
             return Common.Settings.RemoveProvider(key);
         }
 
+        public static async Task JsonAsync(string url)
+        {
+            if (Uri.IsWellFormedUriString(url, UriKind.Relative))
+            {
+                await Utility.Client.GetAsync(url);
+            }
+        }
+    }
 
-
-
-
+    public class Generator<TClass, TargetClass> : Generator
+    {
         /// <summary>
         /// An example.
         /// </summary>

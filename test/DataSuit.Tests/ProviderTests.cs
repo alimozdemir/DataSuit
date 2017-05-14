@@ -15,8 +15,7 @@ namespace DataSuit.Tests
         {
             output = o;
         }
-
-        [APIProvider("Url")]
+        
         class Entity
         {
             public string Name { get; set; }
@@ -25,7 +24,7 @@ namespace DataSuit.Tests
             public int Age { get; set; }
         }
 
-        class API : Attribute
+        class API
         {
             public string Name { get; set; }
             public string Surname { get; set; }
@@ -43,6 +42,9 @@ namespace DataSuit.Tests
             //Generator<Entity, API>.Set(i => i.Name, i => i.Name);
             //Assert.NotNull(DataSuit.Infrastructures.Utility.Client);
 
+            Mapping<Entity> a = new Mapping<Entity>();
+            a.Set(i => i.Age, 10, 30)
+                .Set(i => i.Name, "Hi");
             /*
             Mapping<Entity> a = new Mapping<Entity>();
             a.Set(i => i.Age, new int[] { 1, 2, 3, 4, 5, 123, 1, 24, 5 }, ProviderType.Random)

@@ -10,6 +10,6 @@ namespace DataSuit.Enums
         Sequential,
         Random,
         Range,
-        API
+        Json
     }
 }
