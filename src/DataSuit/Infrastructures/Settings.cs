@@ -17,6 +17,7 @@ namespace DataSuit.Infrastructures
 
         public bool AddProvider(string key, IDataProvider provider)
         {
+            //check key : "Name,Surname,LastName", "Name"
             if (!_providers.ContainsKey(key))
             {
                 _providers.Add(key, provider);

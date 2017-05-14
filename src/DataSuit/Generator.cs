@@ -2,27 +2,55 @@
 using DataSuit.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace DataSuit
 {
-    public class Generator<T>
+    public class Generator
     {
+        public static async Task JsonAsync(string url)
+        {
+            if (Uri.IsWellFormedUriString(url, UriKind.Relative))
+            {
+                await Utility.Client.GetAsync(url);
+            }
+
+        }
+    }
+
+    public class Generator<TClass, TargetClass>
+    {
+        public static bool AddProvider(string key, IDataProvider provider)
+        {
+            return Common.Settings.AddProvider(key, provider);
+        }
+
+        public static bool RemoveProvider(string key, IDataProvider provider)
+        {
+            return Common.Settings.RemoveProvider(key);
+        }
+
+
+
+
+
         /// <summary>
-        /// Global settings for generator
+        /// An example.
         /// </summary>
-        private Settings settings;
-
-        public bool AddProvider(string key, IDataProvider provider)
+        /// <typeparam name="P"></typeparam>
+        /// <typeparam name="P2"></typeparam>
+        /// <param name="tAction"></param>
+        /// <param name="targetAction"></param>
+        public static void Set<P, P2>(Expression<Func<TClass, P>> tAction, Expression<Func<TargetClass, P2>> targetAction)
         {
-            return settings.AddProvider(key, provider);
-        }
+            var expression = (MemberExpression)tAction.Body;
+            var targetExpression = (MemberExpression)targetAction.Body;
 
-        public bool RemoveProvider(string key, IDataProvider provider)
-        {
-            return settings.RemoveProvider(key);
+            var field = expression.Member.Name;
+            var targetField = targetExpression.Member.Name;
         }
-
 
     }
 }
