@@ -4,6 +4,7 @@ using DataSuit.Infrastructures;
 using System.Collections.Generic;
 using DataSuit.Enums;
 using Xunit.Abstractions;
+using System.Reflection;
 
 namespace DataSuit.Tests
 {
@@ -41,10 +42,16 @@ namespace DataSuit.Tests
         {
             //Generator<Entity, API>.Set(i => i.Name, i => i.Name);
             //Assert.NotNull(DataSuit.Infrastructures.Utility.Client);
-
+            
             Mapping<Entity> a = new Mapping<Entity>();
             a.Set(i => i.Age, 10, 30)
                 .Set(i => i.Name, "Hi");
+
+            Mapping<Entity> a2 = new Mapping<Entity>();
+            a2.Set("url");
+
+            output.WriteLine(a2.Output());
+
             /*
             Mapping<Entity> a = new Mapping<Entity>();
             a.Set(i => i.Age, new int[] { 1, 2, 3, 4, 5, 123, 1, 24, 5 }, ProviderType.Random)

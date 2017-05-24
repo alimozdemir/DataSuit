@@ -9,7 +9,7 @@ namespace DataSuit.Interfaces
 {
     public interface IMapping
     {
-        IMapping Set(string fields, IEnumerable<P> list);
+        IMapping Set(string fields, IEnumerable list);
     }
     public interface IMapping<T>
     {
@@ -50,7 +50,13 @@ namespace DataSuit.Interfaces
         /// <param name="max"></param>
         /// <returns></returns>
         IMapping<T> Set(Expression<Func<T, double>> action, double min, double max);
-        
 
+
+        /// <summary>
+        /// Set a json provider
+        /// </summary>
+        /// <param name="url"></param>
+        /// <returns></returns>
+        IMapping<T> Set(string url);
     }
 }

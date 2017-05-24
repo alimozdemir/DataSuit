@@ -22,13 +22,17 @@ namespace DataSuit.Infrastructures
 
         public void MoveNext()
         {
-            throw new NotImplementedException();
+            throw new NotSupportedException();
         }
 
         public void SetData(string url)
         {
             Url = url;
         }
-        
+
+        public string GetUrl()
+        {
+            return Url;
+        }
     }
 }
