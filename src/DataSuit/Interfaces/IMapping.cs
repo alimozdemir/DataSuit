@@ -9,54 +9,23 @@ namespace DataSuit.Interfaces
 {
     public interface IMapping
     {
-        IMapping Set(string fields, IEnumerable list);
+        Dictionary<string, IDataProvider> GetFieldsWithProviders { get; }
+
+        IMapping Set<P>(string field, P data);
+
+        IMapping Set<P>(string field, IEnumerable<P> collection, ProviderType type = ProviderType.Sequential);
     }
-    public interface IMapping<T>
+
+    public interface IMapping<T> : IMapping
     {
-        /// <summary>
-        /// Set a collection provider
-        /// </summary>
-        /// <typeparam name="P"></typeparam>
-        /// <param name="action"></param>
-        /// <param name="collection"></param>
-        /// <param name="type"></param>
-        /// <returns></returns>
         IMapping<T> Set<P>(Expression<Func<T, P>> action, IEnumerable<P> collection, ProviderType type = ProviderType.Sequential);
-        /// <summary>
-        /// Set a static provider
-        /// </summary>
-        /// <typeparam name="P"></typeparam>
-        /// <param name="action"></param>
-        /// <param name="collection"></param>
-        /// <returns></returns>
+
         IMapping<T> Set<P>(Expression<Func<T, P>> action, P data);
-
-        /// <summary>
-        /// Set a integer range provider.
-        /// </summary>
-        /// <typeparam name="P"></typeparam>
-        /// <param name="action"></param>
-        /// <param name="min"></param>
-        /// <param name="max"></param>
-        /// <returns></returns>
+        
         IMapping<T> Set(Expression<Func<T, int>> action, int min, int max);
-
-        /// <summary>
-        /// Set a double range provider.
-        /// </summary>
-        /// <typeparam name="P"></typeparam>
-        /// <param name="action"></param>
-        /// <param name="min"></param>
-        /// <param name="max"></param>
-        /// <returns></returns>
+        
         IMapping<T> Set(Expression<Func<T, double>> action, double min, double max);
-
-
-        /// <summary>
-        /// Set a json provider
-        /// </summary>
-        /// <param name="url"></param>
-        /// <returns></returns>
+        
         IMapping<T> Set(string url);
     }
 }

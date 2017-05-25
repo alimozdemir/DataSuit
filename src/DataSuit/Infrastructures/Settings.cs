@@ -37,5 +37,15 @@ namespace DataSuit.Infrastructures
 
             return false;
         }
+
+        public string Export()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Import(string file)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

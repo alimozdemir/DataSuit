@@ -4,14 +4,42 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using DataSuit.Enums;
 using DataSuit.Reflection;
+using System.Collections;
 
 namespace DataSuit.Infrastructures
 {
+    public class Mapping : IMapping
+    {
+        Dictionary<string, IDataProvider> listOfFields = new Dictionary<string, IDataProvider>();
+
+        public Dictionary<string, IDataProvider> GetFieldsWithProviders => listOfFields;
+
+        public IMapping Set<P>(string field, P data)
+        {
+            StaticProvider<P> provider = new StaticProvider<P>(data);
+
+            listOfFields.Add(field, provider);
+
+            return this;
+        }
+
+        public IMapping Set<P>(string field, IEnumerable<P> collection, ProviderType type = ProviderType.Sequential)
+        {
+            CollectionProvider<P> provider = new CollectionProvider<P>(collection);
+
+            listOfFields.Add(field, provider);
+
+            return this;
+        }
+    }
+
     public class Mapping<T> : IMapping<T> where T : class
     {
         Dictionary<string, IDataProvider> listOfFields = new Dictionary<string, IDataProvider>();
 
-        public string Output() => string.Join(",", listOfFields.Keys);
+        public Dictionary<string, IDataProvider> GetFieldsWithProviders => listOfFields;
+
+        public string GetFields => string.Join(Utility.Seperator, listOfFields.Keys);
 
         public IMapping<T> Set<P>(Expression<Func<T, P>> action, IEnumerable<P> collection, ProviderType type = ProviderType.Sequential)
         {
@@ -63,6 +91,24 @@ namespace DataSuit.Infrastructures
             var field = t.GetAllProperties();
 
             listOfFields.Add(field, provider);
+            return this;
+        }
+        
+        public IMapping Set<P>(string field, P data)
+        {
+            StaticProvider<P> provider = new StaticProvider<P>(data);
+
+            listOfFields.Add(field, provider);
+
+            return this;
+        }
+
+        public IMapping Set<P>(string field, IEnumerable<P> collection, ProviderType type = ProviderType.Sequential)
+        {
+            CollectionProvider<P> provider = new CollectionProvider<P>(collection);
+
+            listOfFields.Add(field, provider);
+
             return this;
         }
     }

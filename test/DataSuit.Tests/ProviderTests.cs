@@ -23,6 +23,10 @@ namespace DataSuit.Tests
             public string Surname { get; set; }
             
             public int Age { get; set; }
+            public override string ToString()
+            {
+                return $"Name {this.Name} Age {this.Age} Surname {this.Surname }";
+            }
         }
 
         class API
@@ -40,36 +44,16 @@ namespace DataSuit.Tests
         [Fact]
         public void Test1()
         {
-            //Generator<Entity, API>.Set(i => i.Name, i => i.Name);
-            //Assert.NotNull(DataSuit.Infrastructures.Utility.Client);
-            
-            Mapping<Entity> a = new Mapping<Entity>();
-            a.Set(i => i.Age, 10, 30)
-                .Set(i => i.Name, "Hi");
+            Generator<Entity>.Map()
+                .Set(i => i.Age, 10, 30)
+                .Set(i => i.Name, "Alim");
 
-            Mapping<Entity> a2 = new Mapping<Entity>();
-            a2.Set("url");
+            Generator.Map()
+                .Set<string>("Surname", new List<string>() { "Özdemir", "Aydemir" });
 
-            output.WriteLine(a2.Output());
+            var anEntity = Generator<Entity>.Seed();
 
-            /*
-            Mapping<Entity> a = new Mapping<Entity>();
-            a.Set(i => i.Age, new int[] { 1, 2, 3, 4, 5, 123, 1, 24, 5 }, ProviderType.Random)
-                .Set(i => i.Name, "John")
-                .Set(i => i.Surname, new int[] { 1, 5 }, ProviderType.Range)
-                .Set(i => i.Age)
-                .Set("Name,Surname", new List<string>())
-                .Set<Names>(URL, Provider.API);
-
-            Generator<Entity>.Seed(100);
-            Generator<A>.Seed(100);
-            Generator.Set
-
-            
-
-
-
-            output.WriteLine(a.Output());*/
+            output.WriteLine(anEntity.ToString());
         }
 
         [Fact]

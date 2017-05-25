@@ -6,15 +6,15 @@ using System.Runtime.InteropServices;
 using System.Collections;
 using System.Linq;
 using System.Linq.Expressions;
-
+using DataSuit.Infrastructures;
 
 namespace DataSuit.Reflection
 {
-    public static class Extensions
+    internal static class Extensions
     {
         public static string GetAllProperties(this Type val)
         {
-            return string.Join(",", val.GetTypeInfo().DeclaredProperties.Select(i => i.Name)); 
+            return string.Join(Utility.Seperator, val.GetTypeInfo().DeclaredProperties.Select(i => i.Name)); 
         }
     }
 }

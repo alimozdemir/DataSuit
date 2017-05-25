@@ -9,5 +9,8 @@ namespace DataSuit.Interfaces
         Dictionary<string, IDataProvider> Providers { get; }
         bool AddProvider(string key, IDataProvider provider);
         bool RemoveProvider(string key);
+        string Export();
+        void Import(string file);
+
     }
 }
