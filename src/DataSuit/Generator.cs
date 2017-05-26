@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace DataSuit
 {
@@ -51,6 +52,17 @@ namespace DataSuit
             Utility.PendingMaps.Clear();
         }
 
+        protected async static Task JsonProviderControl()
+        {
+            var providers = Common.Settings.Providers.Values.Where(i => i.Type == Enums.ProviderType.Json).ToList();
+            
+            foreach(var item in providers)
+            {
+                var temp = item as IJsonProvider;
+                await temp.InitializeAsync();
+            }
+        }
+
     }
 
     public class Generator<TClass> : Generator where TClass : class, new()
@@ -75,6 +87,15 @@ namespace DataSuit
         {
             var temp = new TClass();
             CheckMaps();
+            Reflection.Mapper.Map(temp);
+            return temp;
+        }
+
+        public static async Task<TClass> SeedAsync()
+        {
+            var temp = new TClass();
+            CheckMaps();
+            await JsonProviderControl();
             Reflection.Mapper.Map(temp);
             return temp;
         }

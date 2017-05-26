@@ -5,6 +5,9 @@ using System.Collections.Generic;
 using DataSuit.Enums;
 using Xunit.Abstractions;
 using System.Reflection;
+using System.Linq;
+using DataSuit.Interfaces;
+using System.Threading.Tasks;
 
 namespace DataSuit.Tests
 {
@@ -37,25 +40,32 @@ namespace DataSuit.Tests
 
         class Names
         {
-            public string Surname { get; set; }
+            public string Name { get; set; }
             public int Gender { get; set; }
         }
 
         [Fact]
-        public void Test1()
+        public async Task Test1()
         {
-            Generator<Entity>.Map()
+            /*Generator<Entity>.Map()
                 .Set(i => i.Age, 10, 30)
                 .Set(i => i.Name, "Alim");
+                */
+            //Generator.Map()
+                //.Set<string>("Surname", new List<string>() { "Özdemir", "Aydemir" });
 
-            Generator.Map()
-                .Set<string>("Surname", new List<string>() { "Özdemir", "Aydemir" });
+            Generator<Names>.Map()
+                .Set("http://datasuit.yazilimda.com/api/Filter/FirstName/5/0");
 
-            var anEntity = Generator<Entity>.Seed();
-            var test = Generator<Names>.Seed();
-            
-            output.WriteLine(anEntity.ToString());
-            output.WriteLine(test.Gender + " " + test.Surname);
+            //var anEntity = Generator<Entity>.Seed();
+            var test = await Generator<Names>.SeedAsync();
+
+            var data = Common.Settings.Providers.FirstOrDefault(i => i.Value.Type == ProviderType.Json);
+            var js = data.Value as IJsonProvider;
+
+
+            //output.WriteLine(anEntity.ToString());
+            output.WriteLine(js.Status.ToString() + " " + test.Name);
             //output.WriteLine(string.Join(",", DataSuit.Common.Settings.Providers.Keys));
         }
 

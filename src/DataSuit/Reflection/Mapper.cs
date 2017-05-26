@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Reflection;
 using System.Linq;
+using DataSuit.Interfaces;
 
 namespace DataSuit.Reflection
 {
@@ -18,7 +19,17 @@ namespace DataSuit.Reflection
 
                 if (!string.IsNullOrEmpty(seek.Key))
                 {
-                    item.SetValue(val, seek.Value.Current);
+                    if (seek.Value.Type == Enums.ProviderType.Json)
+                    {
+                        var temp = seek.Value as IJsonProvider;
+                        var targetProp = temp.TargetType.GetTypeInfo().DeclaredProperties.FirstOrDefault(i => i.Name.Equals(item.Name));
+                        var value = targetProp.GetValue(seek.Value.Current);
+                        item.SetValue(val, value);
+                    }
+                    else
+                    {
+                        item.SetValue(val, seek.Value.Current);
+                    }
                     seek.Value.MoveNext();
                 }
             }
