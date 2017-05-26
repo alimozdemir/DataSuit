@@ -15,16 +15,26 @@ namespace DataSuit.Infrastructures
             _providers = new Dictionary<string, IDataProvider>();
         }
 
-        public bool AddProvider(string key, IDataProvider provider)
+        public void AddProvider(string key, IDataProvider provider)
         {
-            //check key : "Name,Surname,LastName", "Name"
-            if (!_providers.ContainsKey(key))
-            {
-                _providers.Add(key, provider);
-                return true;
-            }
+            var keys = key.Split(',', ' ');
 
-            return false;
+            foreach(var item in keys)
+            {
+                if (_providers.ContainsKey(item))
+                    _providers[item] = provider;
+                else
+                    _providers.Add(item, provider);
+            }
+            
+        }
+
+        public void AddProvider(Dictionary<string, IDataProvider> prov)
+        {
+            foreach(var item in prov)
+            {
+                this.AddProvider(item.Key, item.Value);
+            }
         }
 
         public bool RemoveProvider(string key)
@@ -47,5 +57,6 @@ namespace DataSuit.Infrastructures
         {
             throw new NotImplementedException();
         }
+
     }
 }

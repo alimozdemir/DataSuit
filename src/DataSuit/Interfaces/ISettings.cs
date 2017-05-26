@@ -7,7 +7,8 @@ namespace DataSuit.Interfaces
     public interface ISettings
     {
         Dictionary<string, IDataProvider> Providers { get; }
-        bool AddProvider(string key, IDataProvider provider);
+        void AddProvider(string key, IDataProvider provider);
+        void AddProvider(Dictionary<string, IDataProvider> prov);
         bool RemoveProvider(string key);
         string Export();
         void Import(string file);

@@ -37,7 +37,7 @@ namespace DataSuit.Tests
 
         class Names
         {
-            public string Name { get; set; }
+            public string Surname { get; set; }
             public int Gender { get; set; }
         }
 
@@ -52,8 +52,11 @@ namespace DataSuit.Tests
                 .Set<string>("Surname", new List<string>() { "Özdemir", "Aydemir" });
 
             var anEntity = Generator<Entity>.Seed();
-
+            var test = Generator<Names>.Seed();
+            
             output.WriteLine(anEntity.ToString());
+            output.WriteLine(test.Gender + " " + test.Surname);
+            //output.WriteLine(string.Join(",", DataSuit.Common.Settings.Providers.Keys));
         }
 
         [Fact]

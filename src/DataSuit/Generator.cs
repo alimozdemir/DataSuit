@@ -10,11 +10,16 @@ namespace DataSuit
 {
     public class Generator
     {
-        public static bool AddProvider(string key, IDataProvider provider)
+        public static void AddProvider(string key, IDataProvider provider)
         {
-            return Common.Settings.AddProvider(key, provider);
+            Common.Settings.AddProvider(key, provider);
         }
-        
+
+        public static void AddProvider(Dictionary<string, IDataProvider> prov)
+        {
+            Common.Settings.AddProvider(prov);
+        }
+
         public static bool RemoveProvider(string key, IDataProvider provider)
         {
             return Common.Settings.RemoveProvider(key);
@@ -31,8 +36,19 @@ namespace DataSuit
         public static Mapping Map()
         {
             var map = new Mapping();
-            Utility.Maps.Add(map);
+            Utility.PendingMaps.Add(map);
             return map;
+        }
+
+        protected static void CheckMaps()
+        {
+            foreach(var item in Utility.PendingMaps)
+            {
+                AddProvider(item.GetFieldsWithProviders);
+                Utility.Maps.Add(item);
+            }
+
+            Utility.PendingMaps.Clear();
         }
 
     }
@@ -58,6 +74,7 @@ namespace DataSuit
         public static TClass Seed()
         {
             var temp = new TClass();
+            CheckMaps();
             Reflection.Mapper.Map(temp);
             return temp;
         }
@@ -65,9 +82,7 @@ namespace DataSuit
         public static Mapping<TClass> Map()
         {
             var map = new Mapping<TClass>();
-            Utility.Maps.Add(map);
-            
-
+            Utility.PendingMaps.Add(map);
             return map;
         }
 
