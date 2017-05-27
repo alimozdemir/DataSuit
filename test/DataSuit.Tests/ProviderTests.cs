@@ -42,6 +42,8 @@ namespace DataSuit.Tests
         {
             public string Name { get; set; }
             public int Gender { get; set; }
+            public int Temp1 { get; set; }
+            public string Other { get; set; }
         }
 
         [Fact]
@@ -52,10 +54,11 @@ namespace DataSuit.Tests
                 .Set(i => i.Name, "Alim");
                 */
             //Generator.Map()
-                //.Set<string>("Surname", new List<string>() { "Özdemir", "Aydemir" });
+            //.Set<string>("Surname", new List<string>() { "Özdemir", "Aydemir" });
 
             Generator<Names>.Map()
                 .Set("http://datasuit.yazilimda.com/api/Filter/FirstName/5/0");
+            Generator.Map().Set("Temp1", 10);
 
             //var anEntity = Generator<Entity>.Seed();
             var test = await Generator<Names>.SeedAsync();
@@ -65,7 +68,7 @@ namespace DataSuit.Tests
 
 
             //output.WriteLine(anEntity.ToString());
-            output.WriteLine(js.Status.ToString() + " " + test.Name);
+            output.WriteLine(test.Name + " " + test.Gender + " " + test.Temp1 + " " + test.Other);
             //output.WriteLine(string.Join(",", DataSuit.Common.Settings.Providers.Keys));
         }
 

@@ -31,6 +31,24 @@ namespace DataSuit.Infrastructures
 
             return this;
         }
+
+        public IMapping Set<P>(string field, int min, int max)
+        {
+            RangeIntProvider provider = new RangeIntProvider(min, max);
+
+            listOfFields.Add(field, provider);
+
+            return this;
+        }
+
+        public IMapping Set<P>(string field, double min, double max)
+        {
+            RangeDoubleProvider provider = new RangeDoubleProvider(min, max);
+
+            listOfFields.Add(field, provider);
+
+            return this;
+        }
     }
 
     public class Mapping<T> : IMapping<T> where T : class
@@ -106,6 +124,24 @@ namespace DataSuit.Infrastructures
         public IMapping Set<P>(string field, IEnumerable<P> collection, ProviderType type = ProviderType.Sequential)
         {
             CollectionProvider<P> provider = new CollectionProvider<P>(collection);
+
+            listOfFields.Add(field, provider);
+
+            return this;
+        }
+
+        public IMapping Set<P>(string field, int min, int max)
+        {
+            RangeIntProvider provider = new RangeIntProvider(min, max);
+
+            listOfFields.Add(field, provider);
+
+            return this;
+        }
+
+        public IMapping Set<P>(string field, double min, double max)
+        {
+            RangeDoubleProvider provider = new RangeDoubleProvider(min, max);
 
             listOfFields.Add(field, provider);
 

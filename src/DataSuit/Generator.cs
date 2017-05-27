@@ -37,7 +37,9 @@ namespace DataSuit
         public static Mapping Map()
         {
             var map = new Mapping();
+
             Utility.PendingMaps.Add(map);
+
             return map;
         }
 
@@ -52,14 +54,17 @@ namespace DataSuit
             Utility.PendingMaps.Clear();
         }
 
-        protected async static Task JsonProviderControl()
+        protected async static Task JsonProviderInitialize()
         {
             var providers = Common.Settings.Providers.Values.Where(i => i.Type == Enums.ProviderType.Json).ToList();
             
             foreach(var item in providers)
             {
                 var temp = item as IJsonProvider;
-                await temp.InitializeAsync();
+                if (temp.Status == Enums.JsonStatus.NotStarted)
+                {
+                    await temp.InitializeAsync();
+                }
             }
         }
 
@@ -67,43 +72,72 @@ namespace DataSuit
 
     public class Generator<TClass> : Generator where TClass : class, new()
     {
-        /// <summary>
-        /// An example.
-        /// </summary>
-        /// <typeparam name="P"></typeparam>
-        /// <typeparam name="P2"></typeparam>
-        /// <param name="tAction"></param>
-        /// <param name="targetAction"></param>
-        /*public static void Set<P, P2>(Expression<Func<TClass, P>> tAction, Expression<Func<TargetClass, P2>> targetAction)
-        {
-            var expression = (MemberExpression)tAction.Body;
-            var targetExpression = (MemberExpression)targetAction.Body;
-
-            var field = expression.Member.Name;
-            var targetField = targetExpression.Member.Name;
-        }*/
-
         public static TClass Seed()
         {
             var temp = new TClass();
+
             CheckMaps();
+
             Reflection.Mapper.Map(temp);
+
+            return temp;
+        }
+
+        public static IEnumerable<TClass> Seed(int count)
+        {
+            List<TClass> temp = new List<TClass>();
+            CheckMaps();
+
+            for(int i = 0; i < count; i++)
+            {
+                var item = new TClass();
+                
+                Reflection.Mapper.Map(item);
+
+                temp.Add(item);
+            }
+
             return temp;
         }
 
         public static async Task<TClass> SeedAsync()
         {
             var temp = new TClass();
+
             CheckMaps();
-            await JsonProviderControl();
+
+            await JsonProviderInitialize();
+
             Reflection.Mapper.Map(temp);
+
             return temp;
         }
         
-        public static Mapping<TClass> Map()
+        public static async Task<IEnumerable<TClass>> SeedAsync(int count)
+        {
+            List<TClass> temp = new List<TClass>();
+            CheckMaps();
+            await JsonProviderInitialize();
+
+            for (int i = 0; i < count; i++)
+            {
+                var item = new TClass();
+
+                Reflection.Mapper.Map(item);
+
+                temp.Add(item);
+            }
+
+            return temp;
+        }
+
+
+        public static new Mapping<TClass> Map()
         {
             var map = new Mapping<TClass>();
+
             Utility.PendingMaps.Add(map);
+
             return map;
         }
 
