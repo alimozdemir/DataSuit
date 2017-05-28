@@ -35,15 +35,20 @@ namespace DataSuit.Tests
         class API
         {
             public string Name { get; set; }
-            public string Surname { get; set; }
         }
 
         class Names
         {
+            public Names()
+            {
+                MyAPIs = new List<API>();
+            }
             public string Name { get; set; }
             public int Gender { get; set; }
             public int Temp1 { get; set; }
             public string Other { get; set; }
+
+            public List<API> MyAPIs { get; set; }
         }
 
         [Fact]
@@ -61,14 +66,19 @@ namespace DataSuit.Tests
             Generator.Map().Set("Temp1", 10);
 
             //var anEntity = Generator<Entity>.Seed();
-            var test = await Generator<Names>.SeedAsync();
+            var test = await Generator<Names>.SeedAsync(1);
+
+            foreach(var item in test)
+            {
+                output.WriteLine(item.Name);
+            }
 
             var data = Common.Settings.Providers.FirstOrDefault(i => i.Value.Type == ProviderType.Json);
             var js = data.Value as IJsonProvider;
 
 
             //output.WriteLine(anEntity.ToString());
-            output.WriteLine(test.Name + " " + test.Gender + " " + test.Temp1 + " " + test.Other);
+            //output.WriteLine(test.Name + " " + test.Gender + " " + test.Temp1 + " " + test.Other);
             //output.WriteLine(string.Join(",", DataSuit.Common.Settings.Providers.Keys));
         }
 
