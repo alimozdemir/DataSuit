@@ -67,14 +67,27 @@ namespace DataSuit.Tests
             }
 
             ISampler<int>  sampler = new ReservoirSampler<int>(sampleTarget);
-            var sampled = sampler.Sample(max - min -3 );
+            var sampled = sampler.Sample(max - min - 3 );
 
-            Console.WriteLine("Final Array");
             foreach(var sample in sampled)
             {
                 Assert.True(sampleTarget.Contains(sample), $"Value of sample is {sample}");
                 Assert.False(hit[sample-min]);
                 hit[sample-min] = true;
+            }
+        }
+
+        [Fact]
+        public void testGaussian()
+        {
+            int mean = 10, variance = 2;
+            IGaussianSampler<double> sampler = new GaussianSampler<double>();
+            var sampled = sampler.Sample(40,mean,variance);
+            Console.WriteLine("Starting GaussianSampler Tests");
+            foreach(var sample in sampled)
+            {
+                //Assert.True(sampleTarget.Contains(sample), $"Value of sample is {sample}");
+                Console.WriteLine(sample);
             }
         }
     }

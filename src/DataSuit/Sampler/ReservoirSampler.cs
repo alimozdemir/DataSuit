@@ -36,7 +36,6 @@ namespace DataSuit
           for( ; i < n ; i++ )
           {
             res[i] = data[i];
-            Console.WriteLine(res[i]);
           }
 
           for( ; i < limit ; i++ )
