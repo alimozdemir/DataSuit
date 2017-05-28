@@ -72,10 +72,10 @@ namespace DataSuit.Tests
             {
                 output.WriteLine(item.Name);
             }
-
+            /*
             var data = Common.Settings.Providers.FirstOrDefault(i => i.Value.Type == ProviderType.Json);
             var js = data.Value as IJsonProvider;
-
+            */
 
             //output.WriteLine(anEntity.ToString());
             //output.WriteLine(test.Name + " " + test.Gender + " " + test.Temp1 + " " + test.Other);
