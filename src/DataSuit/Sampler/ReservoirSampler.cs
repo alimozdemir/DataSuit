@@ -4,25 +4,25 @@ using DataSuit.Interfaces;
 
 namespace DataSuit
 {
-    public class ReservoirSampler<T>: IReservoirSampler<T>
+    public class ReservoirSampler<T>: ISampler<T>
     {
         private List<T> data;
 
         public ReservoirSampler(List<T> _data){
-            setData(_data);
+            SetData(_data);
         }
 
-        private void setData(List<T> _data){
+        private void SetData(List<T> _data){
             data = _data;
         }
 
-        private int getDataSize()
+        private int GetDataSize()
         {
             return data.Count;
         }
 
-        public List<T> sample(int n){
-          int limit = getDataSize();
+        public List<T> Sample(int n){
+          int limit = GetDataSize();
           if( n >= limit )
           {
               return data;

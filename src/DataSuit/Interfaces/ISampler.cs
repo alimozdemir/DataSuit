@@ -6,6 +6,6 @@ namespace DataSuit.Interfaces
     public interface ISampler<T>
     {
         //void setData(IEnumerable<T> data);
-        List<T> sample(int n);
+        List<T> Sample(int n);
     }
 }

@@ -11,22 +11,22 @@ namespace DataSuit
 
         public IndistinctSampler(List<T> _data)
         {
-            setData(_data);
+            SetData(_data);
         }
 
-        private void setData(List<T> _data)
+        private void SetData(List<T> _data)
         {
             data = _data;
         }
 
-        private int getDataSize()
+        private int GetDataSize()
         {
             return data.Count;
         }
 
-        public List<T> sample(int n){
+        public List<T> Sample(int n){
 
-            if( n >= getDataSize())
+            if( n >= GetDataSize())
             {
                 return data;
             }
