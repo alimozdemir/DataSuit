@@ -25,7 +25,7 @@ namespace DataSuit.Tests
             }
 
             ISampler<int>  sampler = new IndistinctSampler<int>(sampleTarget);
-            var sampled = sampler.sample(3);
+            var sampled = sampler.Sample(3);
 
             foreach(var sample in sampled)
             {
@@ -46,7 +46,7 @@ namespace DataSuit.Tests
             }
 
             ISampler<int>  sampler = new IndistinctSampler<int>(sampleTarget);
-            var sampled = sampler.sample(max - min+10);
+            var sampled = sampler.Sample(max - min+10);
 
             foreach(var sample in sampled)
             {
@@ -67,7 +67,7 @@ namespace DataSuit.Tests
             }
 
             ISampler<int>  sampler = new ReservoirSampler<int>(sampleTarget);
-            var sampled = sampler.sample(max - min -3 );
+            var sampled = sampler.Sample(max - min -3 );
 
             Console.WriteLine("Final Array");
             foreach(var sample in sampled)
