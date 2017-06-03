@@ -123,7 +123,7 @@ namespace DataSuit
             {
                 var item = new TClass();
 
-                Reflection.Mapper.Map(item);
+                Reflection.Mapper.Map(item, Enums.RelationshipMap.Once);
 
                 temp.Add(item);
             }

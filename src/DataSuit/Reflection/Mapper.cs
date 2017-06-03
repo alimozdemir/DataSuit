@@ -5,14 +5,17 @@ using System.Reflection;
 using System.Linq;
 using DataSuit.Interfaces;
 using System.Collections;
+using DataSuit.Enums;
 
 namespace DataSuit.Reflection
 {
     internal class Mapper
     {
-        public static T Map<T>(T val)
+        public static T Map<T>(T val, RelationshipMap rel = RelationshipMap.None) where T : new()
         {
-            var type = typeof(T);
+            // Usage of typeof(T) causes problems. The template class could be object and the value could be anything
+            // Therefore we can't get properties of an object type.
+            var type = val.GetType();
             List<IJsonProvider> tempProviders = new List<IJsonProvider>();
             foreach(var item in type.GetTypeInfo().DeclaredProperties)
             {
@@ -20,19 +23,25 @@ namespace DataSuit.Reflection
 
                 var prop = item.PropertyType;
                 var tarProp = typeof(List<>);
-                if (prop.IsConstructedGenericType)
+
+                if (rel != RelationshipMap.None && 
+                    prop.IsConstructedGenericType 
+                    && prop.GetGenericTypeDefinition() == tarProp.GetGenericTypeDefinition())
                 {
-                    var test1 = prop.GetGenericTypeDefinition();
-                    var test2 = tarProp.GetGenericTypeDefinition();
-                }
-                if (prop.IsConstructedGenericType && prop.GetGenericTypeDefinition() == tarProp.GetGenericTypeDefinition())
-                {
-                    var newType = item.PropertyType.GenericTypeArguments[0];
-                    var list = item.GetValue(val) as IList;
-                    //todo
-                    foreach (var item2 in list)
+                    int iteration = 0;
+                    if(rel == RelationshipMap.Once)
                     {
-                        Map(item2);
+                        iteration = 1;
+                    }
+                    for (int i = 0; i < iteration; i++)
+                    {
+                        var newType = item.PropertyType.GenericTypeArguments[0];
+                        var list = item.GetValue(val) as IList;
+
+                        var newSub = Activator.CreateInstance(newType);
+
+                        Map(newSub);
+                        list.Add(newSub);
                     }
                 }
                 else
