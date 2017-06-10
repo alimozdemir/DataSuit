@@ -4,10 +4,11 @@ using System.Text;
 
 namespace DataSuit.Enums
 {
-    enum RelationshipMap
+    public enum RelationshipMap
     {
         None,
         Once,
-        Constant
+        Constant,
+        MaxRandom
     }
 }

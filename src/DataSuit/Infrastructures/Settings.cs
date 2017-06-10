@@ -2,17 +2,22 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using DataSuit.Enums;
 
 namespace DataSuit.Infrastructures
 {
     public class Settings : ISettings
     {
         private Dictionary<string, IDataProvider> _providers;
+        private (RelationshipMap Type, int Value) _relationship;
         public Dictionary<string, IDataProvider> Providers => _providers;
+
+        public (RelationshipMap Type, int Value) Relationship { get => _relationship; set => _relationship = value; }
 
         public Settings()
         {
             _providers = new Dictionary<string, IDataProvider>();
+            _relationship = (RelationshipMap.Constant, 3);
         }
 
         public void AddProvider(string key, IDataProvider provider)
