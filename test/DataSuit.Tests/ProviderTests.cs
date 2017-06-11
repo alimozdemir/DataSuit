@@ -42,14 +42,25 @@ namespace DataSuit.Tests
             public Names()
             {
                 MyAPIs = new List<API>();
+                Name = new List<string>();
             }
-            public string Name { get; set; }
-            public int Gender { get; set; }
+            //public string Name { get; set; }
+            //public int Gender { get; set; }
             public int Temp1 { get; set; }
             public string Other { get; set; }
 
             public List<API> MyAPIs { get; set; }
+            public List<string> Name { get; set; }
         }
+
+
+        class JsonData
+        {
+            public string Name { get; set; }
+            public int Gender { get; set; }
+            public string Other { get; set; }
+        }
+
 
         [Fact]
         public async Task Test1()
@@ -61,7 +72,7 @@ namespace DataSuit.Tests
             //Generator.Map()
             //.Set<string>("Surname", new List<string>() { "Özdemir", "Aydemir" });
 
-            Generator<Names>.Map()
+            Generator<JsonData>.Map()
                 .Set("http://datasuit.yazilimda.com/api/Filter/FirstName/5/0");
             Generator.Map().Set("Temp1", 10);
 
@@ -70,7 +81,7 @@ namespace DataSuit.Tests
 
             foreach(var item in test)
             {
-                output.WriteLine(item.Name);
+                output.WriteLine(item.Name.Count.ToString());
             }
             /*
             var data = Common.Settings.Providers.FirstOrDefault(i => i.Value.Type == ProviderType.Json);

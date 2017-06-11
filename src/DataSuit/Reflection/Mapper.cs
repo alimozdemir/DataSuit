@@ -16,95 +16,72 @@ namespace DataSuit.Reflection
             // Usage of typeof(T) causes problems. The template class could be an object and the value could be anything
             // Therefore we can't get properties of an object type.
             var type = val.GetType();
-            List<IJsonProvider> tempProviders = new List<IJsonProvider>();
             foreach(var item in type.GetTypeInfo().DeclaredProperties)
             {
-                var seek = Common.Settings.Providers.FirstOrDefault(i => i.Key.Contains(item.Name));
-                
                 var propInfo = item.PropertyType.GetTypeInfo();
                 
-                if (propInfo.IsClass)
+                if (propInfo.IsPrimitive || item.PropertyType == typeof(String))
                 {
-
+                    SetPrimitive(item, val);
                 }
                 else if (propInfo.IsGenericType)
                 {
-                    SetCollection(item, val, seek.Value);
-                }
-                else if (propInfo.IsPrimitive)
-                {
-                    if (string.IsNullOrEmpty(seek.Key))
-                        continue;
-
-                    SetPrimitive(item, val, seek.Value);
+                    SetCollection(item, val);
                 }
                 else
                 {
 
                 }
-                var prop = item.PropertyType;
-
-                var tarProp = typeof(List<>);
-                
-                if (rel != RelationshipMap.None && 
-                    prop.IsConstructedGenericType 
-                    && prop.GetGenericTypeDefinition() == tarProp.GetGenericTypeDefinition())
-                {
-                    var newType = item.PropertyType.GenericTypeArguments[0];
-                    
-                    var newTypeInfo = newType.GetTypeInfo();
-                    
-                    var list = item.GetValue(val) as IList;
-
-                    int iteration = 0;
-                    if(rel == RelationshipMap.Once)
-                    {
-                        iteration = 1;
-                    }
-                    for (int i = 0; i < iteration; i++)
-                    {
-                        var newSub = Activator.CreateInstance(newType);
-
-                        Map(newSub);
-                        list.Add(newSub);
-                    }
-                }
-                else
-                {
-                    if (!string.IsNullOrEmpty(seek.Key))
-                    {
-                        if (seek.Value.Type == Enums.ProviderType.Json)
-                        {
-                            var temp = seek.Value as IJsonProvider;
-                            var targetProp = temp.TargetType.GetTypeInfo().DeclaredProperties.FirstOrDefault(i => i.Name.Equals(item.Name));
-                            var value = targetProp.GetValue(seek.Value.Current);
-                            item.SetValue(val, value);
-                            tempProviders.Add(temp);
-                        }
-                        else
-                        {
-                            item.SetValue(val, seek.Value.Current);
-                            seek.Value.MoveNext();
-                        }
-                    }
-                }
-            }
-
-            foreach (var item in tempProviders)
-            {
-                item.MoveNext();
             }
 
             return val;
         }
 
-        private static void SetPrimitive<T>(PropertyInfo type, T val, IDataProvider provider)
+        private static object ProviderGetValue(IDataProvider provider, string name)
         {
-            type.SetValue(val, provider.Current);
-            provider.MoveNext();
+            if(provider.Type == ProviderType.Json)
+            {
+                var jsonProvider = provider as IJsonProvider;
+                var valueProvider = jsonProvider.TargetType.GetTypeInfo();
+
+                if(valueProvider.IsClass)
+                {
+                    var subProp = valueProvider.DeclaredProperties.FirstOrDefault(i => i.Name.Equals(name));
+                    return subProp.GetValue(provider.Current);
+                }
+            }
+
+            return provider.Current;
         }
-        
-        private static void SetCollection<T>(PropertyInfo type, T val, IDataProvider provider)
+
+        private static void SetPrimitive<T>(PropertyInfo type, T val)
+        {
+            var provider = Common.Settings.Providers.FirstOrDefault(i => i.Key.Contains(type.Name));
+
+            if (string.IsNullOrEmpty(provider.Key))
+                return;
+
+            var value = ProviderGetValue(provider.Value, type.Name);
+
+            type.SetValue(val, value);
+
+            provider.Value.MoveNext();
+        }
+        private static void SetPrimitive<T>(string name, ref T val)
+        {
+            var provider = Common.Settings.Providers.FirstOrDefault(i => i.Key.Contains(name));
+
+            if (string.IsNullOrEmpty(provider.Key))
+                return;
+
+            var value = ProviderGetValue(provider.Value, name);
+
+            val = (T)value;
+
+            provider.Value.MoveNext();
+        }
+
+        private static void SetCollection<T>(PropertyInfo type, T val)
         {
             var collectionType = typeof(List<>);
 
@@ -114,14 +91,31 @@ namespace DataSuit.Reflection
                 var arg = type.PropertyType.GenericTypeArguments[0];
                 var argInfo = arg.GetTypeInfo();
 
+                var collection = type.GetValue(val) as IList;
+
                 // Fill the class as the relationship rule possible
-                if (argInfo.IsClass)
+                if (argInfo.IsPrimitive || arg == typeof(String))
                 {
+                    for (int i = 0; i < Common.Settings.Relationship.Value; i++)
+                    {
+                        // Fill the sub instance
+                        object subIns = null;
 
+                        SetPrimitive(type.Name, ref subIns);
+
+                        collection.Add(subIns);
+                    }
                 }
-                else if (argInfo.IsPrimitive)
+                else if (argInfo.IsClass)
                 {
-
+                    for (int i = 0; i < Common.Settings.Relationship.Value; i++)
+                    {
+                        // Fill the sub instance
+                        var subIns = Activator.CreateInstance(arg);
+                        Map(subIns);
+                        collection.Add(subIns);
+                    }
+                    // todo
                 }
                 else
                 {
