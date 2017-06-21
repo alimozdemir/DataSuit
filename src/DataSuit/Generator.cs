@@ -83,7 +83,7 @@ namespace DataSuit
             return temp;
         }
 
-        public static IEnumerable<TClass> Seed(int count)
+        public static IEnumerable<TClass> Seed(int count, Enums.RelationshipMap Type = Settings.RelationshipType, int Value = Settings.RelationshipValue)
         {
             List<TClass> temp = new List<TClass>();
             CheckMaps();
@@ -100,7 +100,7 @@ namespace DataSuit
             return temp;
         }
 
-        public static async Task<TClass> SeedAsync()
+        public static async Task<TClass> SeedAsync(Enums.RelationshipMap Type = Settings.RelationshipType, int Value = Settings.RelationshipValue)
         {
             var temp = new TClass();
 
@@ -113,7 +113,7 @@ namespace DataSuit
             return temp;
         }
         
-        public static async Task<IEnumerable<TClass>> SeedAsync(int count)
+        public static async Task<IEnumerable<TClass>> SeedAsync(int count, Enums.RelationshipMap Type = Settings.RelationshipType, int Value = Settings.RelationshipValue)
         {
             List<TClass> temp = new List<TClass>();
             CheckMaps();
@@ -123,7 +123,7 @@ namespace DataSuit
             {
                 var item = new TClass();
 
-                Reflection.Mapper.Map(item, Enums.RelationshipMap.Once);
+                Reflection.Mapper.Map(item);
 
                 temp.Add(item);
             }

@@ -20,37 +20,11 @@ namespace DataSuit.Tests
             output = o;
         }
         
-        class Entity
+
+        class JsonProviderClass
         {
             public string Name { get; set; }
-            public string Surname { get; set; }
-            
-            public int Age { get; set; }
-            public override string ToString()
-            {
-                return $"Name {this.Name} Age {this.Age} Surname {this.Surname }";
-            }
-        }
-
-        class API
-        {
-            public string Name { get; set; }
-        }
-
-        class Names
-        {
-            public Names()
-            {
-                MyAPIs = new List<API>();
-                Name = new List<string>();
-            }
-            //public string Name { get; set; }
-            //public int Gender { get; set; }
-            public int Temp1 { get; set; }
-            public string Other { get; set; }
-
-            public List<API> MyAPIs { get; set; }
-            public List<string> Name { get; set; }
+            public int Gender { get; set; }
         }
 
 
@@ -58,39 +32,43 @@ namespace DataSuit.Tests
         {
             public string Name { get; set; }
             public int Gender { get; set; }
-            public string Other { get; set; }
         }
 
 
-        [Fact]
-        public async Task Test1()
+        class CollectionClass
         {
-            /*Generator<Entity>.Map()
-                .Set(i => i.Age, 10, 30)
-                .Set(i => i.Name, "Alim");
-                */
-            //Generator.Map()
-            //.Set<string>("Surname", new List<string>() { "Özdemir", "Aydemir" });
+            public List<string> Name { get; set; } = new List<string>();
+            public List<int> Gender { get; set; } = new List<int>();
+        }
 
+        [Fact]
+        public async Task CollectionProperties()
+        {
             Generator<JsonData>.Map()
-                .Set("http://datasuit.yazilimda.com/api/Filter/FirstName/5/0");
-            Generator.Map().Set("Temp1", 10);
+                .Set("http://datasuit.yazilimda.com/api/Filter/FirstName/5");
 
-            //var anEntity = Generator<Entity>.Seed();
-            var test = await Generator<Names>.SeedAsync(1);
+            var test = await Generator<CollectionClass>.SeedAsync(5);
 
-            foreach(var item in test)
+            foreach (var item in test)
             {
-                output.WriteLine(item.Name.Count.ToString());
+                Assert.True(item.Name.Count > 0);
+                Assert.True(item.Gender.Count > 0);
             }
-            /*
-            var data = Common.Settings.Providers.FirstOrDefault(i => i.Value.Type == ProviderType.Json);
-            var js = data.Value as IJsonProvider;
-            */
+        }
 
-            //output.WriteLine(anEntity.ToString());
-            //output.WriteLine(test.Name + " " + test.Gender + " " + test.Temp1 + " " + test.Other);
-            //output.WriteLine(string.Join(",", DataSuit.Common.Settings.Providers.Keys));
+        [Fact]
+        public async Task JsonProvider()
+        {
+            Generator<JsonData>.Map()
+                .Set("http://datasuit.yazilimda.com/api/Filter/FirstName/5");
+
+            var test = await Generator<JsonProviderClass>.SeedAsync(5);
+
+            foreach (var item in test)
+            {
+                Assert.NotEqual(item.Name, string.Empty);
+                Assert.InRange(item.Gender, 0, 1);
+            }
         }
 
         [Fact]

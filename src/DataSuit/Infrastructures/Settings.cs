@@ -12,12 +12,15 @@ namespace DataSuit.Infrastructures
         private (RelationshipMap Type, int Value) _relationship;
         public Dictionary<string, IDataProvider> Providers => _providers;
 
-        public (RelationshipMap Type, int Value) Relationship { get => _relationship; set => _relationship = value; }
+        public (RelationshipMap Type, int Value)  Relationship { get => _relationship; set => _relationship = value; }
+
+        public const int RelationshipValue = 3;
+        public const RelationshipMap RelationshipType = RelationshipMap.Constant;
 
         public Settings()
         {
             _providers = new Dictionary<string, IDataProvider>();
-            _relationship = (RelationshipMap.Constant, 3);
+            _relationship = (RelationshipType, RelationshipValue);
         }
 
         public void AddProvider(string key, IDataProvider provider)

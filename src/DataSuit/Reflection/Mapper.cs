@@ -6,12 +6,13 @@ using System.Linq;
 using DataSuit.Interfaces;
 using System.Collections;
 using DataSuit.Enums;
+using DataSuit.Infrastructures;
 
 namespace DataSuit.Reflection
 {
     internal class Mapper
     {
-        public static T Map<T>(T val, RelationshipMap rel = RelationshipMap.None) where T : new()
+        public static T Map<T>(T val, bool recursion = true, Enums.RelationshipMap Type = Settings.RelationshipType, int Value = Settings.RelationshipValue) where T : new()
         {
             // Usage of typeof(T) causes problems. The template class could be an object and the value could be anything
             // Therefore we can't get properties of an object type.
@@ -26,7 +27,7 @@ namespace DataSuit.Reflection
                 }
                 else if (propInfo.IsGenericType)
                 {
-                    SetCollection(item, val);
+                    SetCollection(item, val, recursion);
                 }
                 else
                 {
@@ -81,7 +82,7 @@ namespace DataSuit.Reflection
             provider.Value.MoveNext();
         }
 
-        private static void SetCollection<T>(PropertyInfo type, T val)
+        private static void SetCollection<T>(PropertyInfo type, T val, bool recursion = true)
         {
             var collectionType = typeof(List<>);
 
@@ -108,14 +109,17 @@ namespace DataSuit.Reflection
                 }
                 else if (argInfo.IsClass)
                 {
-                    for (int i = 0; i < Common.Settings.Relationship.Value; i++)
+                    if (recursion)
                     {
-                        // Fill the sub instance
-                        var subIns = Activator.CreateInstance(arg);
-                        Map(subIns);
-                        collection.Add(subIns);
+                        for (int i = 0; i < Common.Settings.Relationship.Value; i++)
+                        {
+                            // Fill the sub instance
+                            var subIns = Activator.CreateInstance(arg);
+                            Map(subIns, false);
+                            collection.Add(subIns);
+                        }
                     }
-                    // todo
+                    
                 }
                 else
                 {
