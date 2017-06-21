@@ -1,0 +1,15 @@
+language: csharp
+solution: DataSuit.sln
+dist: trusty
+sudo: required
+mono: none
+dotnet: 1.0.1
+script:
+  - ./build.sh --quiet verify
+
+install:
+  - nuget restore DataSuit.sln
+  - nuget install xunit.runners -Version 2.0.0 -OutputDirectory testrunner
+script:
+  - xbuild /p:Configuration=Release DataSuit.sln
+  - mono ./testrunner/xunit.runners.2.0.0/tools/xunit.console.clr4.exe ./DataSuit/test/DataSuit.Tests/bin/Debug/netcoreapp1.1/DataSuit.Tests.dll
