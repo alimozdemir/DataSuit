@@ -5,5 +5,4 @@ solution: DataSuit.sln
 mono: none
 dotnet: 1.0.1
 script:
-  - ./build.sh --quiet verify
-  - dotnet test ./test/DataSuit.Tests/DataSuit.Tests.csproj -c Release
+  - ./build.sh
