@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using DataSuit.Interfaces;
+using DataSuit.Infrastructures;
 
 namespace DataSuit
 {
@@ -16,13 +17,12 @@ namespace DataSuit
           throw new NotSupportedException();
         }
         public List<double> Sample(int n,double mean, double variance){
-
-            Random generator = new Random();
+            
             List<double> ret = new List<double>();
 
             for( int i = 0 ; i < n ; i++ )
             {
-                ret.Add(Gaussian(generator.NextDouble(),generator.NextDouble(),mean,variance));
+                ret.Add(Gaussian(Utility.Rand.NextDouble(), Utility.Rand.NextDouble(),mean,variance));
             }
             return ret;
         }

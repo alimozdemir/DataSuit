@@ -42,6 +42,23 @@ namespace DataSuit.Tests
         }
 
         [Fact]
+        public void DummyTextProvider()
+        {
+            DummyTextProvider provider = new DummyTextProvider(25);
+            Assert.InRange(provider.Current.Length, 1, 25);
+        }
+
+        [Fact]
+        public void PhoneProvider()
+        {
+            PhoneProvider provider = new PhoneProvider("(545) xxx-xx-xx");
+
+            Assert.Equal("(545) xxx-xx-xx".Length, provider.Current.Length);
+            Assert.False(provider.Current.Contains('x'));
+            Assert.True(provider.AsNumeric() > 0);
+        }
+
+        [Fact]
         public async Task CollectionProperties()
         {
             Generator<JsonData>.Map()
