@@ -19,6 +19,8 @@ namespace DataSuit.Infrastructures
 
         object IDataProvider.Current => iterator.Current;
 
+        public IEnumerable<T> Collection => col;
+
         public CollectionProvider(IEnumerable<T> collection)
         {
             if (collection == null)

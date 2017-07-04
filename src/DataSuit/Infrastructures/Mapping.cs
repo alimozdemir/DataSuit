@@ -32,7 +32,7 @@ namespace DataSuit.Infrastructures
             return this;
         }
 
-        public IMapping Set<P>(string field, int min, int max)
+        public IMapping Set(string field, int min, int max)
         {
             RangeIntProvider provider = new RangeIntProvider(min, max);
 
@@ -41,7 +41,7 @@ namespace DataSuit.Infrastructures
             return this;
         }
 
-        public IMapping Set<P>(string field, double min, double max)
+        public IMapping Set(string field, double min, double max)
         {
             RangeDoubleProvider provider = new RangeDoubleProvider(min, max);
 
@@ -130,7 +130,7 @@ namespace DataSuit.Infrastructures
             return this;
         }
 
-        public IMapping Set<P>(string field, int min, int max)
+        public IMapping Set(string field, int min, int max)
         {
             RangeIntProvider provider = new RangeIntProvider(min, max);
 
@@ -139,7 +139,7 @@ namespace DataSuit.Infrastructures
             return this;
         }
 
-        public IMapping Set<P>(string field, double min, double max)
+        public IMapping Set(string field, double min, double max)
         {
             RangeDoubleProvider provider = new RangeDoubleProvider(min, max);
 

@@ -15,6 +15,6 @@ namespace DataSuit.Interfaces
     public interface IJsonProvider<T> : IJsonProvider, IDataProvider<T>
     {
         void SetData(string url);
-        string GetUrl();
+        string Url { get; }
     }
 }

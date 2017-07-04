@@ -17,6 +17,8 @@ namespace DataSuit.Infrastructures
 
         object IDataProvider.Current => staticData;
 
+        public T Value => staticData;
+
         public StaticProvider(T val)
         {
             staticData = val;

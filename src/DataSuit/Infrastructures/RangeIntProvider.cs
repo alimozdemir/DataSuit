@@ -15,7 +15,11 @@ namespace DataSuit.Infrastructures
         public ProviderType Type => ProviderType.Range;
 
         object IDataProvider.Current => current;
-        
+
+        public int MinValue => minValue;
+
+        public int MaxValue => maxValue;
+
         public RangeIntProvider(int min, int max)
         {
             SetData(min, max);

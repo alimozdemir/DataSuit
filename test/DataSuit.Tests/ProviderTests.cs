@@ -8,6 +8,7 @@ using System.Reflection;
 using System.Linq;
 using DataSuit.Interfaces;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace DataSuit.Tests
 {
@@ -39,6 +40,31 @@ namespace DataSuit.Tests
         {
             public List<string> Name { get; set; } = new List<string>();
             public List<int> Gender { get; set; } = new List<int>();
+        }
+
+        [Fact]
+        public void ExportSettings()
+        {
+            Generator.Map().Set("Name", new List<string>() { "John", "Kenndy" }, ProviderType.Random)
+                .Set("Age", 10, 30);
+            
+            Generator.SaveSettings("save.json");
+
+            Assert.True(File.Exists("save.json"));
+        }
+
+        [Fact]
+        public void ClearSettings()
+        {
+            Generator.ClearSettings();
+
+            Assert.Equal(Generator.AllProviderNames().Length, 0);
+        }
+
+        [Fact]
+        public void ImportSettings()
+        {
+
         }
 
         [Fact]

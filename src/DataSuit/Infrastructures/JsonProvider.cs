@@ -10,7 +10,7 @@ namespace DataSuit.Infrastructures
 {
     public class JsonProvider<T> : IJsonProvider<T>
     {
-        private string Url;
+        private string url;
         private JsonStatus _status = JsonStatus.NotStarted;
 
         private IEnumerable<T> col;
@@ -26,9 +26,11 @@ namespace DataSuit.Infrastructures
 
         public Type TargetType => typeof(T);
 
-        public JsonProvider(string url)
+        public string Url => url;
+
+        public JsonProvider(string _url)
         {
-            Url = url;
+            url = _url;
         }
 
         public void MoveNext()
@@ -43,16 +45,11 @@ namespace DataSuit.Infrastructures
             }
         }
 
-        public void SetData(string url)
+        public void SetData(string _url)
         {
-            Url = url;
+            url = _url;
         }
-
-        public string GetUrl()
-        {
-            return Url;
-        }
-
+        
         public async Task InitializeAsync()
         {
             if(_status == JsonStatus.NotStarted)
@@ -60,10 +57,10 @@ namespace DataSuit.Infrastructures
                 _status = JsonStatus.Fetching;
 
                 //Is it well defined url
-                if (Uri.IsWellFormedUriString(Url, UriKind.Absolute))
+                if (Uri.IsWellFormedUriString(url, UriKind.Absolute))
                 {
                     //Make the request
-                    var response = await Utility.Client.GetAsync(Url);
+                    var response = await Utility.Client.GetAsync(url);
                     //Get the content of request
                     var content = await response.Content.ReadAsStringAsync();
                     //Deserialize Object

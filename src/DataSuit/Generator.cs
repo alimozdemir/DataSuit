@@ -6,6 +6,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Linq;
+using System.IO;
 
 namespace DataSuit
 {
@@ -26,14 +27,40 @@ namespace DataSuit
             return Common.Settings.RemoveProvider(key);
         }
 
-        public static async Task JsonAsync(string url)
+        public static string[] AllProviderNames()
         {
-            if (Uri.IsWellFormedUriString(url, UriKind.Relative))
-            {
-                await Utility.Client.GetAsync(url);
-            }
+            return Common.Settings.Providers.Keys.ToArray();
         }
-        
+
+        /// <summary>
+        /// Saving all providers as json format.
+        /// </summary>
+        /// <param name="path"></param>
+        public static void SaveSettings(string path)
+        {
+            CheckMaps();
+
+            File.WriteAllText(path, Common.Settings.Export());
+        }
+
+        /// <summary>
+        /// Clear all settings
+        /// </summary>
+        public static void ClearSettings()
+        {
+            Common.Settings.Providers.Clear();
+            Common.Settings.Relationship = (Enums.RelationshipMap.Constant, 3);
+        }
+
+        /// <summary>
+        /// Load settings
+        /// </summary>
+        /// <param name="path">json file path</param>
+        public static void LoadSettings(string path)
+        {
+
+        }
+       
         public static Mapping Map()
         {
             var map = new Mapping();

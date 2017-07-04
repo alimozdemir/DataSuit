@@ -15,6 +15,6 @@ namespace DataSuit
         {
             Settings = new Settings();
         }
-        
+
     }
 }

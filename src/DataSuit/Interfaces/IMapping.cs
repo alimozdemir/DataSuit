@@ -13,9 +13,9 @@ namespace DataSuit.Interfaces
 
         IMapping Set<P>(string field, P data);
 
-        IMapping Set<P>(string field, int min, int max);
+        IMapping Set(string field, int min, int max);
 
-        IMapping Set<P>(string field, double min, double max);
+        IMapping Set(string field, double min, double max);
 
         IMapping Set<P>(string field, IEnumerable<P> collection, ProviderType type = ProviderType.Sequential);
     }

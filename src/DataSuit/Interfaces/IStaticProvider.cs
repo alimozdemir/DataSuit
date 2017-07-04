@@ -7,5 +7,6 @@ namespace DataSuit.Interfaces
     public interface IStaticProvider<T> : IDataProvider<T>
     {
         void SetData(T val);
+        T Value { get; }
     }
 }

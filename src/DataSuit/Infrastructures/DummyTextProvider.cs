@@ -19,7 +19,6 @@ namespace DataSuit.Infrastructures
             maxLength = _maxLength;
             source = _source;
 
-
             int lastSpace = Resources.Lorem.LastIndexOf(' ', maxLength);
             current = Resources.Lorem.Substring(0, lastSpace);
         }

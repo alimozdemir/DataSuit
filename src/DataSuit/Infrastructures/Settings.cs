@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using DataSuit.Enums;
+using Newtonsoft.Json;
 
 namespace DataSuit.Infrastructures
 {
@@ -56,14 +57,58 @@ namespace DataSuit.Infrastructures
             return false;
         }
 
+
+        /// <summary>
+        /// Export the current settings as json serialize string
+        /// </summary>
+        /// <returns></returns>
         public string Export()
         {
-            throw new NotImplementedException();
+            string result = string.Empty;
+            JsonSettings settings = new JsonSettings();
+
+            settings.RelationshipType = Common.Settings.Relationship.Type.ToString();
+            settings.RelationshipValue = Common.Settings.Relationship.Value;
+            List<JsonFieldSettings> providers = new List<JsonFieldSettings>();
+            foreach (var item in _providers)
+            {
+                providers.Add(new JsonFieldSettings(item.Key, item.Value));
+            }
+            settings.Providers = providers;
+            result = JsonConvert.SerializeObject(settings, Formatting.None, new JsonSerializerSettings
+            {
+                NullValueHandling = NullValueHandling.Ignore
+            });
+
+            return result;
         }
 
+        /// <summary>
+        /// Import settings file as json serialized string
+        /// </summary>
+        /// <param name="file"></param>
         public void Import(string file)
         {
-            throw new NotImplementedException();
+            var settings = JsonConvert.DeserializeObject<JsonSettings>(file);
+            RelationshipMap type = (RelationshipMap)Enum.Parse(typeof(Enums.RelationshipMap), settings.RelationshipType);
+            Common.Settings.Relationship = (type, settings.RelationshipValue);
+
+
+            //todo
+            IDataProvider provider = null;
+            foreach (var item in settings.Providers)
+            {
+
+                switch (item.Type)
+                {
+                    case "Json":
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+
         }
 
     }
