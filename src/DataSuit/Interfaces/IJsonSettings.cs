@@ -19,5 +19,6 @@ namespace DataSuit.Interfaces
         object Value { get; set; }
         object MinValue { get; set; }
         object MaxValue { get; set; }
+        string T { get; set; }
     }
 }

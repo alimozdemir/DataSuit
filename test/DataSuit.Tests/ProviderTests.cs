@@ -29,8 +29,12 @@ namespace DataSuit.Tests
         }
 
 
-        class JsonData
+        public class JsonData
         {
+            public JsonData()
+            {
+
+            }
             public string Name { get; set; }
             public int Gender { get; set; }
         }
@@ -45,8 +49,19 @@ namespace DataSuit.Tests
         [Fact]
         public void ExportSettings()
         {
-            Generator.Map().Set("Name", new List<string>() { "John", "Kenndy" }, ProviderType.Random)
-                .Set("Age", 10, 30);
+            Generator.ClearSettings();
+
+            //Collection and range
+            Generator.Map().Collection("Presidents", new List<string>() { "John", "Kenndy" }, ProviderType.Random)
+                .Range("Age", 10, 30)
+                .Dummy("Description", 30);
+
+            //json
+            Generator<JsonData>.Map()
+                .Json("http://datasuit.yazilimda.com/api/Filter/FirstName/5");
+            
+            //Static and phone
+            Generator.Map().Set("HelloMessage", "Hello World !").Phone("Phone", "(545) xxx-xx-xx");
             
             Generator.SaveSettings("save.json");
 
@@ -64,6 +79,11 @@ namespace DataSuit.Tests
         [Fact]
         public void ImportSettings()
         {
+            Generator.Register(typeof(JsonData).GetTypeInfo().Assembly);
+            Generator.ClearSettings();
+            Generator.LoadSettings("save.json");
+            output.WriteLine(string.Join(",", ((CollectionProvider<string>)Common.Settings.Providers["Presidents"]).Collection));
+            Generator.SaveSettings("saveTemp.json");
 
         }
 
@@ -88,7 +108,7 @@ namespace DataSuit.Tests
         public async Task CollectionProperties()
         {
             Generator<JsonData>.Map()
-                .Set("http://datasuit.yazilimda.com/api/Filter/FirstName/5");
+                .Json("http://datasuit.yazilimda.com/api/Filter/FirstName/5");
 
             var test = await Generator<CollectionClass>.SeedAsync(5);
 
@@ -103,7 +123,7 @@ namespace DataSuit.Tests
         public async Task JsonProvider()
         {
             Generator<JsonData>.Map()
-                .Set("http://datasuit.yazilimda.com/api/Filter/FirstName/5");
+                .Json("http://datasuit.yazilimda.com/api/Filter/FirstName/5");
 
             var test = await Generator<JsonProviderClass>.SeedAsync(5);
 

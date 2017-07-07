@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DataSuit
 {
-    internal class Common
+    public class Common
     {
         /// <summary>
         /// Global settings for generator
@@ -17,4 +17,5 @@ namespace DataSuit
         }
 
     }
+    
 }

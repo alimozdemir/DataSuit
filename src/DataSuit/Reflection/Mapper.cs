@@ -7,6 +7,7 @@ using DataSuit.Interfaces;
 using System.Collections;
 using DataSuit.Enums;
 using DataSuit.Infrastructures;
+using System.Reflection.Emit;
 
 namespace DataSuit.Reflection
 {
@@ -17,6 +18,7 @@ namespace DataSuit.Reflection
             // Usage of typeof(T) causes problems. The template class could be an object and the value could be anything
             // Therefore we can't get properties of an object type.
             var type = val.GetType();
+
             foreach(var item in type.GetTypeInfo().DeclaredProperties)
             {
                 var propInfo = item.PropertyType.GetTypeInfo();

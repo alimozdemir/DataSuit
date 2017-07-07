@@ -23,7 +23,7 @@ namespace DataSuit.Infrastructures
             return this;
         }
 
-        public IMapping Set<P>(string field, IEnumerable<P> collection, ProviderType type = ProviderType.Sequential)
+        public IMapping Collection<P>(string field, IEnumerable<P> collection, ProviderType type = ProviderType.Sequential)
         {
             CollectionProvider<P> provider = new CollectionProvider<P>(collection);
 
@@ -32,7 +32,7 @@ namespace DataSuit.Infrastructures
             return this;
         }
 
-        public IMapping Set(string field, int min, int max)
+        public IMapping Range(string field, int min, int max)
         {
             RangeIntProvider provider = new RangeIntProvider(min, max);
 
@@ -41,9 +41,27 @@ namespace DataSuit.Infrastructures
             return this;
         }
 
-        public IMapping Set(string field, double min, double max)
+        public IMapping Range(string field, double min, double max)
         {
             RangeDoubleProvider provider = new RangeDoubleProvider(min, max);
+
+            listOfFields.Add(field, provider);
+
+            return this;
+        }
+
+        public IMapping Phone(string field, string template)
+        {
+            PhoneProvider provider = new PhoneProvider(template);
+
+            listOfFields.Add(field, provider);
+
+            return this;
+        }
+
+        public IMapping Dummy(string field, int length)
+        {
+            DummyTextProvider provider = new DummyTextProvider(length);
 
             listOfFields.Add(field, provider);
 
@@ -59,7 +77,7 @@ namespace DataSuit.Infrastructures
 
         public string GetFields => string.Join(Utility.Seperator, listOfFields.Keys);
 
-        public IMapping<T> Set<P>(Expression<Func<T, P>> action, IEnumerable<P> collection, ProviderType type = ProviderType.Sequential)
+        public IMapping<T> Collection<P>(Expression<Func<T, P>> action, IEnumerable<P> collection, ProviderType type = ProviderType.Sequential)
         {
             CollectionProvider<P> provider = new CollectionProvider<P>(collection, type);
             var expression = (MemberExpression)action.Body;
@@ -80,7 +98,7 @@ namespace DataSuit.Infrastructures
             return this;
         }
 
-        public IMapping<T> Set(Expression<Func<T, int>> action, int min, int max)
+        public IMapping<T> Range(Expression<Func<T, int>> action, int min, int max)
         {
             RangeIntProvider provider = new RangeIntProvider(min, max);
             var expression = (MemberExpression)action.Body;
@@ -91,7 +109,7 @@ namespace DataSuit.Infrastructures
             return this;
         }
 
-        public IMapping<T> Set(Expression<Func<T, double>> action, double min, double max)
+        public IMapping<T> Range(Expression<Func<T, double>> action, double min, double max)
         {
             RangeDoubleProvider provider = new RangeDoubleProvider(min, max);
             var expression = (MemberExpression)action.Body;
@@ -101,7 +119,7 @@ namespace DataSuit.Infrastructures
             return this;
         }
         
-        public IMapping<T> Set(string url)
+        public IMapping<T> Json(string url)
         {
             JsonProvider<T> provider = new JsonProvider<T>(url);
 
@@ -121,16 +139,16 @@ namespace DataSuit.Infrastructures
             return this;
         }
 
-        public IMapping Set<P>(string field, IEnumerable<P> collection, ProviderType type = ProviderType.Sequential)
+        public IMapping Collection<P>(string field, IEnumerable<P> collection, ProviderType type = ProviderType.Sequential)
         {
-            CollectionProvider<P> provider = new CollectionProvider<P>(collection);
+            CollectionProvider<P> provider = new CollectionProvider<P>(collection, type);
 
             listOfFields.Add(field, provider);
 
             return this;
         }
 
-        public IMapping Set(string field, int min, int max)
+        public IMapping Range(string field, int min, int max)
         {
             RangeIntProvider provider = new RangeIntProvider(min, max);
 
@@ -139,9 +157,51 @@ namespace DataSuit.Infrastructures
             return this;
         }
 
-        public IMapping Set(string field, double min, double max)
+        public IMapping Range(string field, double min, double max)
         {
             RangeDoubleProvider provider = new RangeDoubleProvider(min, max);
+
+            listOfFields.Add(field, provider);
+
+            return this;
+        }
+
+        public IMapping<T> Phone<P>(Expression<Func<T, P>> action, string template)
+        {
+            PhoneProvider provider = new PhoneProvider(template);
+
+            var expression = (MemberExpression)action.Body;
+            var field = expression.Member.Name;
+
+            listOfFields.Add(field, provider);
+
+            return this;
+        }
+
+        public IMapping Phone(string field, string template)
+        {
+            PhoneProvider provider = new PhoneProvider(template);
+
+            listOfFields.Add(field, provider);
+
+            return this;
+        }
+
+        public IMapping<T> Dummy<P>(Expression<Func<T, P>> action, int length)
+        {
+            DummyTextProvider provider = new DummyTextProvider(length);
+
+            var expression = (MemberExpression)action.Body;
+            var field = expression.Member.Name;
+
+            listOfFields.Add(field, provider);
+
+            return this;
+        }
+
+        public IMapping Dummy(string field, int length)
+        {
+            DummyTextProvider provider = new DummyTextProvider(length);
 
             listOfFields.Add(field, provider);
 

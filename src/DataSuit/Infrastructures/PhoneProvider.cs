@@ -36,6 +36,8 @@ namespace DataSuit.Infrastructures
 
         object IDataProvider.Current => current;
 
+        public string Format => format;
+
         public long AsNumeric()
         {
             var onlyNumbers = Regex.Replace(current, "[x,+, (, ), .-]", "");

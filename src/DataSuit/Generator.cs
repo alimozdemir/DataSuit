@@ -7,11 +7,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Linq;
 using System.IO;
+using System.Reflection;
 
 namespace DataSuit
 {
     public class Generator
     {
+        /// <summary>
+        /// Assemblies that working with Import/Export settings.
+        /// </summary>
+        public static List<Assembly> Assemblies { get; set; } = new List<Assembly>();
+        public static void Register(System.Reflection.Assembly asm)
+        {
+            Assemblies.Add(asm);
+        }
+
         public static void AddProvider(string key, IDataProvider provider)
         {
             Common.Settings.AddProvider(key, provider);
@@ -58,7 +68,9 @@ namespace DataSuit
         /// <param name="path">json file path</param>
         public static void LoadSettings(string path)
         {
+            var json = File.ReadAllText(path);
 
+            Common.Settings.Import(json);
         }
        
         public static Mapping Map()
@@ -93,6 +105,7 @@ namespace DataSuit
                     await temp.InitializeAsync();
                 }
             }
+            
         }
 
     }
