@@ -9,6 +9,7 @@ using System.Linq;
 using DataSuit.Interfaces;
 using System.Threading.Tasks;
 using System.IO;
+using System.Diagnostics;
 
 namespace DataSuit.Tests
 {
@@ -46,6 +47,34 @@ namespace DataSuit.Tests
             public List<int> Gender { get; set; } = new List<int>();
         }
 
+        class ExampleClass
+        {
+            public string FirstName { get; set; }
+            public string JobTitle { get; set; }
+            public string CompanyName { get; set; }
+            public string Department { get; set; }
+            public string Email { get; set; }
+        }
+
+
+        [Fact]
+        public void LoadData()
+        {
+            Stopwatch sw = Stopwatch.StartNew();
+            sw.Start();
+            Resources.Load();
+            sw.Stop();
+
+
+
+            output.WriteLine(sw.Elapsed.ToString());
+
+            var ex = Generator<ExampleClass>.Seed();
+
+            output.WriteLine($"{ex.FirstName} {ex.Email} {ex.CompanyName} {ex.Department} {ex.JobTitle}");
+        } 
+
+
         [Fact]
         public void ExportSettings()
         {
@@ -82,7 +111,7 @@ namespace DataSuit.Tests
             Generator.Register(typeof(JsonData).GetTypeInfo().Assembly);
             Generator.ClearSettings();
             Generator.LoadSettings("save.json");
-            output.WriteLine(string.Join(",", ((CollectionProvider<string>)Common.Settings.Providers["Presidents"]).Collection));
+
             Generator.SaveSettings("saveTemp.json");
 
         }

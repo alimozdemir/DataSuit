@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using DataSuit.Enums;
 using Xunit.Abstractions;
 using DataSuit.Interfaces;
+using DataSuit.Sampler;
 
 namespace DataSuit.Tests
 {

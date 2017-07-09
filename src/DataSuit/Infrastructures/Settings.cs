@@ -94,9 +94,7 @@ namespace DataSuit.Infrastructures
             var settings = JsonConvert.DeserializeObject<JsonSettings>(file);
             RelationshipMap type = (RelationshipMap)Enum.Parse(typeof(Enums.RelationshipMap), settings.RelationshipType);
             Common.Settings.Relationship = (type, settings.RelationshipValue);
-
-
-            //todo
+            
             foreach (var item in settings.Providers)
             {
                 IDataProvider provider = null;

@@ -2,13 +2,26 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard1.6</TargetFramework>
+    <Version>0.0.2-alpha</Version>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Company>DataSuit Organization</Company>
+    <Authors>DataSuit Organization</Authors>
+    <Copyright>DataSuit</Copyright>
+    <PackageProjectUrl>https://github.com/DataSuit</PackageProjectUrl>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/DataSuit/DataSuit/master/LICENSE</PackageLicenseUrl>
+    <RepositoryUrl>https://github.com/DataSuit/DataSuit</RepositoryUrl>
+    <AssemblyVersion>0.0.2.0</AssemblyVersion>
+    <FileVersion>0.0.2.0</FileVersion>
+    <Description>Data providers for POCO classes</Description>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\data.json" />
     <None Remove="Resources\lorem.txt" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Resources\data.json" />
     <EmbeddedResource Include="Resources\lorem.txt" />
   </ItemGroup>
 

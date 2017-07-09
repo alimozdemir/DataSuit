@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using DataSuit.Interfaces;
 using DataSuit.Infrastructures;
 
-namespace DataSuit
+namespace DataSuit.Sampler
 {
     // Would be better with an IIndistinctSampler interface in between
     public class IndistinctSampler<T>: ISampler<T>

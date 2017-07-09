@@ -62,7 +62,13 @@ namespace DataSuit.Reflection
             var provider = Common.Settings.Providers.FirstOrDefault(i => i.Key.Contains(type.Name));
 
             if (string.IsNullOrEmpty(provider.Key))
-                return;
+            {
+                //for now, it will change
+                provider = Common.DefaultSettings.Providers.FirstOrDefault(i => i.Key.Contains(type.Name));
+
+                if (string.IsNullOrEmpty(provider.Key))
+                    return;
+            }
 
             var value = ProviderGetValue(provider.Value, type.Name);
 
@@ -75,7 +81,13 @@ namespace DataSuit.Reflection
             var provider = Common.Settings.Providers.FirstOrDefault(i => i.Key.Contains(name));
 
             if (string.IsNullOrEmpty(provider.Key))
-                return;
+            {
+                //for now, it will change
+                provider = Common.DefaultSettings.Providers.FirstOrDefault(i => i.Key.Contains(name));
+
+                if (string.IsNullOrEmpty(provider.Key))
+                    return;
+            }
 
             var value = ProviderGetValue(provider.Value, name);
 

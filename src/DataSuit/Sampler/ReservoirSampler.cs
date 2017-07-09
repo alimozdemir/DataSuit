@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using DataSuit.Interfaces;
 
-namespace DataSuit
+namespace DataSuit.Sampler
 {
     public class ReservoirSampler<T>: ISampler<T>
     {

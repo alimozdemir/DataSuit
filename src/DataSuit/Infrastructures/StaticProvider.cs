@@ -9,7 +9,6 @@ namespace DataSuit.Infrastructures
     public class StaticProvider<T> : IStaticProvider<T>
     {
         private T staticData;
-        private ProviderType providerType;
 
         public T Current => staticData;
 
