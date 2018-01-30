@@ -60,5 +60,15 @@ namespace DataSuit.Tests.Providers
             Action cons = () => new RangeIntProvider(5, -10);
             Assert.ThrowsAny<ArgumentException>(cons);
         }
+
+
+        [Fact]
+        public void SetDataWithWithInvalidRange()
+        {
+            RangeIntProvider provider = new RangeIntProvider(-10, -1);
+
+            Action cons = () => provider.SetData(5, -10);
+            Assert.ThrowsAny<ArgumentException>(cons);
+        }
     }
 }

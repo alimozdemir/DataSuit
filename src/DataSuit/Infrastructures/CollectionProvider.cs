@@ -21,12 +21,9 @@ namespace DataSuit.Infrastructures
 
         public IEnumerable<T> Collection => col;
 
-        public CollectionProvider(IEnumerable<T> collection)
+        public CollectionProvider(IEnumerable<T> collection) 
+                    : this(collection, ProviderType.Sequential)
         {
-            if (collection == null)
-                throw new ArgumentNullException("collection");
-
-            SetData(collection, ProviderType.Sequential);
         }
 
         public CollectionProvider(IEnumerable<T> collection, ProviderType providerType)

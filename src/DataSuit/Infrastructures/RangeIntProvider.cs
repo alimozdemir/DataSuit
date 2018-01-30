@@ -33,7 +33,7 @@ namespace DataSuit.Infrastructures
 
         public void SetData(int min, int max)
         {
-            if (minValue > maxValue)
+            if (min > max)
                 throw new ArgumentException($"{nameof(min)} can not be higher than {nameof(max)}");
 
             minValue = min;
