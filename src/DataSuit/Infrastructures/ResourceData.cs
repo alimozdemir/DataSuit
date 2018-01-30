@@ -4,7 +4,6 @@ using System.Text;
 
 namespace DataSuit.Infrastructures
 {
-    // I don't know is it right place for this class
     internal class ResourceData
     {
         public List<string> AppNames { get; set; } = new List<string>();

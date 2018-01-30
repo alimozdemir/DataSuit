@@ -73,7 +73,7 @@ namespace DataSuit
 
             Common.Settings.Import(json);
         }
-       
+
         public static Mapping Map()
         {
             var map = new Mapping();
@@ -85,7 +85,7 @@ namespace DataSuit
 
         protected static void CheckMaps()
         {
-            foreach(var item in Utility.PendingMaps)
+            foreach (var item in Utility.PendingMaps)
             {
                 AddProvider(item.GetFieldsWithProviders);
                 Utility.Maps.Add(item);
@@ -97,8 +97,8 @@ namespace DataSuit
         protected async static Task JsonProviderInitialize()
         {
             var providers = Common.Settings.Providers.Values.Where(i => i.Type == Enums.ProviderType.Json).ToList();
-            
-            foreach(var item in providers)
+
+            foreach (var item in providers)
             {
                 var temp = item as IJsonProvider;
                 if (temp.Status == Enums.JsonStatus.NotStarted)
@@ -106,7 +106,7 @@ namespace DataSuit
                     await temp.InitializeAsync();
                 }
             }
-            
+
         }
 
     }
@@ -129,10 +129,10 @@ namespace DataSuit
             List<TClass> temp = new List<TClass>();
             CheckMaps();
 
-            for(int i = 0; i < count; i++)
+            for (int i = 0; i < count; i++)
             {
                 var item = new TClass();
-                
+
                 Reflection.Mapper.Map(item);
 
                 temp.Add(item);
@@ -153,7 +153,7 @@ namespace DataSuit
 
             return temp;
         }
-        
+
         public static async Task<IEnumerable<TClass>> SeedAsync(int count, Enums.RelationshipMap Type = Settings.RelationshipType, int Value = Settings.RelationshipValue)
         {
             List<TClass> temp = new List<TClass>();
@@ -182,5 +182,42 @@ namespace DataSuit
             return map;
         }
 
+    }
+
+    public class DataSuit
+    {
+        private readonly Settings _settings;
+        public DataSuit(Settings settings)
+        { 
+            _settings = settings;
+        }
+
+        public IMapping Build()
+        {
+            return new Mapping();
+        }
+
+        public T Generate<T>() where T : class, new()
+        {
+            var item = new T();
+            Reflection.Mapper.Map(item);
+            return item;
+        }
+
+        public IEnumerable<T> Generate<T>(int count) where T : class, new()
+        {
+            List<T> temp = new List<T>();
+
+            for (int i = 0; i < count; i++)
+            {
+                var item = new T();
+
+                Reflection.Mapper.Map(item);
+
+                temp.Add(item);
+            }
+
+            return temp;
+        }
     }
 }

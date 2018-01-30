@@ -20,10 +20,10 @@ namespace DataSuit.Reflection
             // Therefore we can't get properties of an object type.
             var type = val.GetType();
 
-            foreach(var item in type.GetTypeInfo().DeclaredProperties)
+            foreach (var item in type.GetTypeInfo().DeclaredProperties)
             {
                 var propInfo = item.PropertyType.GetTypeInfo();
-                
+
                 if (propInfo.IsPrimitive || item.PropertyType == typeof(String))
                 {
                     SetPrimitive(item, val);
@@ -43,12 +43,12 @@ namespace DataSuit.Reflection
 
         private static object ProviderGetValue(IDataProvider provider, string name)
         {
-            if(provider.Type == ProviderType.Json)
+            if (provider.Type == ProviderType.Json)
             {
                 var jsonProvider = provider as IJsonProvider;
                 var valueProvider = jsonProvider.TargetType.GetTypeInfo();
 
-                if(valueProvider.IsClass)
+                if (valueProvider.IsClass)
                 {
                     var subProp = valueProvider.DeclaredProperties.FirstOrDefault(i => i.Name.Equals(name));
                     return subProp.GetValue(provider.Current);
@@ -134,7 +134,7 @@ namespace DataSuit.Reflection
                             collection.Add(subIns);
                         }
                     }
-                    
+
                 }
                 else
                 {
