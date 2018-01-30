@@ -10,7 +10,7 @@ using DataSuit.Sampler;
 namespace DataSuit.Tests
 {
 
-    public class SamplerTests
+    /*public class SamplerTests
     {
         // Mock Testing would cover sampling scenarios better IMO
         // Test normal sampling case
@@ -91,5 +91,5 @@ namespace DataSuit.Tests
                 Console.WriteLine(sample);
             }
         }
-    }
+    }*/
 }
