@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using DataSuit.Enums;
 
-namespace DataSuit.Interfaces
+namespace DataSuit.Providers
 {
     public interface ICollectionProvider<T> : IDataProvider<T>
     {

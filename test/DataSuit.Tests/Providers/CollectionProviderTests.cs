@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using DataSuit.Enums;
 using DataSuit.Infrastructures;
+using DataSuit.Providers;
 using Xunit;
 
 namespace DataSuit.Tests.Providers

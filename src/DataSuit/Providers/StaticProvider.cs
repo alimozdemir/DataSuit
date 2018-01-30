@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using DataSuit.Enums;
 
-namespace DataSuit.Infrastructures
+namespace DataSuit.Providers
 {
     public class StaticProvider<T> : IStaticProvider<T>
     {

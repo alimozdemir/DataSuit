@@ -1,5 +1,6 @@
 using System;
 using DataSuit.Infrastructures;
+using DataSuit.Providers;
 using Xunit;
 
 namespace DataSuit.Tests.Providers

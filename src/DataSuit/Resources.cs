@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using System.Text;
+using DataSuit.Providers;
 
 namespace DataSuit
 {

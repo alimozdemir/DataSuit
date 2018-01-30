@@ -8,6 +8,7 @@ using System.Collections;
 using DataSuit.Enums;
 using DataSuit.Infrastructures;
 using System.Reflection.Emit;
+using DataSuit.Providers;
 
 namespace DataSuit.Reflection
 {

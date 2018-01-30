@@ -3,8 +3,9 @@ using DataSuit.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using DataSuit.Infrastructures;
 
-namespace DataSuit.Infrastructures
+namespace DataSuit.Providers
 {
     public class RangeDoubleProvider : IRangeProvider<double>
     {

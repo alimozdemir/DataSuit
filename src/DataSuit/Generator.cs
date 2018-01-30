@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Linq;
 using System.IO;
 using System.Reflection;
+using DataSuit.Providers;
 
 namespace DataSuit
 {

@@ -5,6 +5,7 @@ using System.Linq.Expressions;
 using DataSuit.Enums;
 using DataSuit.Reflection;
 using System.Collections;
+using DataSuit.Providers;
 
 namespace DataSuit.Infrastructures
 {

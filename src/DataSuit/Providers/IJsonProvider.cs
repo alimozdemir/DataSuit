@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataSuit.Interfaces
+namespace DataSuit.Providers
 {
     public interface IJsonProvider : IDataProvider
     {

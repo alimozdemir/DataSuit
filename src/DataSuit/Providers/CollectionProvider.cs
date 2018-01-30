@@ -5,7 +5,7 @@ using System.Text;
 using DataSuit.Enums;
 using System.Linq;
 
-namespace DataSuit.Infrastructures
+namespace DataSuit.Providers
 {
     public class CollectionProvider<T> : ICollectionProvider<T>
     {

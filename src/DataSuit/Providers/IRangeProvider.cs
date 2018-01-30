@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DataSuit.Interfaces
+namespace DataSuit.Providers
 {
     public interface IRangeProvider<T> : IDataProvider<T>
     {

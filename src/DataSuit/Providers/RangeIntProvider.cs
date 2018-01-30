@@ -3,8 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using DataSuit.Enums;
+using DataSuit.Infrastructures;
 
-namespace DataSuit.Infrastructures
+namespace DataSuit.Providers
 {
     public class RangeIntProvider : IRangeProvider<int>
     {

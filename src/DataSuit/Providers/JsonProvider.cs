@@ -5,8 +5,9 @@ using System.Text;
 using DataSuit.Enums;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using DataSuit.Infrastructures;
 
-namespace DataSuit.Infrastructures
+namespace DataSuit.Providers
 {
     public class JsonProvider<T> : IJsonProvider<T>
     {

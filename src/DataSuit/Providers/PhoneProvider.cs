@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using System.Text;
 using DataSuit.Enums;
 using System.Text.RegularExpressions;
+using DataSuit.Infrastructures;
 
-namespace DataSuit.Infrastructures
+namespace DataSuit.Providers
 {
     public class PhoneProvider : IPhoneProvider
     {
