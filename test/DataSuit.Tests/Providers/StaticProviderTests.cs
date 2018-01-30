@@ -38,5 +38,32 @@ namespace DataSuit.Tests.Providers
 
             Assert.Equal(5, provider.Current);
         }
+
+        [Fact]
+        public void SetDataWithClassValid()
+        {
+            TempClass temp = new TempClass();
+            temp.Data = 3;
+
+            StaticProvider<TempClass> provider = new StaticProvider<TempClass>(temp);
+
+            Assert.Equal(temp, provider.Current);
+        }
+
+        [Fact]
+        public void ConstructorWithClassValid()
+        {
+            TempClass temp = new TempClass();
+            temp.Data = 3;
+
+            StaticProvider<TempClass> provider = new StaticProvider<TempClass>(temp);
+
+            Assert.Equal(temp, provider.Current);
+        }
+
+        private class TempClass
+        {
+            public int Data { get; set; }
+        }
     }
 }

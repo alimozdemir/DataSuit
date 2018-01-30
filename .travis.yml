@@ -3,6 +3,6 @@ sudo: required
 language: csharp
 solution: DataSuit.sln
 mono: none
-dotnet: 1.0.1
+dotnet: 2.0.3
 script:
   - ./build.sh
