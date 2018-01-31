@@ -15,7 +15,7 @@ namespace DataSuit
 
         static Resources()
         {
-            var assembly = typeof(Generator).GetTypeInfo().Assembly;
+            var assembly = typeof(Generator<>).GetTypeInfo().Assembly;
             
             Stream loremStream = assembly.GetManifestResourceStream("DataSuit.Resources.lorem.txt");
 
@@ -28,7 +28,7 @@ namespace DataSuit
 
         public static void Load()
         {
-            var assembly = typeof(Generator).GetTypeInfo().Assembly;
+            var assembly = typeof(Generator<>).GetTypeInfo().Assembly;
 
             Stream dataStream = assembly.GetManifestResourceStream("DataSuit.Resources.data.json");
             string dataString;
@@ -55,7 +55,7 @@ namespace DataSuit
 
         public static string[] Names()
         {
-            var assembly = typeof(Generator).GetTypeInfo().Assembly;
+            var assembly = typeof(Generator<>).GetTypeInfo().Assembly;
             return assembly.GetManifestResourceNames();
         }
     }

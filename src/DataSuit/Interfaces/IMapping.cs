@@ -23,8 +23,6 @@ namespace DataSuit.Interfaces
         IMapping Phone(string field, string template);
 
         IMapping Dummy(string field, int length);
-
-        //void Create();
     }
 
     public interface IMapping<T> : IMapping

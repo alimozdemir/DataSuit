@@ -155,7 +155,7 @@ namespace DataSuit.Infrastructures
                     case ProviderType.Json:
                         // That was hard to solve.
                         targetType = null;
-                        var asm = Generator.Assemblies.FirstOrDefault(i => i.GetType(item.T, false) != null);
+                        var asm = OldGenerator.Assemblies.FirstOrDefault(i => i.GetType(item.T, false) != null);
 
                         if (asm == null)
                         {
