@@ -28,6 +28,7 @@ namespace DataSuit.Infrastructures
 
         public void AddProvider(string key, IDataProvider provider)
         {
+            key = key.ToLower();
             var keys = key.Split(',', ' ');
 
             foreach(var item in keys)

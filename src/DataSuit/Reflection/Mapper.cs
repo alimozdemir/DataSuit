@@ -60,14 +60,11 @@ namespace DataSuit.Reflection
 
         private static void SetPrimitive<T>(PropertyInfo type, T val, ISettings settings)
         {
-            var provider = settings.Providers.FirstOrDefault(i => i.Key.Contains(type.Name));
+            var provider = settings.Providers.FirstOrDefault(i => i.Key.Equals(type.Name.ToLower()));
 
             if (string.IsNullOrEmpty(provider.Key))
             {
-                provider = settings.Providers.FirstOrDefault(i => i.Key.Contains(type.Name));
-
-                if (string.IsNullOrEmpty(provider.Key))
-                    return;
+                return;
             }
 
             var value = ProviderGetValue(provider.Value, type.Name);

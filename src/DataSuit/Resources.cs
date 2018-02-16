@@ -46,7 +46,7 @@ namespace DataSuit
             var data = JsonConvert.DeserializeObject<ResourceData>(dataString);
             //todo fake lists, retail and company.
             settings.AddProvider("App,AppName", new CollectionProvider<string>(data.AppNames, Enums.ProviderType.Random));
-            settings.AddProvider("FirstName", new CollectionProvider<string>(data.FirstNames, Enums.ProviderType.Random));
+            settings.AddProvider("FirstName,Surname", new CollectionProvider<string>(data.FirstNames, Enums.ProviderType.Random));
             settings.AddProvider("LastName", new CollectionProvider<string>(data.LastNames, Enums.ProviderType.Random));
             settings.AddProvider("Adresses", new CollectionProvider<string>(data.Adresses, Enums.ProviderType.Random));
             settings.AddProvider("Company,CompanyNames", new CollectionProvider<string>(data.CompanyNames, Enums.ProviderType.Random));
@@ -57,6 +57,8 @@ namespace DataSuit
             settings.AddProvider("Language", new CollectionProvider<string>(data.Language, Enums.ProviderType.Random));
             settings.AddProvider("Slogan", new CollectionProvider<string>(data.Slogans, Enums.ProviderType.Random));
             settings.AddProvider("Username", new CollectionProvider<string>(data.Usernames, Enums.ProviderType.Random));
+
+            settings.AddProvider("Age", new RangeIntProvider(1, 80));
         }
 
         public static string[] Names()

@@ -8,9 +8,9 @@ namespace DataSuit
 
     public sealed class DataSuit
     {
-        private readonly Settings _settings;
+        private readonly ISettings _settings;
         private Dictionary<string, IDataProvider> PendingFieldsWithProviders;
-        public DataSuit(Settings settings)
+        public DataSuit(ISettings settings)
         {
             _settings = settings;
         }
@@ -45,13 +45,16 @@ namespace DataSuit
             }
         }
 
-        public Dictionary<string, IDataProvider> Test()
+        // not necessary but for know it should stay
+        public void EnsureNoPendingProviders()
         {
-            return PendingFieldsWithProviders;
+            SetFieldsWithProviders();
         }
 
         internal void Generate<T>(T item) where T : class, new()
         {
+            SetFieldsWithProviders();
+
             Reflection.Mapper.Map(item, _settings);
         }
 
