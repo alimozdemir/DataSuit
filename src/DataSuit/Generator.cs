@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace DataSuit
@@ -11,12 +12,25 @@ namespace DataSuit
         }
         public T Generate()
         {
-            return _dataSuit.Generate<T>();
+            T item = new T();
+            _dataSuit.Generate(item);
+            return item;
         }
 
         public IEnumerable<T> Generate(int count)
         {
-            return _dataSuit.Generate<T>(count);
+            List<T> temp = new List<T>();
+
+            for (int i = 0; i < count; i++)
+            {
+                var item = new T();
+
+                _dataSuit.Generate(item);
+
+                temp.Add(item);
+            }
+
+            return temp;
         }
     }
 }

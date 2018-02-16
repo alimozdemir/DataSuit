@@ -6,7 +6,7 @@ using DataSuit.Providers;
 namespace DataSuit
 {
 
-    public class DataSuit
+    public sealed class DataSuit
     {
         private readonly Settings _settings;
         private Dictionary<string, IDataProvider> PendingFieldsWithProviders;
@@ -14,7 +14,10 @@ namespace DataSuit
         {
             _settings = settings;
         }
-
+        public void Load()
+        {
+            Resources.Load(_settings);
+        }
         public IMapping Build()
         {
             SetFieldsWithProviders();
@@ -32,7 +35,7 @@ namespace DataSuit
             PendingFieldsWithProviders = map.GetFieldsWithProviders;
             return map;
         }
-        
+
         private void SetFieldsWithProviders()
         {
             if (PendingFieldsWithProviders != null)
@@ -47,31 +50,10 @@ namespace DataSuit
             return PendingFieldsWithProviders;
         }
 
-        public T Generate<T>() where T : class, new()
+        internal void Generate<T>(T item) where T : class, new()
         {
-            SetFieldsWithProviders();
-
-            var item = new T();
-            Reflection.Mapper.Map(item);
-            return item;
+            Reflection.Mapper.Map(item, _settings);
         }
 
-        public IEnumerable<T> Generate<T>(int count) where T : class, new()
-        {
-            SetFieldsWithProviders();
-            
-            List<T> temp = new List<T>();
-
-            for (int i = 0; i < count; i++)
-            {
-                var item = new T();
-
-                Reflection.Mapper.Map(item);
-
-                temp.Add(item);
-            }
-
-            return temp;
-        }
     }
 }

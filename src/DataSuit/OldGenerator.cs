@@ -119,7 +119,7 @@ namespace DataSuit
 
             CheckMaps();
 
-            Reflection.Mapper.Map(temp);
+            Reflection.Mapper.Map(temp, Common.DefaultSettings);
 
             return temp;
         }
@@ -133,7 +133,7 @@ namespace DataSuit
             {
                 var item = new TClass();
 
-                Reflection.Mapper.Map(item);
+                Reflection.Mapper.Map(item, Common.DefaultSettings);
 
                 temp.Add(item);
             }
@@ -149,7 +149,7 @@ namespace DataSuit
 
             await JsonProviderInitialize();
 
-            Reflection.Mapper.Map(temp);
+            Reflection.Mapper.Map(temp, Common.DefaultSettings);
 
             return temp;
         }
@@ -164,7 +164,7 @@ namespace DataSuit
             {
                 var item = new TClass();
 
-                Reflection.Mapper.Map(item);
+                Reflection.Mapper.Map(item, Common.DefaultSettings);
 
                 temp.Add(item);
             }
