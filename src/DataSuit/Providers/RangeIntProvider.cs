@@ -20,6 +20,7 @@ namespace DataSuit.Providers
         public int MinValue => minValue;
 
         public int MaxValue => maxValue;
+        public Type TType => typeof(int);
 
         public RangeIntProvider(int min, int max)
         {

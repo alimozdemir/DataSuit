@@ -19,6 +19,7 @@ namespace DataSuit.Providers
         public double MinValue => minValue;
 
         public double MaxValue => maxValue;
+        public Type TType => typeof(double);
 
         public RangeDoubleProvider(double min, double max)
         {

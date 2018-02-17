@@ -17,6 +17,7 @@ namespace DataSuit.Providers
         object IDataProvider.Current => staticData;
 
         public T Value => staticData;
+        public Type TType => typeof(T);
         public StaticProvider()
         {
             

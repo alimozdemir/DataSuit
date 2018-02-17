@@ -26,7 +26,7 @@ namespace DataSuit.Basic
 
             Console.WriteLine("Generating list of persons.");
 
-            var listOfPersons = personGenerator.Generate(10);
+            var listOfPersons = personGenerator.Generate(count: 10);
 
             foreach (var person in listOfPersons)
             {
@@ -36,12 +36,23 @@ namespace DataSuit.Basic
             suit.Build<Person>()
                 .Dummy(i => i.Note, 15)
                 .Range(i => i.CreditNote, 800, 1900);
-            
+
             Console.WriteLine("Generating a person.");
             p = personGenerator.Generate();
 
             Console.WriteLine(p.NoteAndCreditNote());
             Console.WriteLine();
+
+            Console.WriteLine("Generating list of names");
+
+            var names = suit.Primitive<string>("FirstName", count: 5);
+            foreach (var name in names)
+                Console.WriteLine($"Name:{name}");
+
+            Console.WriteLine("Generating list of ages");
+            var ages = suit.Primitive<int>("age", count: 5);
+            foreach (var age in ages)
+                Console.WriteLine($"Name:{age}");
         }
     }
 }

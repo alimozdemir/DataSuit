@@ -11,7 +11,7 @@ namespace DataSuit.Providers
     {
         object Current { get; }
         ProviderType Type { get; }
-
+        Type TType { get; }
         void MoveNext();
     }
 

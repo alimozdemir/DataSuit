@@ -21,6 +21,8 @@ namespace DataSuit.Providers
 
         public IEnumerable<T> Collection => col;
 
+        public Type TType => typeof(T);
+
         public CollectionProvider(IEnumerable<T> collection) 
                     : this(collection, ProviderType.Sequential)
         {

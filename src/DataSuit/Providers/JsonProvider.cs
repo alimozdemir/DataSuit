@@ -26,6 +26,7 @@ namespace DataSuit.Providers
         public JsonStatus Status => _status;
 
         public Type TargetType => typeof(T);
+        public Type TType => typeof(T);
 
         public string Url => url;
 

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using DataSuit.Infrastructures;
 using DataSuit.Interfaces;
 using DataSuit.Providers;
@@ -58,5 +59,35 @@ namespace DataSuit
             Reflection.Mapper.Map(item, _settings);
         }
 
+        internal T GeneratePrimitive<T>(string name)
+        {
+            name = name.ToLower();
+
+            var provider = _settings.Providers.FirstOrDefault(i => i.Key.Equals(name));
+
+            if (string.IsNullOrEmpty(provider.Key))
+                return default(T);
+            else
+            {
+                if (typeof(T) == provider.Value.TType)
+                {
+                    var temp = (T)provider.Value.Current;
+                    provider.Value.MoveNext();
+                    return temp;
+                }
+                else
+                    return default(T);
+            }
+        }
+
+        public IEnumerable<T> Primitive<T>(string name, int count)
+        {
+            List<T> temp = new List<T>();
+
+            for(int i = 0; i < count; i++)
+                temp.Add(GeneratePrimitive<T>(name));
+
+            return temp;
+        }
     }
 }

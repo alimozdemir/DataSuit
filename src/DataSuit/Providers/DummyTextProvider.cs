@@ -11,6 +11,7 @@ namespace DataSuit.Providers
         private readonly int maxLength = 0;
         private readonly TextSource source = TextSource.Lorem;
         private string current;
+        public Type TType => typeof(string);
 
         public DummyTextProvider(long _maxLength, TextSource _source = TextSource.Lorem)
         {

@@ -36,6 +36,7 @@ namespace DataSuit.Providers
         public ProviderType Type => ProviderType.Phone;
 
         object IDataProvider.Current => current;
+        public Type TType => typeof(string);
 
         public string Format => format;
 
