@@ -6,8 +6,9 @@ using DataSuit.Enums;
 using Newtonsoft.Json;
 using System.Linq;
 using DataSuit.Providers;
+using DataSuit.Infrastructures;
 
-namespace DataSuit.Infrastructures
+namespace DataSuit
 {
     public class Settings : ISettings
     {
