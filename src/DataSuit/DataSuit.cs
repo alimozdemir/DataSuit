@@ -80,7 +80,7 @@ namespace DataSuit
             }
         }
 
-        public IEnumerable<T> Primitive<T>(string name, int count)
+        /*public IEnumerable<T> Primitive<T>(string name, int count)
         {
             List<T> temp = new List<T>();
 
@@ -88,6 +88,6 @@ namespace DataSuit
                 temp.Add(GeneratePrimitive<T>(name));
 
             return temp;
-        }
+        }*/
     }
 }

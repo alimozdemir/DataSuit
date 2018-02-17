@@ -43,16 +43,18 @@ namespace DataSuit.Basic
             Console.WriteLine(p.NoteAndCreditNote());
             Console.WriteLine();
 
+            IPrimitiveGenerator primitiveGenerator = new PrimitiveGenerator(suit);
+
             Console.WriteLine("Generating list of names");
 
-            var names = suit.Primitive<string>("FirstName", count: 5);
+            var names = primitiveGenerator.String("FirstName", count: 5);
             foreach (var name in names)
                 Console.WriteLine($"Name:{name}");
 
             Console.WriteLine("Generating list of ages");
-            var ages = suit.Primitive<int>("age", count: 5);
+            var ages = primitiveGenerator.Integer("age", count: 5);
             foreach (var age in ages)
-                Console.WriteLine($"Name:{age}");
+                Console.WriteLine($"Age:{age}");
         }
     }
 }
