@@ -16,7 +16,7 @@ namespace DataSuit.Basic
             suit.Load();
             Console.WriteLine("Resources are loaded.");
 
-            IGenerator<Person> personGenerator = new Generator<Person>(suit);
+            var personGenerator = suit.GeneratorOf<Person>();
             Console.WriteLine();
             Console.WriteLine("Generating a person.");
             var p = personGenerator.Generate();
@@ -43,7 +43,7 @@ namespace DataSuit.Basic
             Console.WriteLine(p.NoteAndCreditNote());
             Console.WriteLine();
 
-            IPrimitiveGenerator primitiveGenerator = new PrimitiveGenerator(suit);
+            var primitiveGenerator = suit.GeneratorOfPrimitives();
 
             Console.WriteLine("Generating list of names");
 

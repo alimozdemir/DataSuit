@@ -1,0 +1,35 @@
+﻿using System;
+using System.Collections.Generic;
+using DataSuit.Enums;
+using DataSuit.Interfaces;
+
+namespace DataSuit.FluentAPI
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            ISettings settings = new Settings();
+            DataSuit suit = new DataSuit(settings);
+
+            var barList = new List<string>() { "Foo", "Bar", "Baz" };
+
+            suit.Build<Foo>()
+                .Collection(i => i.Bar, barList, ProviderType.Random)
+                .Range(i => i.Range, 10, 40)
+                .Set(i => i.Static, "DataSuit");
+
+            var fooGenerator = suit.GeneratorOf<Foo>();
+            var data = fooGenerator.Generate(count: 4);
+
+            foreach (var item in data)
+                Console.WriteLine($"{item.Bar} {item.Range} {item.Static}");
+            
+
+
+            
+
+
+        }
+    }
+}

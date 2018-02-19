@@ -52,6 +52,16 @@ namespace DataSuit
             SetFieldsWithProviders();
         }
 
+        public IGenerator<T> GeneratorOf<T>() where T : class, new()
+        {
+            return new Generator<T>(this);
+        }
+
+        public IPrimitiveGenerator GeneratorOfPrimitives()
+        {
+            return new PrimitiveGenerator(this);
+        }
+
         internal void Generate<T>(T item) where T : class, new()
         {
             SetFieldsWithProviders();
