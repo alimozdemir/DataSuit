@@ -1,9 +1,8 @@
 # Overview
 
-Data Suit is a random data generator. It generates the data for primitive data types and POCO classes. At the beginning, it was an experimental project for several purposes. Later, it seemed as a good project. It is designed with SOLID principles.
+Data Suit is a random data generator. It generates the data for primitive data types and POCO classes. At the beginning, it was an experimental project for several purposes. Later, I changed it into a formal format. It is designed with SOLID principles. Customizing for your data is supported with a fluent API. 
 
-
-
+Basis of the API is shown below. For more detailed examples, you can see at  [Samples](https://github.com/lyzerk/DataSuit/tree/master/samples)
 
 # Build and nuget
 
