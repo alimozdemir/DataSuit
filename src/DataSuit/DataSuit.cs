@@ -62,14 +62,14 @@ namespace DataSuit
             return new PrimitiveGenerator(this);
         }
 
-        internal void Generate<T>(T item) where T : class, new()
+        internal void Generate<T>(T item, ISessionManager manager) where T : class, new()
         {
             SetFieldsWithProviders();
 
-            Reflection.Mapper.Map(item, _settings);
+            Reflection.Mapper.Map(item, _settings, manager);
         }
 
-        internal T GeneratePrimitive<T>(string name)
+        internal T GeneratePrimitive<T>(string name, ISessionManager manager)
         {
             name = name.ToLower();
 
@@ -82,7 +82,7 @@ namespace DataSuit
                 if (typeof(T) == provider.Value.TType)
                 {
                     var temp = (T)provider.Value.Current;
-                    provider.Value.MoveNext();
+                    provider.Value.MoveNext(manager);
                     return temp;
                 }
                 else

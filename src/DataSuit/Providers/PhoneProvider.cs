@@ -28,7 +28,7 @@ namespace DataSuit.Providers
                 throw new ArgumentException("The format of phone provider is not valid. An example one \"0 (xxx) xxx-xx-xx\" ");
             }
 
-            MoveNext();
+            MoveNext(null);
         }
 
         public string Current => current;
@@ -49,7 +49,7 @@ namespace DataSuit.Providers
             return result;
         }
 
-        public void MoveNext()
+        public void MoveNext(ISessionManager manager)
         {
             current = string.Empty;
 

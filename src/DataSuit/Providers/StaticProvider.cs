@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using DataSuit.Enums;
+using DataSuit.Infrastructures;
 
 namespace DataSuit.Providers
 {
@@ -31,7 +32,7 @@ namespace DataSuit.Providers
         /// <summary>
         /// Empty method
         /// </summary>
-        public void MoveNext()
+        public void MoveNext(ISessionManager manager)
         {
             
         }

@@ -23,6 +23,7 @@ namespace DataSuit.Interfaces
         IMapping Phone(string field, string template);
 
         IMapping Dummy(string field, int length);
+        IMapping Incremental(string field);
     }
 
     public interface IMapping<T> : IMapping
@@ -40,5 +41,7 @@ namespace DataSuit.Interfaces
         IMapping<T> Phone<P>(Expression<Func<T, P>> action, string template);
 
         IMapping<T> Dummy<P>(Expression<Func<T, P>> action, int length);
+
+        IMapping<T> Incremental<P>(Expression<Func<T, P>> action);
     }
 }

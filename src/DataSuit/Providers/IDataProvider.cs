@@ -1,4 +1,5 @@
 ﻿using DataSuit.Enums;
+using DataSuit.Infrastructures;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ namespace DataSuit.Providers
         object Current { get; }
         ProviderType Type { get; }
         Type TType { get; }
-        void MoveNext();
+        void MoveNext(ISessionManager manager);
     }
 
     public interface IDataProvider<T> : IDataProvider

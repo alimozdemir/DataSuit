@@ -25,10 +25,10 @@ namespace DataSuit.Providers
         public RangeIntProvider(int min, int max)
         {
             SetData(min, max);
-            MoveNext();
+            MoveNext(null);
         }
 
-        public void MoveNext()
+        public void MoveNext(ISessionManager manager)
         {
             current = Utility.Rand.Next(minValue, maxValue);
         }

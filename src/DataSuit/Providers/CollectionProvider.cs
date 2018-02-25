@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using DataSuit.Enums;
 using System.Linq;
+using DataSuit.Infrastructures;
 
 namespace DataSuit.Providers
 {
@@ -36,7 +37,7 @@ namespace DataSuit.Providers
             SetData(collection, providerType);
         }
 
-        public void MoveNext()
+        public void MoveNext(ISessionManager manager)
         {
             if (!iterator.MoveNext())
             {
@@ -77,5 +78,6 @@ namespace DataSuit.Providers
             else
                 throw new NotSupportedException($"{providerType} does not supported on CollectionProvider");
         }
+
     }
 }

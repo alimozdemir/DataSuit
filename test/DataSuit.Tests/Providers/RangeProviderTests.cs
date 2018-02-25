@@ -20,7 +20,7 @@ namespace DataSuit.Tests.Providers
         {
             RangeIntProvider provider = new RangeIntProvider(5, 10);
 
-            provider.MoveNext();
+            provider.MoveNext(null);
 
             Assert.InRange<int>(provider.Current, 5, 10);
         }
@@ -30,7 +30,7 @@ namespace DataSuit.Tests.Providers
         {
             RangeIntProvider provider = new RangeIntProvider(-10, 10);
 
-            provider.MoveNext();
+            provider.MoveNext(null);
 
             Assert.InRange<int>(provider.Current, -10, 10);
         }
@@ -49,7 +49,7 @@ namespace DataSuit.Tests.Providers
         {
             RangeIntProvider provider = new RangeIntProvider(-10, -1);
 
-            provider.MoveNext();
+            provider.MoveNext(null);
 
             Assert.InRange<int>(provider.Current, -10, -1);
         }

@@ -32,7 +32,7 @@ namespace DataSuit.Tests.Providers
             for (int i = 0; i < collection.Count(); i++)
             {
                 temp.Add(provider.Current);
-                provider.MoveNext();
+                provider.MoveNext(null);
             }
 
             Assert.Equal(temp, collection);
@@ -47,7 +47,7 @@ namespace DataSuit.Tests.Providers
             // go over all elements, and go back to head of list
             for (int i = 0; i < collection.Count(); i++)
             {
-                provider.MoveNext();
+                provider.MoveNext(null);
             }
 
             Assert.Equal(collection.First(), provider.Current);

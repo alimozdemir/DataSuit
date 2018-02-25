@@ -35,7 +35,7 @@ namespace DataSuit.Providers
             url = _url;
         }
 
-        public void MoveNext()
+        public void MoveNext(ISessionManager manager)
         {
             if (_status != JsonStatus.Ready)
                 throw new Exception("Provider is not ready yet. Make sure InitializeAsync() is called.");

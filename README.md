@@ -19,7 +19,7 @@ ISettings settings = new Settings();
 DataSuit suit = new DataSuit(settings);
 ```
 
-DataSuit comes with built-in data, if you want to enable it you have to call
+DataSuit comes with built-in data. If you want to enable it, you have to call:
 
 ```csharp
 suit.Load();

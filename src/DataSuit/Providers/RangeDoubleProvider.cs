@@ -24,10 +24,10 @@ namespace DataSuit.Providers
         public RangeDoubleProvider(double min, double max)
         {
             SetData(min, max);
-            MoveNext();
+            MoveNext(null);
         }
 
-        public void MoveNext()
+        public void MoveNext(ISessionManager manager)
         {
             current = minValue + Utility.Rand.NextDouble() * (maxValue - minValue);
         }

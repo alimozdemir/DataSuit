@@ -68,6 +68,13 @@ namespace DataSuit.Infrastructures
 
             return this;
         }
+
+        public IMapping Incremental(string field)
+        {
+            IncrementalIntProvider provider = new IncrementalIntProvider(field);
+            listOfFields.Add(field, provider);
+            return this;
+        }
     }
 
     public class Mapping<T> : IMapping<T> where T : class
@@ -119,7 +126,7 @@ namespace DataSuit.Infrastructures
             listOfFields.Add(field, provider);
             return this;
         }
-        
+
         public IMapping<T> Json(string url)
         {
             JsonProvider<T> provider = new JsonProvider<T>(url);
@@ -130,7 +137,7 @@ namespace DataSuit.Infrastructures
             listOfFields.Add(field, provider);
             return this;
         }
-        
+
         public IMapping Set<P>(string field, P data)
         {
             StaticProvider<P> provider = new StaticProvider<P>(data);
@@ -206,6 +213,22 @@ namespace DataSuit.Infrastructures
 
             listOfFields.Add(field, provider);
 
+            return this;
+        }
+        public IMapping<T> Incremental<P>(Expression<Func<T, P>> action)
+        {
+            var expression = (MemberExpression)action.Body;
+            var field = expression.Member.Name;
+            IncrementalIntProvider provider = new IncrementalIntProvider(field);
+
+            listOfFields.Add(field, provider);
+
+            return this;
+        }
+        public IMapping Incremental(string field)
+        {
+            IncrementalIntProvider provider = new IncrementalIntProvider(field);
+            listOfFields.Add(field, provider);
             return this;
         }
     }

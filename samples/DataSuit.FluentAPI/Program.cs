@@ -17,13 +17,14 @@ namespace DataSuit.FluentAPI
             suit.Build<Foo>()
                 .Collection(i => i.Bar, barList, ProviderType.Random)
                 .Range(i => i.Range, 10, 40)
-                .Set(i => i.Static, "DataSuit");
+                .Set(i => i.Static, "DataSuit")
+                .Incremental(i => i.Id);
 
             var fooGenerator = suit.GeneratorOf<Foo>();
             var data = fooGenerator.Generate(count: 4);
 
             foreach (var item in data)
-                Console.WriteLine($"{item.Bar} {item.Range} {item.Static}");
+                Console.WriteLine($"{item.Id} {item.Bar} {item.Range} {item.Static}");
             
 
 
