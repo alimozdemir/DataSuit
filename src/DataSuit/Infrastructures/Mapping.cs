@@ -219,15 +219,21 @@ namespace DataSuit.Infrastructures
         {
             var expression = (MemberExpression)action.Body;
             var field = expression.Member.Name;
-            IncrementalIntProvider provider = new IncrementalIntProvider(field);
+            IDataProvider provider = null;
+            
+            if (typeof(P) == typeof(Int64))
+                provider = new IncrementalLongProvider(field);
+            else
+                provider = new IncrementalIntProvider(field);
 
             listOfFields.Add(field, provider);
 
             return this;
         }
-        
+
         public IMapping Incremental(string field)
         {
+            // todo : IncrementalLongProvider
             IncrementalIntProvider provider = new IncrementalIntProvider(field);
             listOfFields.Add(field, provider);
             return this;
