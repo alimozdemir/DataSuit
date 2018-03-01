@@ -24,7 +24,6 @@ namespace DataSuit.Providers
         public RangeDoubleProvider(double min, double max)
         {
             SetData(min, max);
-            MoveNext(null);
         }
 
         public void MoveNext(ISessionManager manager)

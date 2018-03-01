@@ -225,6 +225,7 @@ namespace DataSuit.Infrastructures
 
             return this;
         }
+        
         public IMapping Incremental(string field)
         {
             IncrementalIntProvider provider = new IncrementalIntProvider(field);

@@ -67,11 +67,12 @@ namespace DataSuit.Reflection
                 return;
             }
 
+            provider.Value.MoveNext(manager);
+            
             var value = ProviderGetValue(provider.Value, type.Name);
 
             type.SetValue(val, value);
 
-            provider.Value.MoveNext(manager);
         }
         private static void SetPrimitive<T>(string name, ref T val, ISettings settings, ISessionManager manager)
         {

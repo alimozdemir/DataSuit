@@ -25,7 +25,6 @@ namespace DataSuit.Providers
         public RangeIntProvider(int min, int max)
         {
             SetData(min, max);
-            MoveNext(null);
         }
 
         public void MoveNext(ISessionManager manager)

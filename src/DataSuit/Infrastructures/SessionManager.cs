@@ -55,7 +55,7 @@ namespace DataSuit.Infrastructures
                 {
                     throw new Exception("IncreaseInteger");
                 }
-
+                
                 return 1;
             }
         }
