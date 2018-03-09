@@ -6,5 +6,6 @@ namespace DataSuit.FluentAPI
         public int Range { get; set; }
         public string Static { get; set; }
         public long Id { get; set; }
+        public string IdString { get; set; }
     }
 }

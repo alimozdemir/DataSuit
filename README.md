@@ -66,11 +66,11 @@ suit.Build<Foo>()
     .Range(i => i.Range, 10, 40)
     .Set(i => i.Static, "DataSuit");
 
-    var fooGenerator = suit.GeneratorOf<Foo>();
-    var data = fooGenerator.Generate(count: 4);
+var fooGenerator = suit.GeneratorOf<Foo>();
+var data = fooGenerator.Generate(count: 4);
 
-    foreach (var item in data)
-        Console.WriteLine($"{item.Bar} {item.Range} {item.Static}");
+foreach (var item in data)
+    Console.WriteLine($"{item.Bar} {item.Range} {item.Static}");
 ```
 
 Result of the foo classes

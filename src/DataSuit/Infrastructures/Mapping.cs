@@ -75,6 +75,15 @@ namespace DataSuit.Infrastructures
             listOfFields.Add(field, provider);
             return this;
         }
+
+        public IMapping Guid(string field)
+        {
+            FuncProvider<Guid> provider = new FuncProvider<Guid>(() => System.Guid.NewGuid());
+
+            listOfFields.Add(field, provider);
+
+            return this;
+        }
     }
 
     public class Mapping<T> : IMapping<T> where T : class
@@ -220,7 +229,7 @@ namespace DataSuit.Infrastructures
             var expression = (MemberExpression)action.Body;
             var field = expression.Member.Name;
             IDataProvider provider = null;
-            
+
             if (typeof(P) == typeof(Int64))
                 provider = new IncrementalLongProvider(field);
             else
@@ -236,6 +245,49 @@ namespace DataSuit.Infrastructures
             // todo : IncrementalLongProvider
             IncrementalIntProvider provider = new IncrementalIntProvider(field);
             listOfFields.Add(field, provider);
+            return this;
+        }
+
+        public IMapping<T> Guid(Expression<Func<T, Guid>> action)
+        {
+            FuncProvider<Guid> provider = new FuncProvider<Guid>(() => System.Guid.NewGuid());
+            var expression = (MemberExpression)action.Body;
+            var field = expression.Member.Name;
+
+            listOfFields.Add(field, provider);
+
+            return this;
+        }
+
+        public IMapping<T> Guid(Expression<Func<T, string>> action)
+        {
+            FuncProvider<string> provider = new FuncProvider<string>(() => System.Guid.NewGuid().ToString());
+            var expression = (MemberExpression)action.Body;
+            var field = expression.Member.Name;
+
+            listOfFields.Add(field, provider);
+
+            return this;
+        }
+
+        public IMapping Guid(string field)
+        {
+            FuncProvider<Guid> provider = new FuncProvider<Guid>(() => System.Guid.NewGuid());
+
+            listOfFields.Add(field, provider);
+
+            return this;
+        }
+
+        public IMapping<T> Func<P>(Expression<Func<T, P>> action, Func<P> func)
+        {
+            FuncProvider<P> provider = new FuncProvider<P>(func);
+
+            var expression = (MemberExpression)action.Body;
+            var field = expression.Member.Name;
+
+            listOfFields.Add(field, provider);
+
             return this;
         }
     }

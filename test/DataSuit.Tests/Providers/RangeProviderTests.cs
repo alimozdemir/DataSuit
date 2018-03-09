@@ -12,6 +12,7 @@ namespace DataSuit.Tests.Providers
         {
             RangeIntProvider provider = new RangeIntProvider(5, 10);
 
+            provider.MoveNext(null);
             Assert.InRange<int>(provider.Current, 5, 10);
         }
 
@@ -40,6 +41,8 @@ namespace DataSuit.Tests.Providers
         public void ConstructorWithNegativeRange()
         {
             RangeIntProvider provider = new RangeIntProvider(-10, -1);
+
+            provider.MoveNext(null);
 
             Assert.InRange<int>(provider.Current, -10, -1);
         }

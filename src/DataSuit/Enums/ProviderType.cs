@@ -13,6 +13,7 @@ namespace DataSuit.Enums
         Json,
         Phone,
         DummyText,
-        Incremental
+        Incremental,
+        Func
     }
 }
