@@ -83,6 +83,58 @@ Baz 33 DataSuit
 
 A Json example soon.
 
+# Mapping
+
+## Collection
+```csharp
+suit.Build<T>()
+    .Collection(i => i.Field, list,  ProviderType.Sequential)
+```
+
+## Static Variable
+```csharp
+suit.Build<T>()
+    .Set(i => i.Field, Variable)
+```
+
+## Range
+It requires integer or double range values
+```csharp
+suit.Build<T>()
+    .Range(i => i.Field, 10, 20)
+    .Range(i => i.Field, 10.5, 20.3)
+```
+
+## Dummy
+It gives lorem ipsum text data with given length 
+
+```csharp
+suit.Build<T>()
+    .Dummy(i => i.Field, 300)
+```
+
+## Incremental
+It generates integer or long values by increased order. Such as IDs.
+
+```csharp
+suit.Build<T>()
+    .Dummy(i => i.Field, 300)
+```
+
+## Func
+It does run a function for every MoveNext event.
+
+```csharp
+suit.Build<T>()
+    .Dummy(i => i.Id, () => Guid.NewGuid().ToString())
+```
+
+## Guid
+
+```csharp
+suit.Build<T>()
+    .Dummy(i => i.Id)
+```
 
 
 
