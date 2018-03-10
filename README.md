@@ -126,14 +126,14 @@ It does run a function for every MoveNext event.
 
 ```csharp
 suit.Build<T>()
-    .Dummy(i => i.Id, () => Guid.NewGuid().ToString())
+    .Func(i => i.Id, () => Guid.NewGuid().ToString())
 ```
 
 ## Guid
 
 ```csharp
 suit.Build<T>()
-    .Dummy(i => i.Id)
+    .Guid(i => i.Id)
 ```
 
 
