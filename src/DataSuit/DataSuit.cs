@@ -3,6 +3,7 @@ using System.Linq;
 using DataSuit.Infrastructures;
 using DataSuit.Interfaces;
 using DataSuit.Providers;
+using DataSuit.Reflection;
 
 namespace DataSuit
 {
@@ -10,15 +11,24 @@ namespace DataSuit
     public sealed class DataSuit
     {
         private readonly ISettings _settings;
+        private readonly Mapper _mapper;
         private Dictionary<string, IDataProvider> PendingFieldsWithProviders;
+
+        public DataSuit() : this(new Settings())
+        {
+
+        }
         public DataSuit(ISettings settings)
         {
             _settings = settings;
+            _mapper = new Mapper(_settings);
         }
+
         public void Load()
         {
             Resources.Load(_settings);
         }
+
         public IMapping Build()
         {
             SetFieldsWithProviders();
@@ -66,13 +76,13 @@ namespace DataSuit
         {
             SetFieldsWithProviders();
 
-            Reflection.Mapper.Map(item, _settings, manager);
+            _mapper.Map(item, manager);
         }
 
         internal T GeneratePrimitive<T>(string name, ISessionManager manager)
         {
             name = name.ToLower();
-
+            
             var provider = _settings.Providers.FirstOrDefault(i => i.Key.Equals(name));
 
             if (string.IsNullOrEmpty(provider.Key))
@@ -89,15 +99,5 @@ namespace DataSuit
                     return default(T);
             }
         }
-
-        /*public IEnumerable<T> Primitive<T>(string name, int count)
-        {
-            List<T> temp = new List<T>();
-
-            for(int i = 0; i < count; i++)
-                temp.Add(GeneratePrimitive<T>(name));
-
-            return temp;
-        }*/
     }
 }

@@ -49,7 +49,7 @@ namespace DataSuit
             settings.AddProvider("FirstName,Surname", new CollectionProvider<string>(data.FirstNames, Enums.ProviderType.Random));
             settings.AddProvider("LastName", new CollectionProvider<string>(data.LastNames, Enums.ProviderType.Random));
             settings.AddProvider("Adresses", new CollectionProvider<string>(data.Adresses, Enums.ProviderType.Random));
-            settings.AddProvider("Company,CompanyNames", new CollectionProvider<string>(data.CompanyNames, Enums.ProviderType.Random));
+            settings.AddProvider("Company,CompanyNames,CompanyName", new CollectionProvider<string>(data.CompanyNames, Enums.ProviderType.Random));
             settings.AddProvider("Department", new CollectionProvider<string>(data.DepartmentC, Enums.ProviderType.Random));
             settings.AddProvider("Email", new CollectionProvider<string>(data.Emails, Enums.ProviderType.Random));
             settings.AddProvider("IBAN", new CollectionProvider<string>(data.IBANs, Enums.ProviderType.Random));

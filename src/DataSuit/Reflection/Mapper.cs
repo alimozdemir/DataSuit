@@ -14,6 +14,57 @@ namespace DataSuit.Reflection
 {
     internal class Mapper
     {
+        private readonly ISettings _settings;
+
+        public Mapper(ISettings settings)
+        {
+            _settings = settings;
+        }
+
+        public T Map<T>(T val, ISessionManager manager, bool recursion = true)
+        {
+            // Usage of typeof(T) causes problems. The template class could be an object and the value could be anything
+            // Therefore we can't get properties of an object type.
+            var type = val.GetType();
+
+            foreach (var item in type.GetTypeInfo().DeclaredProperties)
+            {
+                var propInfo = item.PropertyType.GetTypeInfo();
+
+                if (propInfo.IsPrimitive || item.PropertyType == typeof(String))
+                {
+                    SetPrimitive(item, val, _settings, manager);
+                }
+                else if (propInfo.IsGenericType)
+                {
+                    SetCollection(item, val, _settings, manager, recursion);
+                }
+                else
+                {
+                    //throw new Exception($"Not supported property type {item.PropertyType}");
+                }
+            }
+
+            return val;
+        }
+
+        public void SetPrimitive<T>(PropertyInfo type, T val, ISessionManager manager)
+        {
+            var name = type.Name.ToLower();
+            var provider = _settings.Providers.FirstOrDefault(i => i.Key.Equals(name));
+
+            if (string.IsNullOrEmpty(provider.Key))
+            {
+                return;
+            }
+
+            provider.Value.MoveNext(manager);
+
+            var value = ProviderGetValue(provider.Value, name);
+
+            type.SetValue(val, value);
+        }
+
         public static T Map<T>(T val, ISettings settings, ISessionManager manager, bool recursion = true) where T : new()
         {
             // Usage of typeof(T) causes problems. The template class could be an object and the value could be anything
@@ -30,11 +81,11 @@ namespace DataSuit.Reflection
                 }
                 else if (propInfo.IsGenericType)
                 {
-                    SetCollection(item, val, settings, manager, recursion);
+                    //SetCollection(item, val, settings, manager, recursion);
                 }
                 else
                 {
-
+                    //throw new Exception($"Not supported property type {item.PropertyType}");
                 }
             }
 
@@ -43,24 +94,28 @@ namespace DataSuit.Reflection
 
         private static object ProviderGetValue(IDataProvider provider, string name)
         {
-            if (provider.Type == ProviderType.Json)
+            if (provider.TType.IsPrimitive || provider.TType.Equals(typeof(string)))
             {
-                var jsonProvider = provider as IJsonProvider;
-                var valueProvider = jsonProvider.TargetType.GetTypeInfo();
+                return provider.Current;
+            }
+            else if (provider.TType.IsClass)
+            {
+                var info = provider.TType.GetTypeInfo();
 
-                if (valueProvider.IsClass)
+                var subProp = info.DeclaredProperties.FirstOrDefault(i => i.Name.ToLower().Equals(name));
+                if (subProp != null)
                 {
-                    var subProp = valueProvider.DeclaredProperties.FirstOrDefault(i => i.Name.Equals(name));
                     return subProp.GetValue(provider.Current);
                 }
             }
 
-            return provider.Current;
+            throw new Exception($"Not supported T type {provider.TType}");
         }
 
         private static void SetPrimitive<T>(PropertyInfo type, T val, ISettings settings, ISessionManager manager)
         {
-            var provider = settings.Providers.FirstOrDefault(i => i.Key.Equals(type.Name.ToLower()));
+            var name = type.Name.ToLower();
+            var provider = settings.Providers.FirstOrDefault(i => i.Key.Equals(name));
 
             if (string.IsNullOrEmpty(provider.Key))
             {
@@ -68,32 +123,13 @@ namespace DataSuit.Reflection
             }
 
             provider.Value.MoveNext(manager);
-            
-            var value = ProviderGetValue(provider.Value, type.Name);
-
-            type.SetValue(val, value);
-
-        }
-        private static void SetPrimitive<T>(string name, ref T val, ISettings settings, ISessionManager manager)
-        {
-            var provider = settings.Providers.FirstOrDefault(i => i.Key.Contains(name));
-
-            if (string.IsNullOrEmpty(provider.Key))
-            {
-                //for now, it will change
-                provider = settings.Providers.FirstOrDefault(i => i.Key.Contains(name));
-
-                if (string.IsNullOrEmpty(provider.Key))
-                    return;
-            }
 
             var value = ProviderGetValue(provider.Value, name);
 
-            val = (T)value;
-
-            provider.Value.MoveNext(manager);
+            type.SetValue(val, value);
         }
 
+        #region Collection set
         private static void SetCollection<T>(PropertyInfo type, T val, ISettings settings, ISessionManager manager, bool recursion = true)
         {
             var collectionType = typeof(List<>);
@@ -135,9 +171,32 @@ namespace DataSuit.Reflection
                 }
                 else
                 {
-                    throw new NotSupportedException();
+                    //throw new NotSupportedException();
                 }
             }
         }
+
+        private static void SetPrimitive<T>(string name, ref T val, ISettings settings, ISessionManager manager)
+        {
+            var provider = settings.Providers.FirstOrDefault(i => i.Key.Contains(name));
+
+            if (string.IsNullOrEmpty(provider.Key))
+            {
+                //for now, it will change
+                provider = settings.Providers.FirstOrDefault(i => i.Key.Contains(name));
+
+                if (string.IsNullOrEmpty(provider.Key))
+                    return;
+            }
+
+            var value = ProviderGetValue(provider.Value, name);
+
+            val = (T)value;
+
+            provider.Value.MoveNext(manager);
+        }
+
+        #endregion
     }
+
 }
