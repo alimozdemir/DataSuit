@@ -19,7 +19,7 @@ namespace DataSuit.Interfaces
         IMapping Range(string field, double min, double max);
 
         IMapping Collection<P>(string field, IEnumerable<P> collection, ProviderType type = ProviderType.Sequential);
-
+        IMapping Collection<P>(IEnumerable<P> collection, ProviderType type = ProviderType.Sequential) where P : class;
         IMapping Phone(string field, string template);
 
         IMapping Dummy(string field, int length);
@@ -38,8 +38,6 @@ namespace DataSuit.Interfaces
         IMapping<T> Range(Expression<Func<T, int>> action, int min, int max);
 
         IMapping<T> Range(Expression<Func<T, double>> action, double min, double max);
-
-        IMapping<T> Json(string url);
 
         IMapping<T> Phone<P>(Expression<Func<T, P>> action, string template);
 

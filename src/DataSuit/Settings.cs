@@ -156,7 +156,7 @@ namespace DataSuit
                         break;
                     case ProviderType.Json:
                         // That was hard to solve.
-                        targetType = null;
+                        /*targetType = null;
                         var asm = OldGenerator.Assemblies.FirstOrDefault(i => i.GetType(item.T, false) != null);
 
                         if (asm == null)
@@ -170,7 +170,7 @@ namespace DataSuit
                         var jsonType = typeof(JsonProvider<>);
                         var jsonProviderWithT = jsonType.MakeGenericType(targetType);
 
-                        provider = (IDataProvider)Activator.CreateInstance(jsonProviderWithT, item.Value);
+                        provider = (IDataProvider)Activator.CreateInstance(jsonProviderWithT, item.Value);*/
                         break;
                     case ProviderType.Phone:
                         var phoneType = typeof(PhoneProvider);

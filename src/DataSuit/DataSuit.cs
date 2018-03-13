@@ -56,7 +56,6 @@ namespace DataSuit
             }
         }
 
-        // not necessary but for know it should stay
         public void EnsureNoPendingProviders()
         {
             SetFieldsWithProviders();
@@ -81,23 +80,7 @@ namespace DataSuit
 
         internal T GeneratePrimitive<T>(string name, ISessionManager manager)
         {
-            name = name.ToLower();
-            
-            var provider = _settings.Providers.FirstOrDefault(i => i.Key.Equals(name));
-
-            if (string.IsNullOrEmpty(provider.Key))
-                return default(T);
-            else
-            {
-                if (typeof(T) == provider.Value.TType)
-                {
-                    var temp = (T)provider.Value.Current;
-                    provider.Value.MoveNext(manager);
-                    return temp;
-                }
-                else
-                    return default(T);
-            }
+            return _mapper.GetPrimitive<T>(name, manager);
         }
     }
 }

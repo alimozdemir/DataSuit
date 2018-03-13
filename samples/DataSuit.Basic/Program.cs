@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using DataSuit;
 using DataSuit.Infrastructures;
 using DataSuit.Interfaces;
@@ -55,6 +56,25 @@ namespace DataSuit.Basic
             var ages = primitiveGenerator.Integer("age", count: 5);
             foreach (var age in ages)
                 Console.WriteLine($"Age:{age}");
+
+
+            List<Data> n = new List<Data>() {
+                new Data() { FirstName = "Deneme1" },
+                new Data() { FirstName = "Deneme2" },
+                new Data() { FirstName = "Deneme3" },
+                new Data() { FirstName = "Deneme4" },
+                new Data() { FirstName = "Deneme5" }};
+
+            var suit2 = new DataSuit();
+            suit2.Build()
+                .Collection(n);
+
+            var personG = suit2.GeneratorOf<Person>();
+
+            var personss = personG.Generate(count: 5);
+
+            foreach (var item in personss)
+                Console.WriteLine(item.FirstName);
         }
     }
 }

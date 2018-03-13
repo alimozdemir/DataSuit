@@ -33,7 +33,7 @@ namespace DataSuit.Reflection
 
                 if (propInfo.IsPrimitive || item.PropertyType == typeof(String))
                 {
-                    SetPrimitive(item, val, _settings, manager);
+                    SetPrimitive(item, val, manager);
                 }
                 else if (propInfo.IsGenericType)
                 {
@@ -52,7 +52,7 @@ namespace DataSuit.Reflection
         {
             var name = type.Name.ToLower();
             var provider = _settings.Providers.FirstOrDefault(i => i.Key.Equals(name));
-
+            Console.WriteLine("hello {0}", string.Join(",", _settings.Providers.Keys));
             if (string.IsNullOrEmpty(provider.Key))
             {
                 return;
@@ -63,6 +63,23 @@ namespace DataSuit.Reflection
             var value = ProviderGetValue(provider.Value, name);
 
             type.SetValue(val, value);
+        }
+
+        public T GetPrimitive<T>(string name, ISessionManager manager)
+        {
+            name = name.ToLower();
+            var provider = _settings.Providers.FirstOrDefault(i => i.Key.Equals(name));
+
+            if (string.IsNullOrEmpty(provider.Key))
+            {
+                return default(T);
+            }
+
+            provider.Value.MoveNext(manager);
+
+            var value = ProviderGetValue(provider.Value, name);
+
+            return (T)value;
         }
 
         public static T Map<T>(T val, ISettings settings, ISessionManager manager, bool recursion = true) where T : new()
@@ -94,6 +111,7 @@ namespace DataSuit.Reflection
 
         private static object ProviderGetValue(IDataProvider provider, string name)
         {
+            Console.WriteLine($"ProviderGet {name}");
             if (provider.TType.IsPrimitive || provider.TType.Equals(typeof(string)))
             {
                 return provider.Current;
@@ -117,6 +135,7 @@ namespace DataSuit.Reflection
             var name = type.Name.ToLower();
             var provider = settings.Providers.FirstOrDefault(i => i.Key.Equals(name));
 
+            Console.WriteLine($"SetPrimitive {provider}");
             if (string.IsNullOrEmpty(provider.Key))
             {
                 return;

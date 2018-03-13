@@ -6,6 +6,7 @@ using DataSuit.Enums;
 using DataSuit.Reflection;
 using System.Collections;
 using DataSuit.Providers;
+using System.Reflection;
 
 namespace DataSuit.Infrastructures
 {
@@ -32,7 +33,20 @@ namespace DataSuit.Infrastructures
 
             return this;
         }
+        public IMapping Collection<P>(IEnumerable<P> collection, ProviderType type = ProviderType.Sequential) where P : class
+        {
+            CollectionProvider<P> provider = new CollectionProvider<P>(collection);
+            var ttype = typeof(P);
 
+            var info = ttype.GetTypeInfo();
+
+            foreach (var prop in info.DeclaredProperties)
+            {
+                listOfFields.Add(prop.Name, provider);
+            }
+
+            return this;
+        }
         public IMapping Range(string field, int min, int max)
         {
             RangeIntProvider provider = new RangeIntProvider(min, max);
@@ -136,17 +150,6 @@ namespace DataSuit.Infrastructures
             return this;
         }
 
-        public IMapping<T> Json(string url)
-        {
-            JsonProvider<T> provider = new JsonProvider<T>(url);
-
-            var t = typeof(T);
-            var field = t.GetAllProperties();
-
-            listOfFields.Add(field, provider);
-            return this;
-        }
-
         public IMapping Set<P>(string field, P data)
         {
             StaticProvider<P> provider = new StaticProvider<P>(data);
@@ -164,7 +167,20 @@ namespace DataSuit.Infrastructures
 
             return this;
         }
+        public IMapping Collection<P>(IEnumerable<P> collection, ProviderType type = ProviderType.Sequential) where P : class
+        {
+            CollectionProvider<P> provider = new CollectionProvider<P>(collection);
+            var ttype = typeof(P);
 
+            var info = ttype.GetTypeInfo();
+
+            foreach (var prop in info.DeclaredProperties)
+            {
+                listOfFields.Add(prop.Name, provider);
+            }
+
+            return this;
+        }
         public IMapping Range(string field, int min, int max)
         {
             RangeIntProvider provider = new RangeIntProvider(min, max);
