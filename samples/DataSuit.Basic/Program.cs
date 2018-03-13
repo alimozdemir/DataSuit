@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using DataSuit;
 using DataSuit.Infrastructures;
 using DataSuit.Interfaces;
+using Newtonsoft.Json;
 
 namespace DataSuit.Basic
 {
@@ -65,6 +67,7 @@ namespace DataSuit.Basic
                 new Data() { FirstName = "Deneme4" },
                 new Data() { FirstName = "Deneme5" }};
 
+
             var suit2 = new DataSuit();
             suit2.Build()
                 .Collection(n);
@@ -75,6 +78,9 @@ namespace DataSuit.Basic
 
             foreach (var item in personss)
                 Console.WriteLine(item.FirstName);
+
+            File.WriteAllText("settings.json", suit2.Export());
+
         }
     }
 }

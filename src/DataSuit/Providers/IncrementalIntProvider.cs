@@ -10,7 +10,7 @@ namespace DataSuit.Providers
         {
             _prop = prop;
         }
-
+        public string Prop { get { return _prop; } }
         public int Current => _current;
 
         public ProviderType Type => ProviderType.Incremental;

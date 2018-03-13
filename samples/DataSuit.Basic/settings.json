@@ -1,0 +1,32 @@
+{
+  "Providers": {
+    "firstname": {
+      "Current": {
+        "FirstName": "Deneme1"
+      },
+      "Type": 1,
+      "Collection": [
+        {
+          "FirstName": "Deneme1"
+        },
+        {
+          "FirstName": "Deneme2"
+        },
+        {
+          "FirstName": "Deneme3"
+        },
+        {
+          "FirstName": "Deneme4"
+        },
+        {
+          "FirstName": "Deneme5"
+        }
+      ],
+      "TType": "DataSuit.Basic.Data, DataSuit.Basic, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+    }
+  },
+  "Relationship": {
+    "Item1": 2,
+    "Item2": 3
+  }
+}

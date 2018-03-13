@@ -23,6 +23,8 @@ namespace DataSuit.Providers
         private long _current;
         private readonly string _prop;
 
+        public string Prop { get { return _prop; } }
+        
         public void MoveNext(ISessionManager manager)
         {
             _current = manager.IncreaseLong(_prop);

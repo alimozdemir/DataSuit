@@ -61,6 +61,11 @@ namespace DataSuit
             SetFieldsWithProviders();
         }
 
+        public string Export()
+        {
+            return _settings.Export();
+        }
+
         public IGenerator<T> GeneratorOf<T>() where T : class, new()
         {
             return new Generator<T>(this);

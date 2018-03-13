@@ -10,7 +10,6 @@ namespace DataSuit.Enums
         Sequential,
         Random,
         Range,
-        Json,
         Phone,
         DummyText,
         Incremental,

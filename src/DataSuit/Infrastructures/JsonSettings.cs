@@ -62,15 +62,6 @@ namespace DataSuit.Infrastructures
                         T = typeof(double).ToString();
                     }
                     break;
-                case ProviderType.Json:
-                    info = providerType.GetTypeInfo();
-                    T = info.GenericTypeArguments[0].ToString();
-
-                    props = info.GetProperties();
-                    var url = props.FirstOrDefault(i => i.Name.Equals("Url"));
-
-                    Value = url.GetValue(provider);
-                    break;
                 case ProviderType.Phone:
                     info = providerType.GetTypeInfo();
                     props = info.GetProperties();
@@ -85,6 +76,14 @@ namespace DataSuit.Infrastructures
 
                     Value = maxLen.GetValue(provider);
 
+                    break;
+                case ProviderType.Incremental:
+                    info = providerType.GetTypeInfo();
+                    props = info.GetProperties();
+                    var prop = props.FirstOrDefault(i => i.Name.Equals("Prop"));
+
+                    Value = prop.GetValue(provider);
+                    
                     break;
                 default:
                     break;
