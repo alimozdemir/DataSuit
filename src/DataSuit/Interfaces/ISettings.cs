@@ -13,7 +13,7 @@ namespace DataSuit.Interfaces
         void AddProvider(Dictionary<string, IDataProvider> prov);
         bool RemoveProvider(string key);
         string Export();
-        void Import(string file);
+        void Import(string stringData);
 
     }
 }

@@ -91,6 +91,38 @@ namespace DataSuit.Tests.Providers
             Assert.ThrowsAny<NotSupportedException>(act);
         }
 
+        [Fact]
+        public void ConstructorWithSequentialClassLoop()
+        {
+            var collection = TestIEnumarableData();
+
+            CollectionProvider<TestData> provider = new CollectionProvider<TestData>(collection);
+            // go over all elements, and go back to head of list
+            for (int i = 0; i < collection.Count(); i++)
+            {
+                provider.MoveNext(null);
+            }
+
+            Assert.Equal(collection.First(), provider.Current);
+        }
+
+
+        [Fact]
+        public void ConstructorWithSequentialClass()
+        {
+            var collection = TestIEnumarableData();
+
+            CollectionProvider<TestData> provider = new CollectionProvider<TestData>(collection);
+            List<TestData> temp = new List<TestData>();
+
+            for (int i = 0; i < collection.Count(); i++)
+            {
+                temp.Add(provider.Current);
+                provider.MoveNext(null);
+            }
+
+            Assert.Equal(temp, collection);
+        }
         #region Help functions
 
         private IEnumerable<int> TestIEnumarableInt()
@@ -100,7 +132,22 @@ namespace DataSuit.Tests.Providers
                 1, 2, 3, 4, 5
             };
         }
+        private IEnumerable<TestData> TestIEnumarableData()
+        {
+            return new List<TestData>()
+            {
+                new TestData() { FirstName = "John"},
+                new TestData() { FirstName = "Dean"},
+                new TestData() { FirstName = "Castiel"},
+                new TestData() { FirstName = "Sam"},
+            };
+        }
 
+
+        class TestData
+        {
+            public string FirstName { get; set; }
+        }
         #endregion
     }
 }

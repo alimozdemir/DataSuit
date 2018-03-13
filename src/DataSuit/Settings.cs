@@ -95,9 +95,9 @@ namespace DataSuit
         /// Import settings file as json serialized string
         /// </summary>
         /// <param name="file"></param>
-        public void Import(string file)
+        public void Import(string stringData)
         {
-            var settings = JsonConvert.DeserializeObject<JsonSettings>(file);
+            var settings = JsonConvert.DeserializeObject<JsonSettings>(stringData);
             RelationshipMap type = (RelationshipMap)Enum.Parse(typeof(Enums.RelationshipMap), settings.RelationshipType);
             Common.Settings.Relationship = (type, settings.RelationshipValue);
 
