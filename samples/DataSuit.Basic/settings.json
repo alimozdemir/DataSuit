@@ -1,11 +1,11 @@
 {
-  "Providers": {
-    "firstname": {
-      "Current": {
-        "FirstName": "Deneme1"
-      },
-      "Type": 1,
-      "Collection": [
+  "RelationshipType": "Constant",
+  "RelationshipValue": 3,
+  "Providers": [
+    {
+      "Fields": "firstname",
+      "Type": "Sequential",
+      "Value": [
         {
           "FirstName": "Deneme1"
         },
@@ -22,11 +22,7 @@
           "FirstName": "Deneme5"
         }
       ],
-      "TType": "DataSuit.Basic.Data, DataSuit.Basic, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "T": "DataSuit.Basic.Data"
     }
-  },
-  "Relationship": {
-    "Item1": 2,
-    "Item2": 3
-  }
+  ]
 }

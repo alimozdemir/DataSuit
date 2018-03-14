@@ -63,7 +63,14 @@ namespace DataSuit
 
         public string Export()
         {
+            SetFieldsWithProviders();
+            
             return _settings.Export();
+        }
+
+        public void Import(string data)
+        {
+            _settings.Import(data);
         }
 
         public IGenerator<T> GeneratorOf<T>() where T : class, new()

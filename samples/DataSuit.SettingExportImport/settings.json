@@ -1,0 +1,36 @@
+{
+  "RelationshipType": "Constant",
+  "RelationshipValue": 3,
+  "Providers": [
+    {
+      "Fields": "id",
+      "Type": "Incremental",
+      "Value": "Id"
+    },
+    {
+      "Fields": "name",
+      "Type": "Random",
+      "Value": [
+        "Dean",
+        "Castiel",
+        "John",
+        "Sam"
+      ],
+      "T": "System.String"
+    },
+    {
+      "Fields": "age",
+      "Type": "Range",
+      "MinValue": 20,
+      "MaxValue": 48,
+      "T": "System.Int32"
+    },
+    {
+      "Fields": "salary",
+      "Type": "Range",
+      "MinValue": 4000.0,
+      "MaxValue": 10000.0,
+      "T": "System.Double"
+    }
+  ]
+}

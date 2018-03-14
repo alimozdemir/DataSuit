@@ -67,7 +67,7 @@ namespace DataSuit.Basic
                 new Data() { FirstName = "Deneme4" },
                 new Data() { FirstName = "Deneme5" }};
 
-
+            // set a collection of data
             var suit2 = new DataSuit();
             suit2.Build()
                 .Collection(n);
@@ -78,9 +78,6 @@ namespace DataSuit.Basic
 
             foreach (var item in personss)
                 Console.WriteLine(item.FirstName);
-
-            File.WriteAllText("settings.json", suit2.Export());
-
         }
     }
 }

@@ -71,8 +71,8 @@ namespace DataSuit
             string result = string.Empty;
             JsonSettings settings = new JsonSettings();
 
-            settings.RelationshipType = Common.Settings.Relationship.Type.ToString();
-            settings.RelationshipValue = Common.Settings.Relationship.Value;
+            settings.RelationshipType = this.Relationship.Type.ToString();
+            settings.RelationshipValue = this.Relationship.Value;
             List<JsonFieldSettings> providers = new List<JsonFieldSettings>();
 
             foreach (var item in _providers.GroupBy(i => i.Value))
@@ -99,7 +99,7 @@ namespace DataSuit
         {
             var settings = JsonConvert.DeserializeObject<JsonSettings>(stringData);
             RelationshipMap type = (RelationshipMap)Enum.Parse(typeof(Enums.RelationshipMap), settings.RelationshipType);
-            Common.Settings.Relationship = (type, settings.RelationshipValue);
+            this.Relationship = (type, settings.RelationshipValue);
 
             foreach (var item in settings.Providers)
             {
@@ -172,7 +172,7 @@ namespace DataSuit
 
                         break;
                     case ProviderType.Incremental:
-                        var incType = typeof(PhoneProvider);
+                        var incType = typeof(IncrementalIntProvider);
 
                         provider = (IDataProvider)Activator.CreateInstance(incType, item.Value);
 

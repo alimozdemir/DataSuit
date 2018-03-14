@@ -27,11 +27,6 @@ namespace DataSuit
 
         }
 
-        public static void Load()
-        {
-            Load(Common.DefaultSettings);
-        }
-
         public static void Load(ISettings settings)
         {
             var assembly = typeof(Generator<>).GetTypeInfo().Assembly;
