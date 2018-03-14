@@ -11,10 +11,10 @@ namespace DataSuit.Infrastructures
 {
     public class JsonSettings : IJsonSettings
     {
-        public string RelationshipType { get; set; }
-        public int RelationshipValue { get; set; }
+        public Relationship Relationship { get; set; } = new Relationship();
         public IEnumerable<IJsonFieldSettings> Providers { get; set; } = new List<JsonFieldSettings>();
     }
+
 
     public class JsonFieldSettings : IJsonFieldSettings
     {
@@ -83,7 +83,7 @@ namespace DataSuit.Infrastructures
                     var prop = props.FirstOrDefault(i => i.Name.Equals("Prop"));
 
                     Value = prop.GetValue(provider);
-                    
+
                     break;
                 default:
                     break;

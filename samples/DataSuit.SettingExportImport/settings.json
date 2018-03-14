@@ -1,6 +1,8 @@
 {
-  "RelationshipType": "Constant",
-  "RelationshipValue": 3,
+  "Relationship": {
+    "Type": "Constant",
+    "Value": 3
+  },
   "Providers": [
     {
       "Fields": "id",
@@ -11,10 +13,10 @@
       "Fields": "name",
       "Type": "Random",
       "Value": [
-        "Dean",
         "Castiel",
         "John",
-        "Sam"
+        "Sam",
+        "Dean"
       ],
       "T": "System.String"
     },

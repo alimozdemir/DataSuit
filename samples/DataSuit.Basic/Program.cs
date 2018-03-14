@@ -59,11 +59,11 @@ namespace DataSuit.Basic
 
 
             List<Data> n = new List<Data>() {
-                new Data() { FirstName = "Deneme1" },
-                new Data() { FirstName = "Deneme2" },
-                new Data() { FirstName = "Deneme3" },
-                new Data() { FirstName = "Deneme4" },
-                new Data() { FirstName = "Deneme5" }};
+                new Data() { FirstName = "John1" },
+                new Data() { FirstName = "John2" },
+                new Data() { FirstName = "John3" },
+                new Data() { FirstName = "John4" },
+                new Data() { FirstName = "John5" }};
 
             // set a collection of data
             var suit2 = new DataSuit();
@@ -76,6 +76,7 @@ namespace DataSuit.Basic
 
             foreach (var item in personss)
                 Console.WriteLine(item.FirstName);
+
         }
     }
 }

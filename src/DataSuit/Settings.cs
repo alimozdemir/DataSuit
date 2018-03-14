@@ -70,9 +70,9 @@ namespace DataSuit
         {
             string result = string.Empty;
             JsonSettings settings = new JsonSettings();
-
-            settings.RelationshipType = this.Relationship.Type.ToString();
-            settings.RelationshipValue = this.Relationship.Value;
+            
+            settings.Relationship.Type = this.Relationship.Type.ToString();
+            settings.Relationship.Value = this.Relationship.Value;
             List<JsonFieldSettings> providers = new List<JsonFieldSettings>();
 
             foreach (var item in _providers.GroupBy(i => i.Value))
@@ -98,8 +98,8 @@ namespace DataSuit
         public void Import(string stringData)
         {
             var settings = JsonConvert.DeserializeObject<JsonSettings>(stringData);
-            RelationshipMap type = (RelationshipMap)Enum.Parse(typeof(Enums.RelationshipMap), settings.RelationshipType);
-            this.Relationship = (type, settings.RelationshipValue);
+            RelationshipMap type = (RelationshipMap)Enum.Parse(typeof(Enums.RelationshipMap), settings.Relationship.Type);
+            this.Relationship = (type, settings.Relationship.Value);
 
             foreach (var item in settings.Providers)
             {

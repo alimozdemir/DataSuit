@@ -23,12 +23,19 @@ namespace DataSuit
             _settings = settings;
             _mapper = new Mapper(_settings);
         }
-
+        
+        /// <summary>
+        /// It loads built-in data for this suit.
+        /// </summary>
         public void Load()
         {
             Resources.Load(_settings);
         }
 
+        /// <summary>
+        /// It starts to build providers for common usage. E.g. Build().Range("age1,age2", 20, 48)
+        /// </summary>
+        /// <returns></returns>
         public IMapping Build()
         {
             SetFieldsWithProviders();
@@ -38,6 +45,10 @@ namespace DataSuit
             return map;
         }
 
+        /// <summary>
+        /// It starts to build providers for given T. 
+        /// </summary>
+        /// <returns></returns>
         public IMapping<T> Build<T>() where T : class, new()
         {
             SetFieldsWithProviders();
@@ -56,28 +67,46 @@ namespace DataSuit
             }
         }
 
+        /// <summary>
+        /// When you want to be ensure there is no pending providers.
+        /// </summary>
         public void EnsureNoPendingProviders()
         {
             SetFieldsWithProviders();
         }
 
+        /// <summary>
+        /// It export given settings as json string
+        /// </summary>
+        /// <returns></returns>
         public string Export()
         {
             SetFieldsWithProviders();
             
             return _settings.Export();
         }
-
+        /// <summary>
+        /// It import given data into settings.
+        /// </summary>
+        /// <param name="data">It should be in json format. Generated from Export()</param>
         public void Import(string data)
         {
             _settings.Import(data);
         }
 
+        /// <summary>
+        /// It constructors a generator with given T.
+        /// </summary>
+        /// <returns></returns>
         public IGenerator<T> GeneratorOf<T>() where T : class, new()
         {
             return new Generator<T>(this);
         }
 
+        /// <summary>
+        /// It constructs PrimitiveGenerator from this suit.
+        /// </summary>
+        /// <returns></returns>
         public IPrimitiveGenerator GeneratorOfPrimitives()
         {
             return new PrimitiveGenerator(this);
