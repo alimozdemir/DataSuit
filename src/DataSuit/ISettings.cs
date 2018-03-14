@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using DataSuit.Providers;
 
-namespace DataSuit.Interfaces
+namespace DataSuit
 {
     public interface ISettings
     {

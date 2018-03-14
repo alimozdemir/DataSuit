@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using DataSuit.Enums;
-using DataSuit.Interfaces;
 
 namespace DataSuit.FluentAPI
 {
@@ -28,11 +27,6 @@ namespace DataSuit.FluentAPI
             foreach (var item in data)
                 Console.WriteLine($"{item.IdString} {item.Bar} {item.Range} {item.Static}");
             
-
-
-            
-
-
         }
     }
 }

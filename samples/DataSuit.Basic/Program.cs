@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using DataSuit;
-using DataSuit.Infrastructures;
-using DataSuit.Interfaces;
 using Newtonsoft.Json;
 
 namespace DataSuit.Basic
