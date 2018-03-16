@@ -9,13 +9,17 @@ Basis of the API is shown below. For more detailed examples, you can see at  [Sa
 1. [Build and Nuget](https://github.com/lyzerk/DataSuit#build-and-nuget)
 2. [Usage](https://github.com/lyzerk/DataSuit#usage)
 3. [Customizing](https://github.com/lyzerk/DataSuit#customizing)
-4. [Import/Export](https://github.com/lyzerk/DataSuit#import-export)
+4. [Import/Export](https://github.com/lyzerk/DataSuit#importexport)
 5. [AspNetCore](https://github.com/lyzerk/DataSuit#aspnetcore)
 
 # Build and nuget
 
-.NET Standard library of data suit. [![Build Status](https://travis-ci.org/DataSuit/DataSuit.svg?branch=master)](https://travis-ci.org/DataSuit/DataSuit) [![NuGet](https://img.shields.io/nuget/v/DataSuit.svg)](https://www.nuget.org/packages/DataSuit/) [![NuGet](https://img.shields.io/nuget/v/DataSuit.AspNetCore.svg)](https://www.nuget.org/packages/DataSuit.AspNetCore/)
+.NET Standard library of data suit. 
 
+|Build Status (travis-ci)|DataSuit Nuget|DataSuit.AspNetCore Nuget|
+|---|---|---|
+|[![Build Status](https://travis-ci.org/DataSuit/DataSuit.svg?branch=master)](https://travis-ci.org/DataSuit/DataSuit)|[![NuGet](https://img.shields.io/nuget/v/DataSuit.svg)](https://www.nuget.org/packages/DataSuit/)| [![NuGet](https://img.shields.io/nuget/v/DataSuit.AspNetCore.svg)](https://www.nuget.org/packages/DataSuit.AspNetCore/)|
+|   |   |   |
 # Usage
 
 ## DataSuit Class
