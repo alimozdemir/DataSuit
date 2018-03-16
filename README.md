@@ -1,7 +1,7 @@
 
 # Overview
 
-Data Suit is a random data generator. It generates the data for primitive data types and POCO classes. At the beginning, it was an experimental project for several purposes. Later, I changed it into a formal format. It is designed with SOLID principles. Customizing for your data is supported with a fluent API. 
+Data Suit is a random data generator. It generates data for primitive data types and POCO classes. At the beginning, it was an experimental project for several purposes. Later, I changed it into a formal format. It is designed with SOLID principles. Also, mapping the fields is supported with fluent API. 
 
 Basis of the API is shown below. For more detailed examples, you can see at  [Samples](https://github.com/lyzerk/DataSuit/tree/master/samples)
 
@@ -23,7 +23,7 @@ Basis of the API is shown below. For more detailed examples, you can see at  [Sa
 # Usage
 
 ## DataSuit Class
-DataSuit Class is a necessary for every operation.
+DataSuit class is necessary for every operation.
 
 ```csharp
 ISettings settings = new Settings();
@@ -91,8 +91,6 @@ Baz 11 DataSuit
 Baz 33 DataSuit
 ```
 
-A Json example soon.
-
 ## Mapping
 
 ### Collection
@@ -140,25 +138,25 @@ suit.Build<T>()
 ```
 
 ### Guid
-
 ```csharp
 suit.Build<T>()
     .Guid(i => i.Id)
 ```
 
 # Import/Export
-Following code exports settings of the current suit as JSON string.
+
+Following code, export settings of the current suit as JSON string.
 ```csharp
 suit.Export();
 ```
 Note that: FuncProvider can't be exported. Therefore, you have to re-define the Func providers when you are importing them to a suit. 
 
-Following code import settings with the given JSON string.
+Following code, import settings with the given JSON string.
 ```csharp
 suit.Import(data);
 ```
 
-You can see an example JSON file from [here](https://raw.githubusercontent.com/lyzerk/DataSuit/master/samples/DataSuit.SettingExportImport/settings.json)
+You can see an example setting JSON file from [here](https://raw.githubusercontent.com/lyzerk/DataSuit/master/samples/DataSuit.SettingExportImport/settings.json)
 
 # AspNetCore
 

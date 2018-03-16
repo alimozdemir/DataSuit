@@ -19,9 +19,11 @@ namespace DataSuit
                 var config = DataSuitGlobalConfiguration.Configuration;
                 var suit = new DataSuit(config.Settings);
 
+                // load built-in data
                 if (config.DefaultData)
                     suit.Load();
-
+                
+                // if a file path is set to SettingsPath then 
                 if (!string.IsNullOrEmpty(config.SettingsPath) && File.Exists(config.SettingsPath))
                 {
                     suit.Import(File.ReadAllText(config.SettingsPath));
@@ -31,6 +33,7 @@ namespace DataSuit
             });
 
             serviceCollection.AddScoped(typeof(IGenerator<>), typeof(Generator<>));
+            serviceCollection.AddScoped<IPrimitiveGenerator, PrimitiveGenerator>();
         }
 
     }
