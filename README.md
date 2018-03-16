@@ -1,7 +1,7 @@
 
 # Overview
 
-Data Suit is a random data generator. It generates data for primitive data types and POCO classes. At the beginning, it was an experimental project for several purposes. Later, I changed it into a formal format. It is designed with SOLID principles. Also, mapping the fields is supported with fluent API. 
+Data Suit is a random data generator. It generates data for primitive data types and POCO classes. At the beginning, it was an experimental project for several purposes. Later, I changed it into a formal format. It is designed with SOLID principles. Mapping fields is also supported via fluent API. 
 
 Basis of the API is shown below. For more detailed examples, you can see at  [Samples](https://github.com/lyzerk/DataSuit/tree/master/samples)
 
@@ -125,7 +125,7 @@ It generates integer or long values by increased order. Such as IDs.
 
 ```csharp
 suit.Build<T>()
-    .Dummy(i => i.Field, 300)
+    .Incremental(i => i.Id)
 ```
 
 ### Func
@@ -140,6 +140,15 @@ suit.Build<T>()
 ```csharp
 suit.Build<T>()
     .Guid(i => i.Id)
+```
+
+Also, you can use Build method without generic type.
+
+### Non-generic type
+```csharp
+suit.Build()
+    .Range("Salary", 3000, 5000)
+    .Incremental("id");
 ```
 
 # Import/Export
