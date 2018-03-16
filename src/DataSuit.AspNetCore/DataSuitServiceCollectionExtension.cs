@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using DataSuit.AspNetCore;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -12,20 +13,25 @@ namespace DataSuit
 
             if (options != null)
                 options(configurationInstance);
-                
+
             serviceCollection.AddSingleton<DataSuit>(serviceProvider =>
             {
-                var suit = new DataSuit(DataSuitGlobalConfiguration.Configuration.Settings);
+                var config = DataSuitGlobalConfiguration.Configuration;
+                var suit = new DataSuit(config.Settings);
 
-                if (DataSuitGlobalConfiguration.Configuration.DefaultData)
+                if (config.DefaultData)
                     suit.Load();
+
+                if (!string.IsNullOrEmpty(config.SettingsPath) && File.Exists(config.SettingsPath))
+                {
+                    suit.Import(File.ReadAllText(config.SettingsPath));
+                }
 
                 return suit;
             });
 
             serviceCollection.AddScoped(typeof(IGenerator<>), typeof(Generator<>));
         }
-
 
     }
 }

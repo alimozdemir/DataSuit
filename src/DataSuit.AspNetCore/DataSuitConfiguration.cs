@@ -11,22 +11,29 @@ namespace DataSuit.AspNetCore
         {
             Settings = new Settings();
         }
-        
+
         public ISettings Settings { get; internal set; }
         internal Dictionary<string, IDataProvider> PendingFieldsWithProviders;
-        public bool DefaultData { get; set; }
+        /// <summary>
+        /// It is enabled as default.
+        /// </summary>
+        /// <returns></returns>
+        public bool DefaultData { get; set; } = true;
+
         public IMapping<T> Build<T>() where T : class, new()
         {
             var map = new Mapping<T>();
             PendingFieldsWithProviders = map.GetFieldsWithProviders;
             return map;
         }
+
         public IMapping Build()
         {
             var map = new Mapping();
             PendingFieldsWithProviders = map.GetFieldsWithProviders;
             return map;
         }
+
         private void SetFieldsWithProviders()
         {
             if (PendingFieldsWithProviders != null)
@@ -36,10 +43,15 @@ namespace DataSuit.AspNetCore
             }
         }
 
+        /// <summary>
+        /// Making things ready.
+        /// </summary>
         public void Ready()
         {
             SetFieldsWithProviders();
         }
+
+        public string SettingsPath { get; set; }
     }
 
     public class DataSuitGlobalConfiguration
