@@ -18,7 +18,7 @@ namespace DataSuit.Infrastructures
         public List<string> JobTitles { get; set; } = new List<string>();
         public List<string> Language { get; set; } = new List<string>();
         public List<string> Slogans { get; set; } = new List<string>();
-        public List<string> Adresses { get; set; } = new List<string>();
+        public List<string> Addresses { get; set; } = new List<string>();
         public List<string> Usernames { get; set; } = new List<string>();
     }
 }
