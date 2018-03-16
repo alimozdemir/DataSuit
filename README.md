@@ -26,8 +26,7 @@ Basis of the API is shown below. For more detailed examples, you can see at  [Sa
 DataSuit class is necessary for every operation.
 
 ```csharp
-ISettings settings = new Settings();
-DataSuit suit = new DataSuit(settings);
+DataSuit suit = new DataSuit();
 ```
 
 DataSuit comes with built-in data. If you want to enable it, you have to call:
