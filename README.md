@@ -121,7 +121,7 @@ suit.Build<T>()
 ```
 
 ### Incremental
-It generates integer or long values by increased order. Such as IDs.
+It generates integer or long values by sequential order. Such as IDs.
 
 ```csharp
 suit.Build<T>()
