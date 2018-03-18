@@ -85,7 +85,7 @@ namespace DataSuit.Infrastructures
 
         public IMapping Incremental(string field)
         {
-            IncrementalIntProvider provider = new IncrementalIntProvider(field);
+            IncrementalProvider provider = new IncrementalProvider(field);
             listOfFields.Add(field, provider);
             return this;
         }
@@ -244,12 +244,7 @@ namespace DataSuit.Infrastructures
         {
             var expression = (MemberExpression)action.Body;
             var field = expression.Member.Name;
-            IDataProvider provider = null;
-
-            if (typeof(P) == typeof(Int64))
-                provider = new IncrementalLongProvider(field);
-            else
-                provider = new IncrementalIntProvider(field);
+            IDataProvider provider = new IncrementalProvider(field);
 
             listOfFields.Add(field, provider);
 
@@ -259,7 +254,7 @@ namespace DataSuit.Infrastructures
         public IMapping Incremental(string field)
         {
             // todo : IncrementalLongProvider
-            IncrementalIntProvider provider = new IncrementalIntProvider(field);
+            IncrementalProvider provider = new IncrementalProvider(field);
             listOfFields.Add(field, provider);
             return this;
         }

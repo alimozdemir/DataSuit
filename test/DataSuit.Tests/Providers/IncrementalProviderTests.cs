@@ -10,7 +10,7 @@ namespace DataSuit.Tests.Providers
         public void Constructor()
         {
             SessionManager manager = new SessionManager();
-            IncrementalLongProvider provider = new IncrementalLongProvider("Id");
+            IncrementalProvider provider = new IncrementalProvider("Id");
 
             provider.MoveNext(manager);
 
@@ -21,7 +21,7 @@ namespace DataSuit.Tests.Providers
         public void GetNextFiveValues()
         {
             SessionManager manager = new SessionManager();
-            IncrementalLongProvider provider = new IncrementalLongProvider("Id");
+            IncrementalProvider provider = new IncrementalProvider("Id");
 
             for (int i = 0; i < 5; i++)
             {

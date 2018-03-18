@@ -172,7 +172,7 @@ namespace DataSuit
 
                         break;
                     case ProviderType.Incremental:
-                        var incType = typeof(IncrementalIntProvider);
+                        var incType = typeof(IncrementalProvider);
 
                         provider = (IDataProvider)Activator.CreateInstance(incType, item.Value);
 

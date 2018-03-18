@@ -32,9 +32,6 @@ namespace DataSuit.Providers
 
         public CollectionProvider(IEnumerable<T> collection, ProviderType providerType)
         {
-            if (collection == null)
-                throw new ArgumentNullException("collection");
-
             SetData(collection, providerType);
         }
 
@@ -55,7 +52,7 @@ namespace DataSuit.Providers
         public void SetData(IEnumerable<T> collection, ProviderType providerType)
         {
             if (collection == null)
-                throw new ArgumentNullException("collection");
+                throw new ArgumentNullException(nameof(collection));
 
             if (providerType == ProviderType.Sequential)
             {

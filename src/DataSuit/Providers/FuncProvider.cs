@@ -18,9 +18,14 @@ namespace DataSuit.Providers
         public Type TType => typeof(T);
 
         object IDataProvider.Current => _current;
-        
+
         public FuncProvider(Func<T> func)
         {
+            if (func == null)
+            {
+                throw new ArgumentNullException(nameof(func));
+            }
+
             _func = func;
         }
 

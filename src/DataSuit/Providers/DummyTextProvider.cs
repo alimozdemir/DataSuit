@@ -14,20 +14,13 @@ namespace DataSuit.Providers
         private string current;
         public Type TType => typeof(string);
 
-        public DummyTextProvider(long _maxLength, TextSource _source = TextSource.Lorem)
-        {
-            if (_maxLength > Resources.Lorem.Length)
-                _maxLength = Resources.Lorem.Length - 1;
-
-            maxLength = (int)_maxLength;
-            source = _source;
-
-            int lastSpace = Resources.Lorem.LastIndexOf(' ', maxLength);
-            current = Resources.Lorem.Substring(0, lastSpace);
-        }
-
         public DummyTextProvider(int _maxLength, TextSource _source = TextSource.Lorem)
         {
+            if (_maxLength <= 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(_maxLength));
+            }
+
             if (_maxLength > Resources.Lorem.Length)
                 _maxLength = Resources.Lorem.Length - 1;
 

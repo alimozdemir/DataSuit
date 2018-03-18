@@ -35,6 +35,8 @@ DataSuit comes with built-in data. If you want to enable it, you have to call:
 suit.Load();
 ```
 
+You can see the built-in data fields on [BuiltIn.md](https://github.com/lyzerk/DataSuit/tree/master/BuiltIn.md) file.
+
 ## POCO example
 For example POCO class data generation
 

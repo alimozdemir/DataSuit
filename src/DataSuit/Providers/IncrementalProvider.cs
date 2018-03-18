@@ -4,30 +4,28 @@ using DataSuit.Infrastructures;
 
 namespace DataSuit.Providers
 {
-    public class IncrementalLongProvider : IIncrementalLongProvider
+    public class IncrementalProvider : IIncrementalProvider
     {
-        public IncrementalLongProvider(string prop)
+        public IncrementalProvider(string prop)
         {
             _prop = prop;
         }
-
-        public long Current => _current;
+        public string Prop { get { return _prop; } }
+        public int Current => _current;
 
         public ProviderType Type => ProviderType.Incremental;
 
-        public Type TType => typeof(long);
+        public Type TType => typeof(int);
 
         object IDataProvider.Current => _current;
 
 
-        private long _current;
+        private int _current;
         private readonly string _prop;
 
-        public string Prop { get { return _prop; } }
-        
         public void MoveNext(ISessionManager manager)
         {
-            _current = manager.IncreaseLong(_prop);
+            _current = manager.IncreaseInteger(_prop);
         }
 
     }
