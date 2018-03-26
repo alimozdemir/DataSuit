@@ -123,6 +123,25 @@ namespace DataSuit.Tests.Providers
 
             Assert.Equal(temp, collection);
         }
+
+        [Fact]
+        public void TypeOfProviderSequential()
+        {
+            CollectionProvider<int> provider = new CollectionProvider<int>(TestIEnumarableInt());
+
+            Assert.Equal(typeof(int), provider.TType);
+            Assert.Equal(ProviderType.Sequential, provider.Type);
+        }
+
+        [Fact]
+        public void TypeOfProviderRandom()
+        {
+            CollectionProvider<int> provider = new CollectionProvider<int>(TestIEnumarableInt(), ProviderType.Random);
+
+            Assert.Equal(typeof(int), provider.TType);
+            Assert.Equal(ProviderType.Random, provider.Type);
+        }
+
         #region Help functions
 
         private IEnumerable<int> TestIEnumarableInt()

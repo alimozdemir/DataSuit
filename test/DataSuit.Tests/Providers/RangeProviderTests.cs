@@ -1,4 +1,5 @@
 using System;
+using DataSuit.Enums;
 using DataSuit.Infrastructures;
 using DataSuit.Providers;
 using Xunit;
@@ -74,5 +75,24 @@ namespace DataSuit.Tests.Providers
             Action cons = () => provider.SetData(5, -10);
             Assert.ThrowsAny<ArgumentException>(cons);
         }
+
+        [Fact]
+        public void TypeOfProviderInt()
+        {
+            RangeIntProvider provider = new RangeIntProvider(20, 40);
+
+            Assert.Equal(typeof(int), provider.TType);
+            Assert.Equal(ProviderType.Range, provider.Type);
+        }
+
+        [Fact]
+        public void TypeOfProviderDouble()
+        {
+            RangeDoubleProvider provider = new RangeDoubleProvider(20, 40);
+
+            Assert.Equal(typeof(double), provider.TType);
+            Assert.Equal(ProviderType.Range, provider.Type);
+        }
+        
     }
 }

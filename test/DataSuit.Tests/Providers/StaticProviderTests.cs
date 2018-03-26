@@ -1,3 +1,4 @@
+using DataSuit.Enums;
 using DataSuit.Infrastructures;
 using DataSuit.Providers;
 using Xunit;
@@ -60,6 +61,16 @@ namespace DataSuit.Tests.Providers
             StaticProvider<TempClass> provider = new StaticProvider<TempClass>(temp);
 
             Assert.Equal(temp, provider.Current);
+        }
+
+        [Fact]
+        public void TypeOfProvider()
+        {
+            StaticProvider<string> provider = new StaticProvider<string>();
+            provider.SetData("Hello World!");
+
+            Assert.Equal(typeof(string), provider.TType);
+            Assert.Equal(ProviderType.Static, provider.Type);
         }
 
         private class TempClass

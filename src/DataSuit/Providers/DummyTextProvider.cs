@@ -20,7 +20,7 @@ namespace DataSuit.Providers
             {
                 throw new ArgumentOutOfRangeException(nameof(_maxLength));
             }
-
+            
             if (_maxLength > Resources.Lorem.Length)
                 _maxLength = Resources.Lorem.Length - 1;
 

@@ -1,4 +1,5 @@
 using System;
+using DataSuit.Enums;
 using DataSuit.Providers;
 using Xunit;
 
@@ -6,6 +7,13 @@ namespace DataSuit.Tests.Providers
 {
     public class FuncProviderTests
     {
+        [Fact]
+        public void NullFuncException()
+        {
+            Action act = () => new FuncProvider<string>(null);
+            Assert.ThrowsAny<ArgumentNullException>(act);
+        }
+
         [Fact]
         public void StringFuncWithMoveNext()
         {
@@ -60,17 +68,27 @@ namespace DataSuit.Tests.Providers
         [Fact]
         public void StringFuncWithTType()
         {
-            var counter = 0;
-
             Func<string> testFunction = () =>
             {
-                counter++;
                 return string.Empty;
             };
 
             FuncProvider<string> provider = new FuncProvider<string>(testFunction);
 
             Assert.Equal(testFunction, provider.DefinedFunc);
+        }
+
+        [Fact]
+        public void TypeOfProvider()
+        {
+            Func<string> testFunction = () =>
+            {
+                return string.Empty;
+            };
+            FuncProvider<string> provider = new FuncProvider<string>(testFunction);
+
+            Assert.Equal(typeof(string), provider.TType);
+            Assert.Equal(ProviderType.Func, provider.Type);
         }
     }
 }

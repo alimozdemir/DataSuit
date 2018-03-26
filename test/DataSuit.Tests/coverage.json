@@ -1,0 +1,1342 @@
+{
+ "/Users/alimozdemir/Desktop/DataSuit/test/DataSuit.Tests/bin/Debug/netcoreapp2.0/DataSuit.dll": {
+  "/Users/alimozdemir/Desktop/DataSuit/src/DataSuit/DataSuit.cs": {
+   "DataSuit.DataSuit": {
+    "System.Void DataSuit.DataSuit::.ctor()": {
+     "17": 0,
+     "18": 0,
+     "20": 0
+    },
+    "System.Void DataSuit.DataSuit::.ctor(DataSuit.ISettings)": {
+     "21": 0,
+     "22": 0,
+     "23": 0,
+     "24": 0,
+     "25": 0
+    },
+    "System.Void DataSuit.DataSuit::Load()": {
+     "31": 0,
+     "32": 0,
+     "33": 0
+    },
+    "DataSuit.Interfaces.IMapping DataSuit.DataSuit::Build()": {
+     "40": 0,
+     "41": 0,
+     "43": 0,
+     "44": 0,
+     "45": 0,
+     "46": 0
+    },
+    "DataSuit.Interfaces.IMapping`1<T> DataSuit.DataSuit::Build()": {
+     "53": 0,
+     "54": 0,
+     "56": 0,
+     "57": 0,
+     "58": 0,
+     "59": 0
+    },
+    "System.Void DataSuit.DataSuit::SetFieldsWithProviders()": {
+     "62": 0,
+     "63": 0,
+     "64": 0,
+     "65": 0,
+     "66": 0,
+     "67": 0,
+     "68": 0
+    },
+    "System.Void DataSuit.DataSuit::EnsureNoPendingProviders()": {
+     "74": 0,
+     "75": 0,
+     "76": 0
+    },
+    "System.String DataSuit.DataSuit::Export()": {
+     "83": 0,
+     "84": 0,
+     "86": 0,
+     "87": 0
+    },
+    "System.Void DataSuit.DataSuit::Import(System.String)": {
+     "93": 0,
+     "94": 0,
+     "95": 0
+    },
+    "DataSuit.IGenerator`1<T> DataSuit.DataSuit::GeneratorOf()": {
+     "102": 0,
+     "103": 0,
+     "104": 0
+    },
+    "DataSuit.IPrimitiveGenerator DataSuit.DataSuit::GeneratorOfPrimitives()": {
+     "111": 0,
+     "112": 0,
+     "113": 0
+    },
+    "System.Void DataSuit.DataSuit::Generate(T,DataSuit.Infrastructures.ISessionManager)": {
+     "116": 0,
+     "117": 0,
+     "119": 0,
+     "120": 0
+    },
+    "T DataSuit.DataSuit::GeneratePrimitive(System.String,DataSuit.Infrastructures.ISessionManager)": {
+     "123": 0,
+     "124": 0,
+     "125": 0
+    }
+   }
+  },
+  "/Users/alimozdemir/Desktop/DataSuit/src/DataSuit/Generator.cs": {
+   "DataSuit.Generator`1": {
+    "System.Void DataSuit.Generator`1::.ctor(DataSuit.DataSuit)": {
+     "11": 0,
+     "12": 0,
+     "13": 0,
+     "14": 0,
+     "15": 0
+    },
+    "T DataSuit.Generator`1::Generate()": {
+     "19": 0,
+     "20": 0,
+     "21": 0,
+     "22": 0,
+     "23": 0
+    },
+    "System.Collections.Generic.IEnumerable`1<T> DataSuit.Generator`1::Generate(System.Int32)": {
+     "26": 0,
+     "27": 0,
+     "29": 0,
+     "30": 0,
+     "31": 0,
+     "33": 0,
+     "35": 0,
+     "36": 0,
+     "38": 0,
+     "39": 0
+    }
+   }
+  },
+  "/Users/alimozdemir/Desktop/DataSuit/src/DataSuit/PrimitiveGenerator.cs": {
+   "DataSuit.PrimitiveGenerator": {
+    "System.Void DataSuit.PrimitiveGenerator::.ctor(DataSuit.DataSuit)": {
+     "10": 0,
+     "11": 0,
+     "12": 0,
+     "13": 0,
+     "14": 0
+    },
+    "System.Double DataSuit.PrimitiveGenerator::Double(System.String)": {
+     "17": 0,
+     "18": 0,
+     "19": 0
+    },
+    "System.Collections.Generic.IEnumerable`1<System.Double> DataSuit.PrimitiveGenerator::Double(System.String,System.Int32)": {
+     "22": 0,
+     "23": 0,
+     "25": 0,
+     "26": 0,
+     "28": 0,
+     "29": 0
+    },
+    "System.Int32 DataSuit.PrimitiveGenerator::Integer(System.String)": {
+     "32": 0,
+     "33": 0,
+     "34": 0
+    },
+    "System.Collections.Generic.IEnumerable`1<System.Int32> DataSuit.PrimitiveGenerator::Integer(System.String,System.Int32)": {
+     "37": 0,
+     "38": 0,
+     "40": 0,
+     "41": 0,
+     "43": 0,
+     "44": 0
+    },
+    "System.String DataSuit.PrimitiveGenerator::String(System.String)": {
+     "47": 0,
+     "48": 0,
+     "49": 0
+    },
+    "System.Collections.Generic.IEnumerable`1<System.String> DataSuit.PrimitiveGenerator::String(System.String,System.Int32)": {
+     "52": 0,
+     "53": 0,
+     "55": 0,
+     "56": 0,
+     "58": 0,
+     "59": 0
+    }
+   }
+  },
+  "/Users/alimozdemir/Desktop/DataSuit/src/DataSuit/Resources.cs": {
+   "DataSuit.Resources": {
+    "System.String DataSuit.Resources::get_Lorem()": {
+     "15": 4
+    },
+    "System.Void DataSuit.Resources::.cctor()": {
+     "18": 1,
+     "19": 1,
+     "21": 1,
+     "23": 1,
+     "24": 1,
+     "25": 1,
+     "26": 1,
+     "28": 0
+    },
+    "System.Void DataSuit.Resources::Load(DataSuit.ISettings)": {
+     "31": 0,
+     "32": 0,
+     "34": 0,
+     "36": 0,
+     "37": 0,
+     "38": 0,
+     "39": 0,
+     "41": 0,
+     "43": 0,
+     "44": 0,
+     "45": 0,
+     "46": 0,
+     "47": 0,
+     "48": 0,
+     "49": 0,
+     "50": 0,
+     "51": 0,
+     "52": 0,
+     "53": 0,
+     "54": 0,
+     "56": 0,
+     "57": 0
+    },
+    "System.String[] DataSuit.Resources::Names()": {
+     "60": 0,
+     "61": 0,
+     "62": 0,
+     "63": 0
+    }
+   }
+  },
+  "/Users/alimozdemir/Desktop/DataSuit/src/DataSuit/Settings.cs": {
+   "DataSuit.Settings": {
+    "System.Collections.Generic.Dictionary`2<System.String,DataSuit.Providers.IDataProvider> DataSuit.Settings::get_Providers()": {
+     "17": 2
+    },
+    "System.ValueTuple`2<DataSuit.Enums.RelationshipMap,System.Int32> DataSuit.Settings::get_Relationship()": {
+     "19": 0
+    },
+    "System.Void DataSuit.Settings::.ctor()": {
+     "24": 2,
+     "25": 2,
+     "26": 2,
+     "27": 2,
+     "28": 2
+    },
+    "System.Void DataSuit.Settings::AddProvider(System.String,DataSuit.Providers.IDataProvider)": {
+     "31": 2,
+     "32": 2,
+     "33": 2,
+     "35": 6,
+     "36": 2,
+     "37": 2,
+     "38": 0,
+     "40": 0,
+     "41": 2,
+     "43": 2
+    },
+    "System.Void DataSuit.Settings::AddProvider(System.Collections.Generic.Dictionary`2<System.String,DataSuit.Providers.IDataProvider>)": {
+     "46": 1,
+     "47": 3,
+     "48": 1,
+     "49": 1,
+     "50": 1,
+     "51": 0
+    },
+    "System.Boolean DataSuit.Settings::RemoveProvider(System.String)": {
+     "54": 0,
+     "55": 0,
+     "56": 0,
+     "57": 0,
+     "58": 0,
+     "61": 0,
+     "62": 0
+    },
+    "System.String DataSuit.Settings::Export()": {
+     "70": 0,
+     "71": 0,
+     "72": 0,
+     "74": 0,
+     "75": 0,
+     "76": 0,
+     "78": 0,
+     "79": 0,
+     "80": 0,
+     "81": 0,
+     "82": 0,
+     "84": 0,
+     "86": 0,
+     "87": 0,
+     "88": 0,
+     "89": 0,
+     "91": 0,
+     "92": 0
+    },
+    "System.Void DataSuit.Settings::Import(System.String)": {
+     "99": 0,
+     "100": 0,
+     "101": 0,
+     "102": 0,
+     "104": 0,
+     "105": 0,
+     "106": 0,
+     "107": 0,
+     "109": 0,
+     "113": 0,
+     "114": 0,
+     "116": 0,
+     "118": 0,
+     "120": 0,
+     "124": 0,
+     "125": 0,
+     "127": 0,
+     "129": 0,
+     "130": 0,
+     "132": 0,
+     "134": 0,
+     "136": 0,
+     "138": 0,
+     "140": 0,
+     "141": 0,
+     "142": 0,
+     "144": 0,
+     "145": 0,
+     "146": 0,
+     "147": 0,
+     "148": 0,
+     "149": 0,
+     "150": 0,
+     "151": 0,
+     "153": 0,
+     "154": 0,
+     "155": 0,
+     "156": 0,
+     "157": 0,
+     "159": 0,
+     "161": 0,
+     "163": 0,
+     "165": 0,
+     "167": 0,
+     "171": 0,
+     "173": 0,
+     "175": 0,
+     "177": 0,
+     "179": 0,
+     "181": 0,
+     "185": 0,
+     "186": 0,
+     "187": 0,
+     "188": 0,
+     "190": 0,
+     "191": 0,
+     "194": 0
+    }
+   }
+  },
+  "/Users/alimozdemir/Desktop/DataSuit/src/DataSuit/Sampler/GaussianSampler.cs": {
+   "DataSuit.Sampler.GaussianSampler`1": {
+    "System.Void DataSuit.Sampler.GaussianSampler`1::.ctor()": {
+     "11": 0,
+     "12": 0,
+     "14": 0
+    },
+    "System.Collections.Generic.List`1<T> DataSuit.Sampler.GaussianSampler`1::Sample(System.Int32)": {
+     "16": 0,
+     "17": 0
+    },
+    "System.Collections.Generic.List`1<System.Double> DataSuit.Sampler.GaussianSampler`1::Sample(System.Int32,System.Double,System.Double)": {
+     "19": 0,
+     "21": 0,
+     "23": 0,
+     "24": 0,
+     "25": 0,
+     "26": 0,
+     "27": 0,
+     "28": 0
+    },
+    "System.Double DataSuit.Sampler.GaussianSampler`1::Gaussian(System.Double,System.Double,System.Double,System.Double)": {
+     "30": 0,
+     "31": 0,
+     "32": 0
+    }
+   }
+  },
+  "/Users/alimozdemir/Desktop/DataSuit/src/DataSuit/Sampler/IndistinctSampler.cs": {
+   "DataSuit.Sampler.IndistinctSampler`1": {
+    "System.Void DataSuit.Sampler.IndistinctSampler`1::.ctor(System.Collections.Generic.List`1<T>)": {
+     "13": 0,
+     "14": 0,
+     "15": 0,
+     "16": 0
+    },
+    "System.Void DataSuit.Sampler.IndistinctSampler`1::SetData(System.Collections.Generic.List`1<T>)": {
+     "19": 0,
+     "20": 0,
+     "21": 0
+    },
+    "System.Int32 DataSuit.Sampler.IndistinctSampler`1::GetDataSize()": {
+     "24": 0,
+     "25": 0,
+     "26": 0
+    },
+    "System.Collections.Generic.List`1<T> DataSuit.Sampler.IndistinctSampler`1::Sample(System.Int32)": {
+     "28": 0,
+     "30": 0,
+     "32": 0,
+     "33": 0,
+     "34": 0,
+     "35": 0,
+     "36": 0,
+     "37": 0
+    }
+   }
+  },
+  "/Users/alimozdemir/Desktop/DataSuit/src/DataSuit/Sampler/ReservoirSampler.cs": {
+   "DataSuit.Sampler.ReservoirSampler`1": {
+    "System.Void DataSuit.Sampler.ReservoirSampler`1::.ctor(System.Collections.Generic.List`1<T>)": {
+     "11": 0,
+     "12": 0,
+     "13": 0
+    },
+    "System.Void DataSuit.Sampler.ReservoirSampler`1::SetData(System.Collections.Generic.List`1<T>)": {
+     "15": 0,
+     "16": 0,
+     "17": 0
+    },
+    "System.Int32 DataSuit.Sampler.ReservoirSampler`1::GetDataSize()": {
+     "20": 0,
+     "21": 0,
+     "22": 0
+    },
+    "System.Collections.Generic.List`1<T> DataSuit.Sampler.ReservoirSampler`1::Sample(System.Int32)": {
+     "24": 0,
+     "25": 0,
+     "26": 0,
+     "27": 0,
+     "28": 0,
+     "31": 0,
+     "32": 0,
+     "33": 0,
+     "35": 0,
+     "36": 0,
+     "37": 0,
+     "38": 0,
+     "39": 0,
+     "41": 0,
+     "42": 0,
+     "43": 0,
+     "44": 0,
+     "45": 0,
+     "46": 0,
+     "47": 0,
+     "49": 0,
+     "51": 0,
+     "52": 0,
+     "53": 0,
+     "54": 0,
+     "56": 0,
+     "57": 0
+    }
+   }
+  },
+  "/Users/alimozdemir/Desktop/DataSuit/src/DataSuit/Reflection/Extensions.cs": {
+   "DataSuit.Reflection.Extensions": {
+    "System.String DataSuit.Reflection.Extensions::GetAllProperties(System.Type)": {
+     "16": 0,
+     "17": 0,
+     "18": 0
+    }
+   }
+  },
+  "/Users/alimozdemir/Desktop/DataSuit/src/DataSuit/Reflection/Mapper.cs": {
+   "DataSuit.Reflection.Mapper": {
+    "System.Void DataSuit.Reflection.Mapper::.ctor(DataSuit.ISettings)": {
+     "19": 0,
+     "20": 0,
+     "21": 0,
+     "22": 0
+    },
+    "T DataSuit.Reflection.Mapper::Map(T,DataSuit.Infrastructures.ISessionManager,System.Boolean)": {
+     "25": 0,
+     "28": 0,
+     "30": 0,
+     "31": 0,
+     "32": 0,
+     "34": 0,
+     "35": 0,
+     "36": 0,
+     "37": 0,
+     "38": 0,
+     "39": 0,
+     "40": 0,
+     "41": 0,
+     "43": 0,
+     "45": 0,
+     "46": 0,
+     "48": 0,
+     "49": 0
+    },
+    "System.Void DataSuit.Reflection.Mapper::SetPrimitive(System.Reflection.PropertyInfo,T,DataSuit.Infrastructures.ISessionManager)": {
+     "52": 0,
+     "53": 0,
+     "54": 0,
+     "56": 0,
+     "57": 0,
+     "58": 0,
+     "61": 0,
+     "63": 0,
+     "65": 0,
+     "66": 0
+    },
+    "T DataSuit.Reflection.Mapper::GetPrimitive(System.String,DataSuit.Infrastructures.ISessionManager)": {
+     "69": 0,
+     "70": 0,
+     "71": 0,
+     "73": 0,
+     "74": 0,
+     "75": 0,
+     "78": 0,
+     "80": 0,
+     "82": 0,
+     "83": 0
+    },
+    "System.Object DataSuit.Reflection.Mapper::ProviderGetValue(DataSuit.Providers.IDataProvider,System.String)": {
+     "86": 0,
+     "87": 0,
+     "88": 0,
+     "89": 0,
+     "91": 0,
+     "92": 0,
+     "93": 0,
+     "95": 0,
+     "96": 0,
+     "97": 0,
+     "98": 0,
+     "100": 0,
+     "102": 0,
+     "103": 0
+    },
+    "System.Void DataSuit.Reflection.Mapper::SetCollection(System.Reflection.PropertyInfo,T,DataSuit.Infrastructures.ISessionManager,System.Boolean)": {
+     "107": 0,
+     "108": 0,
+     "111": 0,
+     "112": 0,
+     "113": 0,
+     "114": 0,
+     "116": 0,
+     "119": 0,
+     "120": 0,
+     "121": 0,
+     "122": 0,
+     "124": 0,
+     "126": 0,
+     "128": 0,
+     "129": 0,
+     "130": 0,
+     "131": 0,
+     "132": 0,
+     "133": 0,
+     "134": 0,
+     "135": 0,
+     "136": 0,
+     "138": 0,
+     "139": 0,
+     "140": 0,
+     "141": 0,
+     "142": 0,
+     "144": 0,
+     "146": 0,
+     "148": 0,
+     "149": 0,
+     "150": 0
+    },
+    "System.Void DataSuit.Reflection.Mapper::SetPrimitive(System.String,T&,DataSuit.Infrastructures.ISessionManager)": {
+     "153": 0,
+     "154": 0,
+     "156": 0,
+     "157": 0,
+     "159": 0,
+     "161": 0,
+     "162": 0,
+     "163": 0,
+     "165": 0,
+     "167": 0,
+     "169": 0,
+     "170": 0
+    }
+   }
+  },
+  "/Users/alimozdemir/Desktop/DataSuit/src/DataSuit/Providers/CollectionProvider.cs": {
+   "DataSuit.Providers.CollectionProvider`1": {
+    "T DataSuit.Providers.CollectionProvider`1::get_Current()": {
+     "18": 12
+    },
+    "DataSuit.Enums.ProviderType DataSuit.Providers.CollectionProvider`1::get_Type()": {
+     "20": 2
+    },
+    "System.Object DataSuit.Providers.CollectionProvider`1::DataSuit.Providers.IDataProvider.get_Current()": {
+     "22": 0
+    },
+    "System.Collections.Generic.IEnumerable`1<T> DataSuit.Providers.CollectionProvider`1::get_Collection()": {
+     "24": 2
+    },
+    "System.Type DataSuit.Providers.CollectionProvider`1::get_TType()": {
+     "26": 2
+    },
+    "System.Void DataSuit.Providers.CollectionProvider`1::.ctor(System.Collections.Generic.IEnumerable`1<T>)": {
+     "29": 7,
+     "30": 6,
+     "31": 6
+    },
+    "System.Void DataSuit.Providers.CollectionProvider`1::.ctor(System.Collections.Generic.IEnumerable`1<T>,DataSuit.Enums.ProviderType)": {
+     "33": 11,
+     "34": 11,
+     "35": 11,
+     "36": 9
+    },
+    "System.Void DataSuit.Providers.CollectionProvider`1::MoveNext(DataSuit.Infrastructures.ISessionManager)": {
+     "39": 18,
+     "40": 18,
+     "41": 4,
+     "42": 4,
+     "43": 4,
+     "44": 4,
+     "45": 4
+    },
+    "System.Void DataSuit.Providers.CollectionProvider`1::SetData(System.Collections.Generic.IEnumerable`1<T>)": {
+     "48": 0,
+     "49": 0,
+     "50": 0
+    },
+    "System.Void DataSuit.Providers.CollectionProvider`1::SetData(System.Collections.Generic.IEnumerable`1<T>,DataSuit.Enums.ProviderType)": {
+     "53": 11,
+     "54": 11,
+     "55": 1,
+     "57": 0,
+     "58": 6,
+     "59": 6,
+     "61": 6,
+     "63": 6,
+     "65": 6,
+     "66": 6,
+     "67": 0,
+     "68": 3,
+     "69": 18,
+     "71": 3,
+     "73": 3,
+     "74": 3,
+     "75": 3,
+     "77": 0,
+     "78": 0
+    }
+   }
+  },
+  "/Users/alimozdemir/Desktop/DataSuit/src/DataSuit/Providers/DummyTextProvider.cs": {
+   "DataSuit.Providers.DummyTextProvider": {
+    "System.Type DataSuit.Providers.DummyTextProvider::get_TType()": {
+     "15": 0
+    },
+    "System.Void DataSuit.Providers.DummyTextProvider::.ctor(System.Int32,DataSuit.Providers.TextSource)": {
+     "12": 3,
+     "13": 3,
+     "17": 3,
+     "18": 3,
+     "19": 3,
+     "20": 2,
+     "21": 2,
+     "24": 0,
+     "25": 1,
+     "27": 1,
+     "28": 1,
+     "30": 1,
+     "31": 1,
+     "32": 1
+    },
+    "System.Int32 DataSuit.Providers.DummyTextProvider::get_MaxLength()": {
+     "34": 1
+    },
+    "DataSuit.Providers.TextSource DataSuit.Providers.DummyTextProvider::get_Source()": {
+     "36": 1
+    },
+    "System.String DataSuit.Providers.DummyTextProvider::get_Current()": {
+     "38": 1
+    },
+    "DataSuit.Enums.ProviderType DataSuit.Providers.DummyTextProvider::get_Type()": {
+     "40": 1
+    },
+    "System.Object DataSuit.Providers.DummyTextProvider::DataSuit.Providers.IDataProvider.get_Current()": {
+     "42": 0
+    },
+    "System.Void DataSuit.Providers.DummyTextProvider::MoveNext(DataSuit.Infrastructures.ISessionManager)": {
+     "45": 0,
+     "47": 0
+    }
+   }
+  },
+  "/Users/alimozdemir/Desktop/DataSuit/src/DataSuit/Providers/FuncProvider.cs": {
+   "DataSuit.Providers.FuncProvider`1": {
+    "System.Func`1<T> DataSuit.Providers.FuncProvider`1::get_DefinedFunc()": {
+     "12": 2
+    },
+    "T DataSuit.Providers.FuncProvider`1::get_Current()": {
+     "14": 0
+    },
+    "DataSuit.Enums.ProviderType DataSuit.Providers.FuncProvider`1::get_Type()": {
+     "16": 1
+    },
+    "System.Type DataSuit.Providers.FuncProvider`1::get_TType()": {
+     "18": 1
+    },
+    "System.Object DataSuit.Providers.FuncProvider`1::DataSuit.Providers.IDataProvider.get_Current()": {
+     "20": 0
+    },
+    "System.Void DataSuit.Providers.FuncProvider`1::.ctor(System.Func`1<T>)": {
+     "22": 6,
+     "23": 6,
+     "24": 6,
+     "25": 1,
+     "26": 1,
+     "29": 0,
+     "30": 5
+    },
+    "System.Void DataSuit.Providers.FuncProvider`1::MoveNext(DataSuit.Infrastructures.ISessionManager)": {
+     "33": 11,
+     "34": 11,
+     "35": 11
+    }
+   }
+  },
+  "/Users/alimozdemir/Desktop/DataSuit/src/DataSuit/Providers/IncrementalProvider.cs": {
+   "DataSuit.Providers.IncrementalProvider": {
+    "System.Void DataSuit.Providers.IncrementalProvider::.ctor(System.String)": {
+     "9": 3,
+     "10": 3,
+     "11": 3,
+     "12": 3
+    },
+    "System.String DataSuit.Providers.IncrementalProvider::get_Prop()": {
+     "13": 2
+    },
+    "System.Int32 DataSuit.Providers.IncrementalProvider::get_Current()": {
+     "14": 6
+    },
+    "DataSuit.Enums.ProviderType DataSuit.Providers.IncrementalProvider::get_Type()": {
+     "16": 1
+    },
+    "System.Type DataSuit.Providers.IncrementalProvider::get_TType()": {
+     "18": 1
+    },
+    "System.Object DataSuit.Providers.IncrementalProvider::DataSuit.Providers.IDataProvider.get_Current()": {
+     "20": 0
+    },
+    "System.Void DataSuit.Providers.IncrementalProvider::MoveNext(DataSuit.Infrastructures.ISessionManager)": {
+     "27": 6,
+     "28": 6,
+     "29": 6
+    }
+   }
+  },
+  "/Users/alimozdemir/Desktop/DataSuit/src/DataSuit/Providers/PhoneProvider.cs": {
+   "DataSuit.Providers.PhoneProvider": {
+    "System.Text.RegularExpressions.Regex DataSuit.Providers.PhoneProvider::get_Regex()": {
+     "13": 5
+    },
+    "System.Void DataSuit.Providers.PhoneProvider::.ctor(System.String)": {
+     "16": 5,
+     "22": 5,
+     "23": 5,
+     "24": 5,
+     "25": 1,
+     "27": 0,
+     "29": 4,
+     "30": 1,
+     "31": 1,
+     "33": 0
+    },
+    "System.String DataSuit.Providers.PhoneProvider::get_Current()": {
+     "35": 2
+    },
+    "DataSuit.Enums.ProviderType DataSuit.Providers.PhoneProvider::get_Type()": {
+     "37": 0
+    },
+    "System.Object DataSuit.Providers.PhoneProvider::DataSuit.Providers.IDataProvider.get_Current()": {
+     "39": 1
+    },
+    "System.Type DataSuit.Providers.PhoneProvider::get_TType()": {
+     "40": 0
+    },
+    "System.String DataSuit.Providers.PhoneProvider::get_Format()": {
+     "42": 0
+    },
+    "System.Int64 DataSuit.Providers.PhoneProvider::AsNumeric()": {
+     "46": 0,
+     "47": 0,
+     "48": 0,
+     "49": 0,
+     "51": 0,
+     "52": 0
+    },
+    "System.Void DataSuit.Providers.PhoneProvider::MoveNext(DataSuit.Infrastructures.ISessionManager)": {
+     "55": 3,
+     "56": 3,
+     "58": 60,
+     "59": 54,
+     "60": 54,
+     "61": 33,
+     "62": 33,
+     "63": 33,
+     "65": 0,
+     "66": 21,
+     "67": 3
+    }
+   }
+  },
+  "/Users/alimozdemir/Desktop/DataSuit/src/DataSuit/Providers/RangeDoubleProvider.cs": {
+   "DataSuit.Providers.RangeDoubleProvider": {
+    "System.Double DataSuit.Providers.RangeDoubleProvider::get_Current()": {
+     "13": 0
+    },
+    "DataSuit.Enums.ProviderType DataSuit.Providers.RangeDoubleProvider::get_Type()": {
+     "15": 1
+    },
+    "System.Object DataSuit.Providers.RangeDoubleProvider::DataSuit.Providers.IDataProvider.get_Current()": {
+     "17": 0
+    },
+    "System.Double DataSuit.Providers.RangeDoubleProvider::get_MinValue()": {
+     "19": 0
+    },
+    "System.Double DataSuit.Providers.RangeDoubleProvider::get_MaxValue()": {
+     "21": 0
+    },
+    "System.Type DataSuit.Providers.RangeDoubleProvider::get_TType()": {
+     "22": 1
+    },
+    "System.Void DataSuit.Providers.RangeDoubleProvider::.ctor(System.Double,System.Double)": {
+     "24": 1,
+     "25": 1,
+     "26": 1,
+     "27": 1
+    },
+    "System.Void DataSuit.Providers.RangeDoubleProvider::MoveNext(DataSuit.Infrastructures.ISessionManager)": {
+     "30": 0,
+     "31": 0,
+     "32": 0
+    },
+    "System.Void DataSuit.Providers.RangeDoubleProvider::SetData(System.Double,System.Double)": {
+     "35": 1,
+     "36": 1,
+     "37": 0,
+     "39": 0,
+     "40": 1,
+     "41": 1
+    }
+   }
+  },
+  "/Users/alimozdemir/Desktop/DataSuit/src/DataSuit/Providers/RangeIntProvider.cs": {
+   "DataSuit.Providers.RangeIntProvider": {
+    "System.Int32 DataSuit.Providers.RangeIntProvider::get_Current()": {
+     "14": 5
+    },
+    "DataSuit.Enums.ProviderType DataSuit.Providers.RangeIntProvider::get_Type()": {
+     "16": 1
+    },
+    "System.Object DataSuit.Providers.RangeIntProvider::DataSuit.Providers.IDataProvider.get_Current()": {
+     "18": 0
+    },
+    "System.Int32 DataSuit.Providers.RangeIntProvider::get_MinValue()": {
+     "20": 0
+    },
+    "System.Int32 DataSuit.Providers.RangeIntProvider::get_MaxValue()": {
+     "22": 0
+    },
+    "System.Type DataSuit.Providers.RangeIntProvider::get_TType()": {
+     "23": 1
+    },
+    "System.Void DataSuit.Providers.RangeIntProvider::.ctor(System.Int32,System.Int32)": {
+     "25": 8,
+     "26": 8,
+     "27": 8,
+     "28": 7
+    },
+    "System.Void DataSuit.Providers.RangeIntProvider::MoveNext(DataSuit.Infrastructures.ISessionManager)": {
+     "31": 5,
+     "32": 5,
+     "33": 5
+    },
+    "System.Void DataSuit.Providers.RangeIntProvider::SetData(System.Int32,System.Int32)": {
+     "36": 9,
+     "37": 9,
+     "38": 2,
+     "40": 0,
+     "41": 7,
+     "42": 7
+    }
+   }
+  },
+  "/Users/alimozdemir/Desktop/DataSuit/src/DataSuit/Providers/StaticProvider.cs": {
+   "DataSuit.Providers.StaticProvider`1": {
+    "T DataSuit.Providers.StaticProvider`1::get_Current()": {
+     "14": 6
+    },
+    "DataSuit.Enums.ProviderType DataSuit.Providers.StaticProvider`1::get_Type()": {
+     "16": 1
+    },
+    "System.Object DataSuit.Providers.StaticProvider`1::DataSuit.Providers.IDataProvider.get_Current()": {
+     "18": 0
+    },
+    "T DataSuit.Providers.StaticProvider`1::get_Value()": {
+     "20": 0
+    },
+    "System.Type DataSuit.Providers.StaticProvider`1::get_TType()": {
+     "21": 1
+    },
+    "System.Void DataSuit.Providers.StaticProvider`1::.ctor()": {
+     "22": 3,
+     "23": 3,
+     "25": 3
+    },
+    "System.Void DataSuit.Providers.StaticProvider`1::.ctor(T)": {
+     "26": 4,
+     "27": 4,
+     "28": 4,
+     "29": 4
+    },
+    "System.Void DataSuit.Providers.StaticProvider`1::MoveNext(DataSuit.Infrastructures.ISessionManager)": {
+     "36": 0,
+     "38": 0
+    },
+    "System.Void DataSuit.Providers.StaticProvider`1::SetData(T)": {
+     "41": 3,
+     "42": 3,
+     "43": 3
+    }
+   }
+  },
+  "/Users/alimozdemir/Desktop/DataSuit/src/DataSuit/Interfaces/IJsonSettings.cs": {
+   "DataSuit.Interfaces.Relationship": {
+    "System.String DataSuit.Interfaces.Relationship::get_Type()": {
+     "26": 0
+    },
+    "System.Int32 DataSuit.Interfaces.Relationship::get_Value()": {
+     "27": 0
+    }
+   }
+  },
+  "/Users/alimozdemir/Desktop/DataSuit/src/DataSuit/Infrastructures/JsonSettings.cs": {
+   "DataSuit.Infrastructures.JsonSettings": {
+    "DataSuit.Interfaces.Relationship DataSuit.Infrastructures.JsonSettings::get_Relationship()": {
+     "14": 0
+    },
+    "System.Collections.Generic.IEnumerable`1<DataSuit.Interfaces.IJsonFieldSettings> DataSuit.Infrastructures.JsonSettings::get_Providers()": {
+     "15": 0
+    }
+   },
+   "DataSuit.Infrastructures.JsonFieldSettings": {
+    "System.Void DataSuit.Infrastructures.JsonFieldSettings::.ctor()": {
+     "21": 0,
+     "22": 0,
+     "24": 0
+    },
+    "System.Void DataSuit.Infrastructures.JsonFieldSettings::.ctor(System.String,DataSuit.Providers.IDataProvider)": {
+     "26": 0,
+     "27": 0,
+     "28": 0,
+     "29": 0,
+     "31": 0,
+     "33": 0,
+     "36": 0,
+     "37": 0,
+     "38": 0,
+     "39": 0,
+     "42": 0,
+     "43": 0,
+     "44": 0,
+     "45": 0,
+     "47": 0,
+     "48": 0,
+     "50": 0,
+     "51": 0,
+     "52": 0,
+     "53": 0,
+     "54": 0,
+     "55": 0,
+     "56": 0,
+     "57": 0,
+     "58": 0,
+     "59": 0,
+     "60": 0,
+     "61": 0,
+     "62": 0,
+     "63": 0,
+     "64": 0,
+     "66": 0,
+     "67": 0,
+     "68": 0,
+     "70": 0,
+     "71": 0,
+     "73": 0,
+     "74": 0,
+     "75": 0,
+     "77": 0,
+     "79": 0,
+     "81": 0,
+     "82": 0,
+     "83": 0,
+     "85": 0,
+     "87": 0,
+     "89": 0,
+     "93": 0
+    },
+    "System.String DataSuit.Infrastructures.JsonFieldSettings::get_Fields()": {
+     "96": 0
+    },
+    "System.String DataSuit.Infrastructures.JsonFieldSettings::get_Type()": {
+     "97": 0
+    },
+    "System.Object DataSuit.Infrastructures.JsonFieldSettings::get_Value()": {
+     "98": 0
+    },
+    "System.Object DataSuit.Infrastructures.JsonFieldSettings::get_MinValue()": {
+     "99": 0
+    },
+    "System.Object DataSuit.Infrastructures.JsonFieldSettings::get_MaxValue()": {
+     "100": 0
+    },
+    "System.String DataSuit.Infrastructures.JsonFieldSettings::get_T()": {
+     "101": 0
+    }
+   }
+  },
+  "/Users/alimozdemir/Desktop/DataSuit/src/DataSuit/Infrastructures/Mapping.cs": {
+   "DataSuit.Infrastructures.Mapping": {
+    "System.Collections.Generic.Dictionary`2<System.String,DataSuit.Providers.IDataProvider> DataSuit.Infrastructures.Mapping::get_GetFieldsWithProviders()": {
+     "17": 0
+    },
+    "DataSuit.Interfaces.IMapping DataSuit.Infrastructures.Mapping::Set(System.String,P)": {
+     "20": 0,
+     "21": 0,
+     "23": 0,
+     "25": 0,
+     "26": 0
+    },
+    "DataSuit.Interfaces.IMapping DataSuit.Infrastructures.Mapping::Collection(System.String,System.Collections.Generic.IEnumerable`1<P>,DataSuit.Enums.ProviderType)": {
+     "29": 0,
+     "30": 0,
+     "32": 0,
+     "34": 0,
+     "35": 0
+    },
+    "DataSuit.Interfaces.IMapping DataSuit.Infrastructures.Mapping::Collection(System.Collections.Generic.IEnumerable`1<P>,DataSuit.Enums.ProviderType)": {
+     "37": 0,
+     "38": 0,
+     "39": 0,
+     "41": 0,
+     "43": 0,
+     "44": 0,
+     "45": 0,
+     "46": 0,
+     "48": 0,
+     "49": 0
+    },
+    "DataSuit.Interfaces.IMapping DataSuit.Infrastructures.Mapping::Range(System.String,System.Int32,System.Int32)": {
+     "51": 0,
+     "52": 0,
+     "54": 0,
+     "56": 0,
+     "57": 0
+    },
+    "DataSuit.Interfaces.IMapping DataSuit.Infrastructures.Mapping::Range(System.String,System.Double,System.Double)": {
+     "60": 0,
+     "61": 0,
+     "63": 0,
+     "65": 0,
+     "66": 0
+    },
+    "DataSuit.Interfaces.IMapping DataSuit.Infrastructures.Mapping::Phone(System.String,System.String)": {
+     "69": 0,
+     "70": 0,
+     "72": 0,
+     "74": 0,
+     "75": 0
+    },
+    "DataSuit.Interfaces.IMapping DataSuit.Infrastructures.Mapping::Dummy(System.String,System.Int32)": {
+     "78": 0,
+     "79": 0,
+     "81": 0,
+     "83": 0,
+     "84": 0
+    },
+    "DataSuit.Interfaces.IMapping DataSuit.Infrastructures.Mapping::Incremental(System.String)": {
+     "87": 0,
+     "88": 0,
+     "89": 0,
+     "90": 0,
+     "91": 0
+    },
+    "DataSuit.Interfaces.IMapping DataSuit.Infrastructures.Mapping::Guid(System.String)": {
+     "94": 0,
+     "95": 0,
+     "97": 0,
+     "99": 0,
+     "100": 0
+    },
+    "System.Void DataSuit.Infrastructures.Mapping::.ctor()": {
+     "15": 0
+    }
+   },
+   "DataSuit.Infrastructures.Mapping`1": {
+    "System.Collections.Generic.Dictionary`2<System.String,DataSuit.Providers.IDataProvider> DataSuit.Infrastructures.Mapping`1::get_GetFieldsWithProviders()": {
+     "107": 0
+    },
+    "System.String DataSuit.Infrastructures.Mapping`1::get_GetFields()": {
+     "109": 0
+    },
+    "DataSuit.Interfaces.IMapping`1<T> DataSuit.Infrastructures.Mapping`1::Collection(System.Linq.Expressions.Expression`1<System.Func`2<T,P>>,System.Collections.Generic.IEnumerable`1<P>,DataSuit.Enums.ProviderType)": {
+     "112": 0,
+     "113": 0,
+     "114": 0,
+     "115": 0,
+     "117": 0,
+     "118": 0,
+     "119": 0
+    },
+    "DataSuit.Interfaces.IMapping`1<T> DataSuit.Infrastructures.Mapping`1::Set(System.Linq.Expressions.Expression`1<System.Func`2<T,P>>,P)": {
+     "122": 0,
+     "123": 0,
+     "124": 0,
+     "125": 0,
+     "127": 0,
+     "129": 0,
+     "130": 0
+    },
+    "DataSuit.Interfaces.IMapping`1<T> DataSuit.Infrastructures.Mapping`1::Range(System.Linq.Expressions.Expression`1<System.Func`2<T,System.Int32>>,System.Int32,System.Int32)": {
+     "133": 0,
+     "134": 0,
+     "135": 0,
+     "136": 0,
+     "138": 0,
+     "140": 0,
+     "141": 0
+    },
+    "DataSuit.Interfaces.IMapping`1<T> DataSuit.Infrastructures.Mapping`1::Range(System.Linq.Expressions.Expression`1<System.Func`2<T,System.Double>>,System.Double,System.Double)": {
+     "144": 0,
+     "145": 0,
+     "146": 0,
+     "147": 0,
+     "149": 0,
+     "150": 0,
+     "151": 0
+    },
+    "DataSuit.Interfaces.IMapping DataSuit.Infrastructures.Mapping`1::Set(System.String,P)": {
+     "154": 0,
+     "155": 0,
+     "157": 0,
+     "159": 0,
+     "160": 0
+    },
+    "DataSuit.Interfaces.IMapping DataSuit.Infrastructures.Mapping`1::Collection(System.String,System.Collections.Generic.IEnumerable`1<P>,DataSuit.Enums.ProviderType)": {
+     "163": 0,
+     "164": 0,
+     "166": 0,
+     "168": 0,
+     "169": 0
+    },
+    "DataSuit.Interfaces.IMapping DataSuit.Infrastructures.Mapping`1::Collection(System.Collections.Generic.IEnumerable`1<P>,DataSuit.Enums.ProviderType)": {
+     "171": 0,
+     "172": 0,
+     "173": 0,
+     "175": 0,
+     "177": 0,
+     "178": 0,
+     "179": 0,
+     "180": 0,
+     "182": 0,
+     "183": 0
+    },
+    "DataSuit.Interfaces.IMapping DataSuit.Infrastructures.Mapping`1::Range(System.String,System.Int32,System.Int32)": {
+     "185": 0,
+     "186": 0,
+     "188": 0,
+     "190": 0,
+     "191": 0
+    },
+    "DataSuit.Interfaces.IMapping DataSuit.Infrastructures.Mapping`1::Range(System.String,System.Double,System.Double)": {
+     "194": 0,
+     "195": 0,
+     "197": 0,
+     "199": 0,
+     "200": 0
+    },
+    "DataSuit.Interfaces.IMapping`1<T> DataSuit.Infrastructures.Mapping`1::Phone(System.Linq.Expressions.Expression`1<System.Func`2<T,P>>,System.String)": {
+     "203": 0,
+     "204": 0,
+     "206": 0,
+     "207": 0,
+     "209": 0,
+     "211": 0,
+     "212": 0
+    },
+    "DataSuit.Interfaces.IMapping DataSuit.Infrastructures.Mapping`1::Phone(System.String,System.String)": {
+     "215": 0,
+     "216": 0,
+     "218": 0,
+     "220": 0,
+     "221": 0
+    },
+    "DataSuit.Interfaces.IMapping`1<T> DataSuit.Infrastructures.Mapping`1::Dummy(System.Linq.Expressions.Expression`1<System.Func`2<T,P>>,System.Int32)": {
+     "224": 0,
+     "225": 0,
+     "227": 0,
+     "228": 0,
+     "230": 0,
+     "232": 0,
+     "233": 0
+    },
+    "DataSuit.Interfaces.IMapping DataSuit.Infrastructures.Mapping`1::Dummy(System.String,System.Int32)": {
+     "236": 0,
+     "237": 0,
+     "239": 0,
+     "241": 0,
+     "242": 0
+    },
+    "DataSuit.Interfaces.IMapping`1<T> DataSuit.Infrastructures.Mapping`1::Incremental(System.Linq.Expressions.Expression`1<System.Func`2<T,P>>)": {
+     "244": 0,
+     "245": 0,
+     "246": 0,
+     "247": 0,
+     "249": 0,
+     "251": 0,
+     "252": 0
+    },
+    "DataSuit.Interfaces.IMapping DataSuit.Infrastructures.Mapping`1::Incremental(System.String)": {
+     "255": 0,
+     "257": 0,
+     "258": 0,
+     "259": 0,
+     "260": 0
+    },
+    "DataSuit.Interfaces.IMapping`1<T> DataSuit.Infrastructures.Mapping`1::Guid(System.Linq.Expressions.Expression`1<System.Func`2<T,System.Guid>>)": {
+     "263": 0,
+     "264": 0,
+     "265": 0,
+     "266": 0,
+     "268": 0,
+     "270": 0,
+     "271": 0
+    },
+    "DataSuit.Interfaces.IMapping`1<T> DataSuit.Infrastructures.Mapping`1::Guid(System.Linq.Expressions.Expression`1<System.Func`2<T,System.String>>)": {
+     "274": 0,
+     "275": 0,
+     "276": 0,
+     "277": 0,
+     "279": 0,
+     "281": 0,
+     "282": 0
+    },
+    "DataSuit.Interfaces.IMapping DataSuit.Infrastructures.Mapping`1::Guid(System.String)": {
+     "285": 0,
+     "286": 0,
+     "288": 0,
+     "290": 0,
+     "291": 0
+    },
+    "DataSuit.Interfaces.IMapping`1<T> DataSuit.Infrastructures.Mapping`1::Func(System.Linq.Expressions.Expression`1<System.Func`2<T,P>>,System.Func`1<P>)": {
+     "294": 0,
+     "295": 0,
+     "297": 0,
+     "298": 0,
+     "300": 0,
+     "302": 0,
+     "303": 0
+    },
+    "System.Void DataSuit.Infrastructures.Mapping`1::.ctor()": {
+     "105": 0
+    }
+   }
+  },
+  "/Users/alimozdemir/Desktop/DataSuit/src/DataSuit/Infrastructures/ResourceData.cs": {
+   "DataSuit.Infrastructures.ResourceData": {
+    "System.Collections.Generic.List`1<System.String> DataSuit.Infrastructures.ResourceData::get_AppNames()": {
+     "9": 0
+    },
+    "System.Collections.Generic.List`1<System.String> DataSuit.Infrastructures.ResourceData::get_FirstNames()": {
+     "10": 0
+    },
+    "System.Collections.Generic.List`1<System.String> DataSuit.Infrastructures.ResourceData::get_LastNames()": {
+     "11": 0
+    },
+    "System.Collections.Generic.List`1<System.String> DataSuit.Infrastructures.ResourceData::get_Emails()": {
+     "12": 0
+    },
+    "System.Collections.Generic.List`1<System.String> DataSuit.Infrastructures.ResourceData::get_CompanyNames()": {
+     "13": 0
+    },
+    "System.Collections.Generic.List`1<System.String> DataSuit.Infrastructures.ResourceData::get_DepartmentC()": {
+     "14": 0
+    },
+    "System.Collections.Generic.List`1<System.String> DataSuit.Infrastructures.ResourceData::get_DepartmentR()": {
+     "15": 0
+    },
+    "System.Collections.Generic.List`1<System.String> DataSuit.Infrastructures.ResourceData::get_CompanyNamesF()": {
+     "16": 0
+    },
+    "System.Collections.Generic.List`1<System.String> DataSuit.Infrastructures.ResourceData::get_IBANs()": {
+     "17": 0
+    },
+    "System.Collections.Generic.List`1<System.String> DataSuit.Infrastructures.ResourceData::get_JobTitles()": {
+     "18": 0
+    },
+    "System.Collections.Generic.List`1<System.String> DataSuit.Infrastructures.ResourceData::get_Language()": {
+     "19": 0
+    },
+    "System.Collections.Generic.List`1<System.String> DataSuit.Infrastructures.ResourceData::get_Slogans()": {
+     "20": 0
+    },
+    "System.Collections.Generic.List`1<System.String> DataSuit.Infrastructures.ResourceData::get_Addresses()": {
+     "21": 0
+    },
+    "System.Collections.Generic.List`1<System.String> DataSuit.Infrastructures.ResourceData::get_Usernames()": {
+     "22": 0
+    }
+   }
+  },
+  "/Users/alimozdemir/Desktop/DataSuit/src/DataSuit/Infrastructures/SessionManager.cs": {
+   "DataSuit.Infrastructures.SessionManager": {
+    "System.Void DataSuit.Infrastructures.SessionManager::.ctor()": {
+     "11": 2,
+     "12": 2,
+     "13": 2,
+     "14": 2
+    },
+    "System.Void DataSuit.Infrastructures.SessionManager::Increase(System.String)": {
+     "17": 0,
+     "19": 0
+    },
+    "System.Int32 DataSuit.Infrastructures.SessionManager::IncreaseInteger(System.String)": {
+     "22": 6,
+     "23": 6,
+     "24": 4,
+     "25": 4,
+     "26": 4,
+     "28": 4,
+     "31": 0,
+     "32": 2,
+     "33": 0,
+     "34": 0,
+     "37": 0,
+     "39": 0
+    }
+   }
+  },
+  "/Users/alimozdemir/Desktop/DataSuit/src/DataSuit/Infrastructures/Utility.cs": {
+   "DataSuit.Infrastructures.Utility": {
+    "System.Void DataSuit.Infrastructures.Utility::.cctor()": {
+     "14": 1,
+     "15": 1
+    }
+   }
+  }
+ }
+}

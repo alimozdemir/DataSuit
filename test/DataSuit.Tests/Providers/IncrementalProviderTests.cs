@@ -1,3 +1,4 @@
+using DataSuit.Enums;
 using DataSuit.Infrastructures;
 using DataSuit.Providers;
 using Xunit;
@@ -25,11 +26,20 @@ namespace DataSuit.Tests.Providers
 
             for (int i = 0; i < 5; i++)
             {
-
                 provider.MoveNext(manager);
 
                 Assert.Equal(i + 1, provider.Current);
             }
+        }
+
+        [Fact]
+        public void TypeOfProvider()
+        {
+            IncrementalProvider provider = new IncrementalProvider("id");
+
+            Assert.Equal(typeof(int), provider.TType);
+            Assert.Equal(ProviderType.Incremental, provider.Type);
+            Assert.Equal("id", provider.Prop);
         }
     }
 }

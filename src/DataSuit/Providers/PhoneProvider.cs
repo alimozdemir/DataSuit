@@ -21,6 +21,9 @@ namespace DataSuit.Providers
         /// <param name="_format">for example _format = 0 (xxx) xxx-xx-xx </param>
         public PhoneProvider(string _format)
         {
+            if (string.IsNullOrEmpty(_format))
+                throw new ArgumentNullException(nameof(_format));
+
             format = _format;
 
             if (!Regex.IsMatch(format))
@@ -38,6 +41,7 @@ namespace DataSuit.Providers
 
         public string Format => format;
 
+        // to do: it should be a string, long is not appropriate for such kind of method
         public long AsNumeric()
         {
             var onlyNumbers = Regex.Replace(current, "[x,+, (, ), .-]", "");

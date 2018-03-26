@@ -10,9 +10,11 @@
 
   <ItemGroup>
     <EmbeddedResource Include="Resources\names.json" />
+    <EmbeddedResource Include="Resources\lorem.txt" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="coverlet.msbuild" Version="1.0.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.0.0" />
     <PackageReference Include="xunit" Version="2.2.0" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.2.0" />

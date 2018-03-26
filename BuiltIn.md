@@ -5,7 +5,7 @@ You can see the property names that come with built-in data.
 |App,AppName|string|Collection|
 |FirstName,Name|string|Collection|
 |LastName,Surname|string|Collection|
-|Age|int|Collection|
+|Age|int|Range|
 |Address|string|Collection|
 |Company,CompanyName|string|Collection|
 |Departmen|string|Collection|
