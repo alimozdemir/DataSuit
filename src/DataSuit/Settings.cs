@@ -140,7 +140,7 @@ namespace DataSuit
 
                     var list = JsonConvert.DeserializeObject(item.Value.ToString(), arg1);
 
-                    provider = (IDataProvider)Activator.CreateInstance(collectionAProviderWithT, list);
+                    provider = (IDataProvider)Activator.CreateInstance(collectionAProviderWithT, list, asEnum);
 
                     break;
                 case ProviderType.Range:
@@ -177,7 +177,7 @@ namespace DataSuit
 
                     //An interesting bug out of here. The item.Value is actually int32 but I think newtonsoft deserialize it to int64
                     //therefore, for now we need constructor with int64, lets investigate it in future versions.
-                    provider = (IDataProvider)Activator.CreateInstance(dummyType, item.Value, TextSource.Lorem);
+                    provider = (IDataProvider)Activator.CreateInstance(dummyType, int.Parse(item.Value.ToString()), TextSource.Lorem);
 
                     break;
                 case ProviderType.Incremental:

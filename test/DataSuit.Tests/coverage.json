@@ -166,7 +166,7 @@
   "/Users/alimozdemir/Desktop/DataSuit/src/DataSuit/Resources.cs": {
    "DataSuit.Resources": {
     "System.String DataSuit.Resources::get_Lorem()": {
-     "15": 7
+     "15": 10
     },
     "System.Void DataSuit.Resources::.cctor()": {
      "18": 1,
@@ -213,17 +213,17 @@
   "/Users/alimozdemir/Desktop/DataSuit/src/DataSuit/Settings.cs": {
    "DataSuit.Settings": {
     "System.Collections.Generic.Dictionary`2<System.String,DataSuit.Providers.IDataProvider> DataSuit.Settings::get_Providers()": {
-     "17": 7
+     "17": 15
     },
     "System.ValueTuple`2<DataSuit.Enums.RelationshipMap,System.Int32> DataSuit.Settings::get_Relationship()": {
      "19": 0
     },
     "System.Void DataSuit.Settings::.ctor()": {
-     "24": 6,
-     "25": 6,
-     "26": 6,
-     "27": 6,
-     "28": 6
+     "24": 13,
+     "25": 13,
+     "26": 13,
+     "27": 13,
+     "28": 13
     },
     "System.Void DataSuit.Settings::AddProvider(System.String,DataSuit.Providers.IDataProvider)": {
      "31": 7,
@@ -287,57 +287,57 @@
      "111": 0
     },
     "System.Void DataSuit.Settings::ImportByJsonField(DataSuit.Interfaces.IJsonFieldSettings)": {
-     "114": 0,
-     "115": 0,
-     "116": 0,
-     "118": 0,
-     "122": 0,
-     "123": 0,
-     "125": 0,
-     "127": 0,
-     "129": 0,
-     "133": 0,
-     "134": 0,
-     "136": 0,
-     "138": 0,
-     "139": 0,
-     "141": 0,
-     "143": 0,
-     "145": 0,
-     "147": 0,
-     "149": 0,
-     "150": 0,
-     "151": 0,
-     "153": 0,
-     "154": 0,
-     "155": 0,
-     "156": 0,
-     "157": 0,
-     "158": 0,
-     "159": 0,
-     "160": 0,
-     "162": 0,
-     "163": 0,
-     "164": 0,
-     "165": 0,
-     "166": 0,
-     "168": 0,
-     "170": 0,
-     "172": 0,
-     "174": 0,
-     "176": 0,
-     "180": 0,
-     "182": 0,
-     "184": 0,
-     "186": 0,
-     "188": 0,
+     "114": 8,
+     "115": 8,
+     "116": 8,
+     "118": 8,
+     "122": 1,
+     "123": 1,
+     "125": 1,
+     "127": 1,
+     "129": 1,
+     "133": 2,
+     "134": 2,
+     "136": 2,
+     "138": 2,
+     "139": 2,
+     "141": 2,
+     "143": 2,
+     "145": 2,
+     "147": 2,
+     "149": 2,
+     "150": 1,
+     "151": 2,
+     "153": 1,
+     "154": 1,
+     "155": 1,
+     "156": 1,
+     "157": 1,
+     "158": 1,
+     "159": 1,
+     "160": 2,
+     "162": 1,
+     "163": 1,
+     "164": 1,
+     "165": 1,
+     "166": 1,
+     "168": 2,
+     "170": 1,
+     "172": 1,
+     "174": 1,
+     "176": 1,
+     "180": 1,
+     "182": 1,
+     "184": 1,
+     "186": 1,
+     "188": 1,
      "190": 0,
-     "193": 0,
-     "194": 0,
-     "195": 0,
-     "196": 0,
+     "193": 8,
+     "194": 8,
+     "195": 8,
+     "196": 8,
      "198": 0,
-     "199": 0
+     "199": 8
     }
    }
   },
@@ -580,16 +580,16 @@
      "18": 12
     },
     "DataSuit.Enums.ProviderType DataSuit.Providers.CollectionProvider`1::get_Type()": {
-     "20": 6
+     "20": 8
     },
     "System.Object DataSuit.Providers.CollectionProvider`1::DataSuit.Providers.IDataProvider.get_Current()": {
      "22": 0
     },
     "System.Collections.Generic.IEnumerable`1<T> DataSuit.Providers.CollectionProvider`1::get_Collection()": {
-     "24": 4
+     "24": 10
     },
     "System.Type DataSuit.Providers.CollectionProvider`1::get_TType()": {
-     "26": 2
+     "26": 4
     },
     "System.Void DataSuit.Providers.CollectionProvider`1::.ctor(System.Collections.Generic.IEnumerable`1<T>)": {
      "29": 8,
@@ -597,10 +597,10 @@
      "31": 7
     },
     "System.Void DataSuit.Providers.CollectionProvider`1::.ctor(System.Collections.Generic.IEnumerable`1<T>,DataSuit.Enums.ProviderType)": {
-     "33": 13,
-     "34": 13,
-     "35": 13,
-     "36": 11
+     "33": 15,
+     "34": 15,
+     "35": 15,
+     "36": 13
     },
     "System.Void DataSuit.Providers.CollectionProvider`1::MoveNext(DataSuit.Infrastructures.ISessionManager)": {
      "39": 18,
@@ -617,51 +617,51 @@
      "50": 0
     },
     "System.Void DataSuit.Providers.CollectionProvider`1::SetData(System.Collections.Generic.IEnumerable`1<T>,DataSuit.Enums.ProviderType)": {
-     "53": 13,
-     "54": 13,
+     "53": 15,
+     "54": 15,
      "55": 1,
-     "57": 12,
-     "58": 7,
-     "59": 7,
-     "61": 7,
-     "63": 7,
-     "65": 7,
-     "66": 7,
-     "67": 5,
-     "68": 4,
-     "69": 31,
-     "71": 4,
-     "73": 4,
-     "74": 4,
-     "75": 4,
+     "57": 14,
+     "58": 8,
+     "59": 8,
+     "61": 8,
+     "63": 8,
+     "65": 8,
+     "66": 8,
+     "67": 6,
+     "68": 5,
+     "69": 44,
+     "71": 5,
+     "73": 5,
+     "74": 5,
+     "75": 5,
      "77": 1,
-     "78": 11
+     "78": 13
     }
    }
   },
   "/Users/alimozdemir/Desktop/DataSuit/src/DataSuit/Providers/DummyTextProvider.cs": {
    "DataSuit.Providers.DummyTextProvider": {
     "System.Type DataSuit.Providers.DummyTextProvider::get_TType()": {
-     "15": 0
+     "15": 1
     },
     "System.Void DataSuit.Providers.DummyTextProvider::.ctor(System.Int32,DataSuit.Providers.TextSource)": {
-     "12": 4,
-     "13": 4,
-     "17": 4,
-     "18": 4,
-     "19": 4,
+     "12": 5,
+     "13": 5,
+     "17": 5,
+     "18": 5,
+     "19": 5,
      "20": 2,
      "21": 2,
-     "24": 2,
+     "24": 3,
      "25": 1,
-     "27": 2,
-     "28": 2,
-     "30": 2,
-     "31": 2,
-     "32": 2
+     "27": 3,
+     "28": 3,
+     "30": 3,
+     "31": 3,
+     "32": 3
     },
     "System.Int32 DataSuit.Providers.DummyTextProvider::get_MaxLength()": {
-     "34": 2
+     "34": 3
     },
     "DataSuit.Providers.TextSource DataSuit.Providers.DummyTextProvider::get_Source()": {
      "36": 1
@@ -670,7 +670,7 @@
      "38": 1
     },
     "DataSuit.Enums.ProviderType DataSuit.Providers.DummyTextProvider::get_Type()": {
-     "40": 3
+     "40": 4
     },
     "System.Object DataSuit.Providers.DummyTextProvider::DataSuit.Providers.IDataProvider.get_Current()": {
      "42": 0
@@ -690,7 +690,7 @@
      "14": 0
     },
     "DataSuit.Enums.ProviderType DataSuit.Providers.FuncProvider`1::get_Type()": {
-     "16": 1
+     "16": 3
     },
     "System.Type DataSuit.Providers.FuncProvider`1::get_TType()": {
      "18": 1
@@ -699,13 +699,13 @@
      "20": 0
     },
     "System.Void DataSuit.Providers.FuncProvider`1::.ctor(System.Func`1<T>)": {
-     "22": 6,
-     "23": 6,
-     "24": 6,
+     "22": 7,
+     "23": 7,
+     "24": 7,
      "25": 1,
      "26": 1,
-     "29": 5,
-     "30": 5
+     "29": 6,
+     "30": 6
     },
     "System.Void DataSuit.Providers.FuncProvider`1::MoveNext(DataSuit.Infrastructures.ISessionManager)": {
      "33": 11,
@@ -717,22 +717,22 @@
   "/Users/alimozdemir/Desktop/DataSuit/src/DataSuit/Providers/IncrementalProvider.cs": {
    "DataSuit.Providers.IncrementalProvider": {
     "System.Void DataSuit.Providers.IncrementalProvider::.ctor(System.String)": {
-     "9": 4,
-     "10": 4,
-     "11": 4,
-     "12": 4
+     "9": 5,
+     "10": 5,
+     "11": 5,
+     "12": 5
     },
     "System.String DataSuit.Providers.IncrementalProvider::get_Prop()": {
-     "13": 6
+     "13": 9
     },
     "System.Int32 DataSuit.Providers.IncrementalProvider::get_Current()": {
      "14": 6
     },
     "DataSuit.Enums.ProviderType DataSuit.Providers.IncrementalProvider::get_Type()": {
-     "16": 3
+     "16": 4
     },
     "System.Type DataSuit.Providers.IncrementalProvider::get_TType()": {
-     "18": 1
+     "18": 2
     },
     "System.Object DataSuit.Providers.IncrementalProvider::DataSuit.Providers.IDataProvider.get_Current()": {
      "20": 0
@@ -747,34 +747,34 @@
   "/Users/alimozdemir/Desktop/DataSuit/src/DataSuit/Providers/PhoneProvider.cs": {
    "DataSuit.Providers.PhoneProvider": {
     "System.Text.RegularExpressions.Regex DataSuit.Providers.PhoneProvider::get_Regex()": {
-     "13": 6
+     "13": 7
     },
     "System.Void DataSuit.Providers.PhoneProvider::.ctor(System.String)": {
-     "16": 6,
-     "22": 6,
-     "23": 6,
-     "24": 6,
+     "16": 7,
+     "22": 7,
+     "23": 7,
+     "24": 7,
      "25": 1,
-     "27": 5,
-     "29": 5,
+     "27": 6,
+     "29": 6,
      "30": 1,
      "31": 1,
-     "33": 4
+     "33": 5
     },
     "System.String DataSuit.Providers.PhoneProvider::get_Current()": {
      "35": 2
     },
     "DataSuit.Enums.ProviderType DataSuit.Providers.PhoneProvider::get_Type()": {
-     "37": 2
+     "37": 3
     },
     "System.Object DataSuit.Providers.PhoneProvider::DataSuit.Providers.IDataProvider.get_Current()": {
      "39": 1
     },
     "System.Type DataSuit.Providers.PhoneProvider::get_TType()": {
-     "40": 0
+     "40": 1
     },
     "System.String DataSuit.Providers.PhoneProvider::get_Format()": {
-     "42": 1
+     "42": 2
     },
     "System.Int64 DataSuit.Providers.PhoneProvider::AsNumeric()": {
      "46": 0,
@@ -805,25 +805,25 @@
      "13": 0
     },
     "DataSuit.Enums.ProviderType DataSuit.Providers.RangeDoubleProvider::get_Type()": {
-     "15": 3
+     "15": 4
     },
     "System.Object DataSuit.Providers.RangeDoubleProvider::DataSuit.Providers.IDataProvider.get_Current()": {
      "17": 0
     },
     "System.Double DataSuit.Providers.RangeDoubleProvider::get_MinValue()": {
-     "19": 1
+     "19": 2
     },
     "System.Double DataSuit.Providers.RangeDoubleProvider::get_MaxValue()": {
-     "21": 1
+     "21": 2
     },
     "System.Type DataSuit.Providers.RangeDoubleProvider::get_TType()": {
-     "22": 1
+     "22": 2
     },
     "System.Void DataSuit.Providers.RangeDoubleProvider::.ctor(System.Double,System.Double)": {
-     "24": 2,
-     "25": 2,
-     "26": 2,
-     "27": 2
+     "24": 3,
+     "25": 3,
+     "26": 3,
+     "27": 3
     },
     "System.Void DataSuit.Providers.RangeDoubleProvider::MoveNext(DataSuit.Infrastructures.ISessionManager)": {
      "30": 0,
@@ -831,12 +831,12 @@
      "32": 0
     },
     "System.Void DataSuit.Providers.RangeDoubleProvider::SetData(System.Double,System.Double)": {
-     "35": 2,
-     "36": 2,
+     "35": 3,
+     "36": 3,
      "37": 0,
-     "39": 2,
-     "40": 2,
-     "41": 2
+     "39": 3,
+     "40": 3,
+     "41": 3
     }
    }
   },
@@ -846,25 +846,25 @@
      "14": 5
     },
     "DataSuit.Enums.ProviderType DataSuit.Providers.RangeIntProvider::get_Type()": {
-     "16": 3
+     "16": 4
     },
     "System.Object DataSuit.Providers.RangeIntProvider::DataSuit.Providers.IDataProvider.get_Current()": {
      "18": 0
     },
     "System.Int32 DataSuit.Providers.RangeIntProvider::get_MinValue()": {
-     "20": 1
+     "20": 2
     },
     "System.Int32 DataSuit.Providers.RangeIntProvider::get_MaxValue()": {
-     "22": 1
+     "22": 2
     },
     "System.Type DataSuit.Providers.RangeIntProvider::get_TType()": {
-     "23": 1
+     "23": 2
     },
     "System.Void DataSuit.Providers.RangeIntProvider::.ctor(System.Int32,System.Int32)": {
-     "25": 9,
-     "26": 9,
-     "27": 9,
-     "28": 8
+     "25": 10,
+     "26": 10,
+     "27": 10,
+     "28": 9
     },
     "System.Void DataSuit.Providers.RangeIntProvider::MoveNext(DataSuit.Infrastructures.ISessionManager)": {
      "31": 5,
@@ -872,22 +872,22 @@
      "33": 5
     },
     "System.Void DataSuit.Providers.RangeIntProvider::SetData(System.Int32,System.Int32)": {
-     "36": 10,
-     "37": 10,
+     "36": 11,
+     "37": 11,
      "38": 2,
-     "40": 8,
-     "41": 8,
-     "42": 8
+     "40": 9,
+     "41": 9,
+     "42": 9
     }
    }
   },
   "/Users/alimozdemir/Desktop/DataSuit/src/DataSuit/Providers/StaticProvider.cs": {
    "DataSuit.Providers.StaticProvider`1": {
     "T DataSuit.Providers.StaticProvider`1::get_Current()": {
-     "14": 6
+     "14": 7
     },
     "DataSuit.Enums.ProviderType DataSuit.Providers.StaticProvider`1::get_Type()": {
-     "16": 3
+     "16": 4
     },
     "System.Object DataSuit.Providers.StaticProvider`1::DataSuit.Providers.IDataProvider.get_Current()": {
      "18": 1
@@ -896,7 +896,7 @@
      "20": 0
     },
     "System.Type DataSuit.Providers.StaticProvider`1::get_TType()": {
-     "21": 1
+     "21": 2
     },
     "System.Void DataSuit.Providers.StaticProvider`1::.ctor()": {
      "22": 3,
@@ -904,10 +904,10 @@
      "25": 3
     },
     "System.Void DataSuit.Providers.StaticProvider`1::.ctor(T)": {
-     "26": 5,
-     "27": 5,
-     "28": 5,
-     "29": 5
+     "26": 6,
+     "27": 6,
+     "28": 6,
+     "29": 6
     },
     "System.Void DataSuit.Providers.StaticProvider`1::MoveNext(DataSuit.Infrastructures.ISessionManager)": {
      "36": 0,
@@ -946,12 +946,12 @@
      "24": 0
     },
     "System.Void DataSuit.Infrastructures.JsonFieldSettings::.ctor(System.String,DataSuit.Providers.IDataProvider)": {
-     "26": 8,
-     "27": 8,
-     "28": 8,
-     "29": 8,
-     "31": 8,
-     "33": 8,
+     "26": 9,
+     "27": 9,
+     "28": 9,
+     "29": 9,
+     "31": 9,
+     "33": 9,
      "36": 1,
      "37": 1,
      "38": 1,
@@ -992,14 +992,14 @@
      "83": 2,
      "85": 1,
      "87": 1,
-     "89": 0,
-     "93": 8
+     "89": 1,
+     "93": 9
     },
     "System.String DataSuit.Infrastructures.JsonFieldSettings::get_Fields()": {
-     "96": 16
+     "96": 18
     },
     "System.String DataSuit.Infrastructures.JsonFieldSettings::get_Type()": {
-     "97": 16
+     "97": 18
     },
     "System.Object DataSuit.Infrastructures.JsonFieldSettings::get_Value()": {
      "98": 14
