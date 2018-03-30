@@ -66,7 +66,7 @@ namespace DataSuit.Infrastructures
                     info = providerType.GetTypeInfo();
                     props = info.GetProperties();
                     var format = props.FirstOrDefault(i => i.Name.Equals("Format"));
-
+                    
                     Value = format.GetValue(provider);
                     break;
                 case ProviderType.DummyText:

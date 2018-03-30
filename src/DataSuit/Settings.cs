@@ -12,7 +12,7 @@ namespace DataSuit
 {
     public class Settings : ISettings
     {
-        private Dictionary<string, IDataProvider> _providers;
+        private readonly Dictionary<string, IDataProvider> _providers;
         private (RelationshipMap Type, int Value) _relationship;
         public Dictionary<string, IDataProvider> Providers => _providers;
 
@@ -52,6 +52,8 @@ namespace DataSuit
 
         public bool RemoveProvider(string key)
         {
+            key = key.ToLower();
+
             if (_providers.ContainsKey(key))
             {
                 _providers.Remove(key);
@@ -70,7 +72,7 @@ namespace DataSuit
         {
             string result = string.Empty;
             JsonSettings settings = new JsonSettings();
-            
+
             settings.Relationship.Type = this.Relationship.Type.ToString();
             settings.Relationship.Value = this.Relationship.Value;
             List<JsonFieldSettings> providers = new List<JsonFieldSettings>();
@@ -103,94 +105,97 @@ namespace DataSuit
 
             foreach (var item in settings.Providers)
             {
-                IDataProvider provider = null;
-                var asEnum = Enum.Parse(typeof(ProviderType), item.Type);
-
-                switch (asEnum)
-                {
-                    case ProviderType.Static:
-
-                        var staticType = typeof(StaticProvider<>);
-                        var targetType = Type.GetType(item.T, true);
-
-                        var staticProviderWithT = staticType.MakeGenericType(targetType);
-
-                        provider = (IDataProvider)Activator.CreateInstance(staticProviderWithT, item.Value);
-
-                        break;
-                    case ProviderType.Random:
-                    case ProviderType.Sequential:
-
-                        var collectionType = typeof(CollectionProvider<>);
-                        targetType = Type.GetType(item.T, true);
-
-                        var collectionAProviderWithT = collectionType.MakeGenericType(targetType);
-
-                        var listType = typeof(List<>);
-                        var arg1 = listType.MakeGenericType(targetType);
-
-                        var list = JsonConvert.DeserializeObject(item.Value.ToString(), arg1);
-
-                        provider = (IDataProvider)Activator.CreateInstance(collectionAProviderWithT, list);
-
-                        break;
-                    case ProviderType.Range:
-                        targetType = Type.GetType(item.T, true);
-
-                        if (targetType == typeof(double))
-                        {
-                            double min = 0, max = 0;
-
-                            if (double.TryParse(item.MinValue.ToString(), out min) && double.TryParse(item.MaxValue.ToString(), out max))
-                            {
-                                provider = new RangeDoubleProvider(min, max);
-                            }
-                        }
-                        else if (targetType == typeof(int))
-                        {
-                            int min = 0, max = 0;
-
-                            if (int.TryParse(item.MinValue.ToString(), out min) && int.TryParse(item.MaxValue.ToString(), out max))
-                            {
-                                provider = new RangeIntProvider(min, max);
-                            }
-                        }
-
-                        break;
-                    case ProviderType.Phone:
-                        var phoneType = typeof(PhoneProvider);
-
-                        provider = (IDataProvider)Activator.CreateInstance(phoneType, item.Value);
-
-                        break;
-                    case ProviderType.DummyText:
-                        var dummyType = typeof(DummyTextProvider);
-
-                        //An interesting bug out of here. The item.Value is actually int32 but I think newtonsoft deserialize it to int64
-                        //therefore, for now we need constructor with int64, lets investigate it in future versions.
-                        provider = (IDataProvider)Activator.CreateInstance(dummyType, item.Value, TextSource.Lorem);
-
-                        break;
-                    case ProviderType.Incremental:
-                        var incType = typeof(IncrementalProvider);
-
-                        provider = (IDataProvider)Activator.CreateInstance(incType, item.Value);
-
-                        break;
-                    default:
-                        break;
-                }
-
-
-                if (provider != null)
-                {
-                    _providers.Add(item.Fields, provider);
-                }
-                else
-                    throw new ArgumentException("Unknown provider, please check your settings file.");
+                ImportByJsonField(item);
             }
 
+        }
 
+        public void ImportByJsonField(IJsonFieldSettings item)
+        {
+            IDataProvider provider = null;
+            var asEnum = Enum.Parse(typeof(ProviderType), item.Type);
+
+            switch (asEnum)
+            {
+                case ProviderType.Static:
+
+                    var staticType = typeof(StaticProvider<>);
+                    var targetType = Type.GetType(item.T, true);
+
+                    var staticProviderWithT = staticType.MakeGenericType(targetType);
+
+                    provider = (IDataProvider)Activator.CreateInstance(staticProviderWithT, item.Value);
+
+                    break;
+                case ProviderType.Random:
+                case ProviderType.Sequential:
+
+                    var collectionType = typeof(CollectionProvider<>);
+                    targetType = Type.GetType(item.T, true);
+
+                    var collectionAProviderWithT = collectionType.MakeGenericType(targetType);
+
+                    var listType = typeof(List<>);
+                    var arg1 = listType.MakeGenericType(targetType);
+
+                    var list = JsonConvert.DeserializeObject(item.Value.ToString(), arg1);
+
+                    provider = (IDataProvider)Activator.CreateInstance(collectionAProviderWithT, list);
+
+                    break;
+                case ProviderType.Range:
+                    targetType = Type.GetType(item.T, true);
+
+                    if (targetType == typeof(double))
+                    {
+                        double min = 0, max = 0;
+
+                        if (double.TryParse(item.MinValue.ToString(), out min) && double.TryParse(item.MaxValue.ToString(), out max))
+                        {
+                            provider = new RangeDoubleProvider(min, max);
+                        }
+                    }
+                    else if (targetType == typeof(int))
+                    {
+                        int min = 0, max = 0;
+
+                        if (int.TryParse(item.MinValue.ToString(), out min) && int.TryParse(item.MaxValue.ToString(), out max))
+                        {
+                            provider = new RangeIntProvider(min, max);
+                        }
+                    }
+
+                    break;
+                case ProviderType.Phone:
+                    var phoneType = typeof(PhoneProvider);
+
+                    provider = (IDataProvider)Activator.CreateInstance(phoneType, item.Value);
+
+                    break;
+                case ProviderType.DummyText:
+                    var dummyType = typeof(DummyTextProvider);
+
+                    //An interesting bug out of here. The item.Value is actually int32 but I think newtonsoft deserialize it to int64
+                    //therefore, for now we need constructor with int64, lets investigate it in future versions.
+                    provider = (IDataProvider)Activator.CreateInstance(dummyType, item.Value, TextSource.Lorem);
+
+                    break;
+                case ProviderType.Incremental:
+                    var incType = typeof(IncrementalProvider);
+
+                    provider = (IDataProvider)Activator.CreateInstance(incType, item.Value);
+
+                    break;
+                default:
+                    break;
+            }
+
+            if (provider != null)
+            {
+                _providers.Add(item.Fields, provider);
+            }
+            else
+                throw new ArgumentException("Unknown provider, please check your settings file.");
         }
 
     }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using DataSuit.Interfaces;
 using DataSuit.Providers;
 
 namespace DataSuit
@@ -14,6 +15,7 @@ namespace DataSuit
         bool RemoveProvider(string key);
         string Export();
         void Import(string stringData);
+        void ImportByJsonField(IJsonFieldSettings item);
 
     }
 }
