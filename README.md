@@ -18,7 +18,7 @@ Basis of the API is shown below. For more detailed examples, you can see at  [Sa
 
 |Build Status (travis-ci)|DataSuit Nuget|DataSuit.AspNetCore Nuget|
 |---|---|---|
-|[![Build Status](https://travis-ci.org/DataSuit/DataSuit.svg?branch=master)](https://travis-ci.org/DataSuit/DataSuit)|[![NuGet](https://img.shields.io/nuget/v/DataSuit.svg)](https://www.nuget.org/packages/DataSuit/)| [![NuGet](https://img.shields.io/nuget/v/DataSuit.AspNetCore.svg)](https://www.nuget.org/packages/DataSuit.AspNetCore/)|
+|[![Build Status](https://travis-ci.org/lyzerk/DataSuit.svg?branch=master)](https://travis-ci.org/DataSuit/DataSuit)|[![NuGet](https://img.shields.io/nuget/v/DataSuit.svg)](https://www.nuget.org/packages/DataSuit/)| [![NuGet](https://img.shields.io/nuget/v/DataSuit.AspNetCore.svg)](https://www.nuget.org/packages/DataSuit.AspNetCore/)|
 |   |   |   |
 # Usage
 

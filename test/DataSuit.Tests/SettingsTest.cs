@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using DataSuit.Providers;
 
+
 namespace DataSuit.Tests
 {
     public class SettingsTest
@@ -75,7 +76,7 @@ namespace DataSuit.Tests
         public void ExportData()
         {
             ISettings settings = new Settings();
-            
+
         }
     }
 }
