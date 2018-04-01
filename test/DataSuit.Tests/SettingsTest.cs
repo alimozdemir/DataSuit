@@ -5,6 +5,9 @@ using System.Linq;
 using DataSuit.Providers;
 using Moq;
 using DataSuit.Enums;
+using Newtonsoft.Json;
+using DataSuit.Infrastructures;
+using System;
 
 namespace DataSuit.Tests
 {
@@ -232,6 +235,126 @@ namespace DataSuit.Tests
             Assert.Equal(typeof(int), provider.TType);
             Assert.Equal(ProviderType.Incremental, provider.Type);
             Assert.Equal("id", provider.Prop);
+        }
+
+        [Fact]
+        public void ExportWithNoProviders()
+        {
+            ISettings settings = new Settings();
+            var data = settings.Export();
+
+            var jsonSettings = JsonConvert.DeserializeObject<JsonSettings>(data);
+
+            Assert.Equal(settings.Relationship.Type.ToString(), jsonSettings.Relationship.Type);
+            Assert.Equal(settings.Relationship.Value, jsonSettings.Relationship.Value);
+            Assert.Equal(0, jsonSettings.Providers.Count());
+        }
+
+        [Fact]
+        public void ExportWithAProvider()
+        {
+            ISettings settings = new Settings();
+            settings.Relationship = (RelationshipMap.MaxRandom, 5);
+            var provider = new StaticProvider<string>("Hello World");
+            settings.AddProvider("Name", provider);
+
+            var data = settings.Export();
+            var jsonSettings = JsonConvert.DeserializeObject<JsonSettings>(data);
+
+            Assert.Equal(settings.Relationship.Type.ToString(), jsonSettings.Relationship.Type);
+            Assert.Equal(settings.Relationship.Value, jsonSettings.Relationship.Value);
+            Assert.Equal(1, jsonSettings.Providers.Count());
+
+            Assert.All(jsonSettings.Providers, i =>
+            {
+                Assert.Equal(ProviderType.Static.ToString(), i.Type);
+                Assert.Equal("Hello World", i.Value);
+                Assert.Equal("name", i.Fields);
+            });
+        }
+
+
+        [Fact]
+        public void ExportWithProvidersInMultipleFields()
+        {
+            ISettings settings = new Settings();
+            settings.Relationship = (RelationshipMap.MaxRandom, 5);
+            var provider = new StaticProvider<string>("Hello World");
+            settings.AddProvider("Name", provider);
+            settings.AddProvider("Message", provider);
+
+            var data = settings.Export();
+            var jsonSettings = JsonConvert.DeserializeObject<JsonSettings>(data);
+
+            Assert.Equal(settings.Relationship.Type.ToString(), jsonSettings.Relationship.Type);
+            Assert.Equal(settings.Relationship.Value, jsonSettings.Relationship.Value);
+            Assert.Equal(1, jsonSettings.Providers.Count());
+
+            Assert.All(jsonSettings.Providers, i =>
+            {
+                Assert.Equal(ProviderType.Static.ToString(), i.Type);
+                Assert.Equal("Hello World", i.Value);
+                Assert.Contains("name", i.Fields);
+                Assert.Contains("message", i.Fields);
+            });
+        }
+
+        [Fact]
+        public void ExportWithDifferentProviders()
+        {
+            ISettings settings = new Settings();
+            settings.Relationship = (RelationshipMap.MaxRandom, 5);
+            var staticProvider = new StaticProvider<string>("Hello World");
+            var rangeProvider = new RangeIntProvider(10, 50);
+            settings.AddProvider("Name", staticProvider);
+            settings.AddProvider("Age", rangeProvider);
+
+            var data = settings.Export();
+            var jsonSettings = JsonConvert.DeserializeObject<JsonSettings>(data);
+            var jStaticProvider = jsonSettings.Providers.FirstOrDefault(i => i.Type == ProviderType.Static.ToString());
+            var jRangeProvider = jsonSettings.Providers.FirstOrDefault(i => i.Type == ProviderType.Range.ToString());
+
+            Assert.Equal(settings.Relationship.Type.ToString(), jsonSettings.Relationship.Type);
+            Assert.Equal(settings.Relationship.Value, jsonSettings.Relationship.Value);
+            Assert.Equal(2, jsonSettings.Providers.Count());
+
+            Assert.Equal(staticProvider.Current, jStaticProvider.Value);
+            Assert.Equal(rangeProvider.MinValue, Convert.ToInt32(jRangeProvider.MinValue));
+            Assert.Equal(rangeProvider.MaxValue, Convert.ToInt32(jRangeProvider.MaxValue));
+        }
+        // I'm not sure about following tests
+        [Fact]
+        public void ImportWithProviders()
+        {
+            var data = "{\n  \"Relationship\": {\n    \"Type\": \"Constant\",\n    \"Value\": 3\n  },\n  \"Providers\": []\n}";
+            //var data = "{\n  \"Relationship\": {\n    \"Type\": \"MaxRandom\",\n    \"Value\": 5\n  },\n  \"Providers\": [\n    {\n      \"Fields\": \"name\",\n      \"Type\": \"Static\",\n      \"Value\": \"Hello World\",\n      \"T\": \"System.String\"\n    }\n  ]\n}";
+
+            ISettings settings = new Settings();
+            settings.Import(data);
+
+            Assert.Equal(RelationshipMap.Constant, settings.Relationship.Type);
+            Assert.Equal(3, settings.Relationship.Value);
+            Assert.Equal(0, settings.Providers.Count);
+        }
+
+        [Fact]
+        public void TestName()
+        {
+            //var data = "{\n  \"Relationship\": {\n    \"Type\": \"Constant\",\n    \"Value\": 3\n  },\n  \"Providers\": []\n}";
+            var data = "{\n  \"Relationship\": {\n    \"Type\": \"MaxRandom\",\n    \"Value\": 5\n  },\n  \"Providers\": [\n    {\n      \"Fields\": \"name\",\n      \"Type\": \"Static\",\n      \"Value\": \"Hello World\",\n      \"T\": \"System.String\"\n    }\n  ]\n}";
+
+            ISettings settings = new Settings();
+            settings.Import(data);
+            var provider = settings.Providers.Values.FirstOrDefault();
+            var fields = settings.Providers.Keys.FirstOrDefault();
+
+            Assert.Equal(RelationshipMap.MaxRandom, settings.Relationship.Type);
+            Assert.Equal(5, settings.Relationship.Value);
+            Assert.Equal(1, settings.Providers.Count);
+            Assert.Equal("name", fields);
+            Assert.Equal(ProviderType.Static, provider.Type);
+            Assert.Equal("Hello World", provider.Current);
+
         }
     }
 }
