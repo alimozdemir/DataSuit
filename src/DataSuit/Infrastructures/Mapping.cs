@@ -27,7 +27,7 @@ namespace DataSuit.Infrastructures
 
         public IMapping Collection<P>(string field, IEnumerable<P> collection, ProviderType type = ProviderType.Sequential)
         {
-            CollectionProvider<P> provider = new CollectionProvider<P>(collection);
+            CollectionProvider<P> provider = new CollectionProvider<P>(collection, type);
 
             listOfFields.Add(field, provider);
 
@@ -35,7 +35,7 @@ namespace DataSuit.Infrastructures
         }
         public IMapping Collection<P>(IEnumerable<P> collection, ProviderType type = ProviderType.Sequential) where P : class
         {
-            CollectionProvider<P> provider = new CollectionProvider<P>(collection);
+            CollectionProvider<P> provider = new CollectionProvider<P>(collection, type);
             var ttype = typeof(P);
 
             var info = ttype.GetTypeInfo();
@@ -169,7 +169,7 @@ namespace DataSuit.Infrastructures
         }
         public IMapping Collection<P>(IEnumerable<P> collection, ProviderType type = ProviderType.Sequential) where P : class
         {
-            CollectionProvider<P> provider = new CollectionProvider<P>(collection);
+            CollectionProvider<P> provider = new CollectionProvider<P>(collection, type);
             var ttype = typeof(P);
 
             var info = ttype.GetTypeInfo();

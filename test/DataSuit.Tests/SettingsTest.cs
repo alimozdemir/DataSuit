@@ -71,11 +71,21 @@ namespace DataSuit.Tests
             ISettings settings = new Settings();
             settings.AddProvider("Test", null);
 
-            settings.RemoveProvider("Test");
+            var result = settings.RemoveProvider("Test");
 
+            Assert.True(result);
             Assert.Equal(settings.Providers.Count, 0);
         }
 
+        [Fact]
+        public void RemoveNonExistProvider()
+        {
+            ISettings settings = new Settings();
+
+            var result = settings.RemoveProvider("Test");
+
+            Assert.False(result);
+        }
         [Fact]
         public void ImportByJsonFieldWithStaticProvider()
         {
@@ -324,7 +334,7 @@ namespace DataSuit.Tests
         }
         // I'm not sure about following tests
         [Fact]
-        public void ImportWithProviders()
+        public void ImportWithNoProviders()
         {
             var data = "{\n  \"Relationship\": {\n    \"Type\": \"Constant\",\n    \"Value\": 3\n  },\n  \"Providers\": []\n}";
             //var data = "{\n  \"Relationship\": {\n    \"Type\": \"MaxRandom\",\n    \"Value\": 5\n  },\n  \"Providers\": [\n    {\n      \"Fields\": \"name\",\n      \"Type\": \"Static\",\n      \"Value\": \"Hello World\",\n      \"T\": \"System.String\"\n    }\n  ]\n}";
@@ -338,7 +348,7 @@ namespace DataSuit.Tests
         }
 
         [Fact]
-        public void TestName()
+        public void ImportWithAProvider()
         {
             //var data = "{\n  \"Relationship\": {\n    \"Type\": \"Constant\",\n    \"Value\": 3\n  },\n  \"Providers\": []\n}";
             var data = "{\n  \"Relationship\": {\n    \"Type\": \"MaxRandom\",\n    \"Value\": 5\n  },\n  \"Providers\": [\n    {\n      \"Fields\": \"name\",\n      \"Type\": \"Static\",\n      \"Value\": \"Hello World\",\n      \"T\": \"System.String\"\n    }\n  ]\n}";
