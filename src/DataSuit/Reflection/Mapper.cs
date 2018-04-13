@@ -39,6 +39,10 @@ namespace DataSuit.Reflection
                 {
                     SetCollection(item, val, manager, recursion);
                 }
+                else if (propInfo.IsClass)
+                {
+                    SetClass(item, propInfo, val, manager);
+                }
                 else
                 {
                     //throw new Exception($"Not supported property type {item.PropertyType}");
@@ -48,11 +52,21 @@ namespace DataSuit.Reflection
             return val;
         }
 
+        public void SetClass<T>(PropertyInfo type, TypeInfo info, T val, ISessionManager manager)
+        {
+            // create a class instance
+            var classInstance = Activator.CreateInstance(info);
+            // set the properties of it
+            Map(classInstance, manager, false);
+            // set the class instance to the property
+            type.SetValue(val, classInstance);
+        }
+        
         public void SetPrimitive<T>(PropertyInfo type, T val, ISessionManager manager)
         {
             var name = type.Name.ToLower();
             var provider = _settings.Providers.FirstOrDefault(i => i.Key.Equals(name));
-            
+
             if (string.IsNullOrEmpty(provider.Key))
             {
                 return;

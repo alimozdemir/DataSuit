@@ -206,3 +206,7 @@ public IActionResult GetPersons()
 ```
 
 
+# TODO
+1. Random select of enums
+2. Class property filling on reflection
+2. Fast setup for unit test

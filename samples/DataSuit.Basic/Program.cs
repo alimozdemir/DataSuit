@@ -76,6 +76,15 @@ namespace DataSuit.Basic
 
             foreach (var item in personss)
                 Console.WriteLine(item.FirstName);
+            suit.Build<Probe>()
+                .Guid(i => i.Id)
+                .Set(i => i.Object.Path, "Test");
+
+            var gen = suit.GeneratorOf<Probe>();
+            var dat = gen.Generate(count: 5);
+            
+            foreach (var item in dat)
+                Console.WriteLine("dat + " + item.Id + " " + item.Object.Path);
 
         }
     }
