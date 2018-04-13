@@ -7,6 +7,7 @@ using DataSuit.Reflection;
 using System.Collections;
 using DataSuit.Providers;
 using System.Reflection;
+using System.Linq;
 
 namespace DataSuit.Infrastructures
 {
@@ -98,6 +99,7 @@ namespace DataSuit.Infrastructures
 
             return this;
         }
+
     }
 
     public class Mapping<T> : IMapping<T> where T : class
@@ -294,6 +296,26 @@ namespace DataSuit.Infrastructures
         {
             FuncProvider<P> provider = new FuncProvider<P>(func);
 
+            var expression = (MemberExpression)action.Body;
+            var field = expression.Member.Name;
+
+            listOfFields.Add(field, provider);
+
+            return this;
+        }
+
+        public IMapping<T> Enum<P>(Expression<Func<T, P>> action)
+        {
+            var type = typeof(P);
+            var info = type.GetTypeInfo();
+
+            if (!info.IsEnum)
+                throw new ArgumentException("Invalid enum type");
+
+            var values = System.Enum.GetValues(type);
+            var collection = values.OfType<P>().ToList();
+
+            var provider = new CollectionProvider<P>(collection, ProviderType.Random);
             var expression = (MemberExpression)action.Body;
             var field = expression.Member.Name;
 

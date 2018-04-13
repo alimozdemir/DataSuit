@@ -78,13 +78,14 @@ namespace DataSuit.Basic
                 Console.WriteLine(item.FirstName);
             suit.Build<Probe>()
                 .Guid(i => i.Id)
-                .Set(i => i.Object.Path, "Test");
+                .Set(i => i.Object.Path, "Test")
+                .Enum(i => i.ProviderType);
 
             var gen = suit.GeneratorOf<Probe>();
             var dat = gen.Generate(count: 5);
-            
+
             foreach (var item in dat)
-                Console.WriteLine("dat + " + item.Id + " " + item.Object.Path);
+                Console.WriteLine("dat + " + item.Id + " " + item.ProviderType);
 
         }
     }

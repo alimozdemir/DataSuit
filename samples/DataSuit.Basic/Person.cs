@@ -21,16 +21,22 @@ namespace DataSuit.Basic
             return $"Personal Note:{Note},CreditNote:{CreditNote}";
         }
     }
-        public class Probe
+    public class Probe
     {
         public string Id { get; set; }
         //public ProbeType ProbeType { get; set; }
         public ObjectInformation Object { get; set; }
         public string Modifiers { get; set; }
         public DateTimeOffset CreationDate { get; set; }
+        public ProviderType ProviderType { get; set; }
 
     }
-
+    public enum ProviderType
+    {
+        Data1,
+        Data2,
+        Data3
+    }
     public class ObjectInformation
     {
         public string Name { get; set; }

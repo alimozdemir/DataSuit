@@ -48,6 +48,9 @@ namespace DataSuit.Interfaces
         IMapping<T> Guid(Expression<Func<T, Guid>> action);
 
         IMapping<T> Guid(Expression<Func<T, string>> action);
+
         IMapping<T> Func<P>(Expression<Func<T, P>> action, Func<P> func);
+
+        IMapping<T> Enum<P>(Expression<Func<T, P>> action);
     }
 }

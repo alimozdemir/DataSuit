@@ -31,7 +31,7 @@ namespace DataSuit.Reflection
             {
                 var propInfo = item.PropertyType.GetTypeInfo();
 
-                if (propInfo.IsPrimitive || item.PropertyType == typeof(String))
+                if (propInfo.IsPrimitive || propInfo.IsEnum || item.PropertyType == typeof(String))
                 {
                     SetPrimitive(item, val, manager);
                 }
@@ -61,7 +61,7 @@ namespace DataSuit.Reflection
             // set the class instance to the property
             type.SetValue(val, classInstance);
         }
-        
+
         public void SetPrimitive<T>(PropertyInfo type, T val, ISessionManager manager)
         {
             var name = type.Name.ToLower();
@@ -98,7 +98,7 @@ namespace DataSuit.Reflection
 
         private object ProviderGetValue(IDataProvider provider, string name)
         {
-            if (provider.TType.IsPrimitive || provider.TType.Equals(typeof(string)))
+            if (provider.TType.IsPrimitive || provider.TType.IsEnum || provider.TType.Equals(typeof(string)))
             {
                 return provider.Current;
             }
