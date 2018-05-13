@@ -11,6 +11,7 @@ Basis of the API is shown below. For more detailed examples, you can see at  [Sa
 3. [Customizing](https://github.com/lyzerk/DataSuit#customizing)
 4. [Import/Export](https://github.com/lyzerk/DataSuit#importexport)
 5. [AspNetCore](https://github.com/lyzerk/DataSuit#aspnetcore)
+6. [TestSetup](https://github.com/lyzerk/DataSuit#testsetup)
 
 # Build and nuget
 
@@ -144,6 +145,15 @@ suit.Build<T>()
     .Guid(i => i.Id)
 ```
 
+### Enum
+
+It will give select enums as random. It uses ICollectionProvider with Random provider type.
+```csharp
+suit.Build<T>()
+    .Enum(i => i.EnumData)
+```
+
+
 Also, you can use Build method without generic type.
 
 ### Non-generic type
@@ -205,8 +215,34 @@ public IActionResult GetPersons()
 }
 ```
 
+# TestSetup
 
-# TODO
-1. Random select of enums
-2. Class property filling on reflection
-2. Fast setup for unit test
+This attribute speeding up the process of unit testing. 
+
+```csharp
+[TestSetup(typeof(TestSetupExample))]
+public void Example()
+{
+    var suit = DataSuitRunner.GetSuit();
+    var data = suit.GeneratorOfPrimitives().String("Singer");
+    Assert.Equal("Eminem", data);
+}
+```
+`TestSetupExample` class is a setup class for this unit test. It is derived from `IAttributeSuit` interface.
+
+TestSetupExample.cs
+```csharp
+public class TestSetupExample : IAttributeSuit
+{
+    public TestSetupExample()
+    {
+        Suit = new Suit();
+
+        Suit.Build()
+            .Set("Singer", "Eminem");
+
+        Suit.EnsureNoPendingProviders();
+    }
+    public Suit Suit { get; }
+}
+```
