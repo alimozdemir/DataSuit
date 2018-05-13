@@ -1,96 +1,84 @@
 {
  "/Users/alimozdemir/Desktop/DataSuit/test/DataSuit.Tests/bin/Debug/netcoreapp2.0/DataSuit.dll": {
   "/Users/alimozdemir/Desktop/DataSuit/src/DataSuit/DataSuit.cs": {
-   "DataSuit.DataSuit": {
-    "System.Void DataSuit.DataSuit::.ctor()": {
-     "19": {
-      "Hits": 0,
-      "IsBranchPoint": false
-     },
-     "20": {
-      "Hits": 0,
-      "IsBranchPoint": false
-     },
-     "22": {
-      "Hits": 0,
-      "IsBranchPoint": false
-     }
-    },
-    "System.Void DataSuit.DataSuit::.ctor(DataSuit.ISettings)": {
+   "DataSuit.Suit": {
+    "System.Void DataSuit.Suit::.ctor()": {
      "23": {
-      "Hits": 0,
+      "Hits": 2,
       "IsBranchPoint": false
      },
      "24": {
-      "Hits": 0,
-      "IsBranchPoint": false
-     },
-     "25": {
-      "Hits": 0,
+      "Hits": 2,
       "IsBranchPoint": false
      },
      "26": {
-      "Hits": 0,
+      "Hits": 2,
       "IsBranchPoint": false
-     },
+     }
+    },
+    "System.Void DataSuit.Suit::.ctor(DataSuit.ISettings)": {
      "27": {
+      "Hits": 2,
+      "IsBranchPoint": false
+     },
+     "28": {
+      "Hits": 2,
+      "IsBranchPoint": false
+     },
+     "29": {
+      "Hits": 2,
+      "IsBranchPoint": false
+     },
+     "30": {
+      "Hits": 2,
+      "IsBranchPoint": false
+     },
+     "31": {
+      "Hits": 2,
+      "IsBranchPoint": false
+     }
+    },
+    "System.Void DataSuit.Suit::Load()": {
+     "37": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "38": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "39": {
       "Hits": 0,
       "IsBranchPoint": false
      }
     },
-    "System.Void DataSuit.DataSuit::Load()": {
-     "33": {
-      "Hits": 0,
-      "IsBranchPoint": false
-     },
-     "34": {
-      "Hits": 0,
-      "IsBranchPoint": false
-     },
-     "35": {
-      "Hits": 0,
-      "IsBranchPoint": false
-     }
-    },
-    "DataSuit.Interfaces.IMapping DataSuit.DataSuit::Build()": {
-     "42": {
-      "Hits": 0,
-      "IsBranchPoint": false
-     },
-     "43": {
-      "Hits": 0,
-      "IsBranchPoint": false
-     },
-     "45": {
-      "Hits": 0,
-      "IsBranchPoint": false
-     },
+    "DataSuit.Interfaces.IMapping DataSuit.Suit::Build()": {
      "46": {
-      "Hits": 0,
+      "Hits": 1,
       "IsBranchPoint": false
      },
      "47": {
-      "Hits": 0,
+      "Hits": 1,
       "IsBranchPoint": false
      },
-     "48": {
-      "Hits": 0,
+     "49": {
+      "Hits": 1,
       "IsBranchPoint": false
+     },
+     "50": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "51": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "52": {
+      "Hits": 1,
+      "IsBranchPoint": true
      }
     },
-    "DataSuit.Interfaces.IMapping`1<T> DataSuit.DataSuit::Build()": {
-     "55": {
-      "Hits": 0,
-      "IsBranchPoint": false
-     },
-     "56": {
-      "Hits": 0,
-      "IsBranchPoint": false
-     },
-     "58": {
-      "Hits": 0,
-      "IsBranchPoint": false
-     },
+    "DataSuit.Interfaces.IMapping`1<T> DataSuit.Suit::Build()": {
      "59": {
       "Hits": 0,
       "IsBranchPoint": false
@@ -99,12 +87,14 @@
       "Hits": 0,
       "IsBranchPoint": false
      },
-     "61": {
+     "62": {
       "Hits": 0,
       "IsBranchPoint": false
-     }
-    },
-    "System.Void DataSuit.DataSuit::SetFieldsWithProviders()": {
+     },
+     "63": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
      "64": {
       "Hits": 0,
       "IsBranchPoint": false
@@ -112,224 +102,234 @@
      "65": {
       "Hits": 0,
       "IsBranchPoint": false
-     },
-     "66": {
-      "Hits": 0,
-      "IsBranchPoint": false
-     },
-     "67": {
-      "Hits": 0,
-      "IsBranchPoint": false
-     },
+     }
+    },
+    "System.Void DataSuit.Suit::SetFieldsWithProviders()": {
      "68": {
-      "Hits": 0,
+      "Hits": 3,
       "IsBranchPoint": false
      },
      "69": {
-      "Hits": 0,
+      "Hits": 3,
       "IsBranchPoint": false
      },
      "70": {
-      "Hits": 0,
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "71": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "72": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "73": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "74": {
+      "Hits": 3,
+      "IsBranchPoint": true
+     }
+    },
+    "System.Void DataSuit.Suit::EnsureNoPendingProviders()": {
+     "80": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "81": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "82": {
+      "Hits": 1,
       "IsBranchPoint": false
      }
     },
-    "System.Void DataSuit.DataSuit::EnsureNoPendingProviders()": {
-     "76": {
-      "Hits": 0,
-      "IsBranchPoint": false
-     },
-     "77": {
-      "Hits": 0,
-      "IsBranchPoint": false
-     },
-     "78": {
-      "Hits": 0,
-      "IsBranchPoint": false
-     }
-    },
-    "System.String DataSuit.DataSuit::Export()": {
-     "85": {
-      "Hits": 0,
-      "IsBranchPoint": false
-     },
-     "86": {
-      "Hits": 0,
-      "IsBranchPoint": false
-     },
-     "88": {
-      "Hits": 0,
-      "IsBranchPoint": false
-     },
+    "System.String DataSuit.Suit::Export()": {
      "89": {
       "Hits": 0,
       "IsBranchPoint": false
-     }
-    },
-    "System.Void DataSuit.DataSuit::Import(System.String)": {
-     "95": {
+     },
+     "90": {
       "Hits": 0,
       "IsBranchPoint": false
      },
-     "96": {
+     "92": {
       "Hits": 0,
       "IsBranchPoint": false
      },
-     "97": {
-      "Hits": 0,
-      "IsBranchPoint": false
-     }
-    },
-    "DataSuit.IGenerator`1<T> DataSuit.DataSuit::GeneratorOf()": {
-     "104": {
-      "Hits": 0,
-      "IsBranchPoint": false
-     },
-     "105": {
-      "Hits": 0,
-      "IsBranchPoint": false
-     },
-     "106": {
+     "93": {
       "Hits": 0,
       "IsBranchPoint": false
      }
     },
-    "DataSuit.IPrimitiveGenerator DataSuit.DataSuit::GeneratorOfPrimitives()": {
-     "113": {
+    "System.Void DataSuit.Suit::Import(System.String)": {
+     "99": {
       "Hits": 0,
       "IsBranchPoint": false
      },
-     "114": {
+     "100": {
       "Hits": 0,
       "IsBranchPoint": false
      },
-     "115": {
+     "101": {
       "Hits": 0,
       "IsBranchPoint": false
      }
     },
-    "System.Void DataSuit.DataSuit::Generate(T,DataSuit.Infrastructures.ISessionManager)": {
+    "DataSuit.IGenerator`1<T> DataSuit.Suit::GeneratorOf()": {
+     "108": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "109": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     },
+     "110": {
+      "Hits": 0,
+      "IsBranchPoint": false
+     }
+    },
+    "DataSuit.IPrimitiveGenerator DataSuit.Suit::GeneratorOfPrimitives()": {
+     "117": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
      "118": {
-      "Hits": 0,
+      "Hits": 1,
       "IsBranchPoint": false
      },
      "119": {
-      "Hits": 0,
-      "IsBranchPoint": false
-     },
-     "121": {
-      "Hits": 0,
-      "IsBranchPoint": false
-     },
-     "122": {
-      "Hits": 0,
-      "IsBranchPoint": false
+      "Hits": 1,
+      "IsBranchPoint": true
      }
     },
-    "T DataSuit.DataSuit::GeneratePrimitive(System.String,DataSuit.Infrastructures.ISessionManager)": {
+    "System.Void DataSuit.Suit::Generate(T,DataSuit.Infrastructures.ISessionManager)": {
+     "122": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "123": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
      "125": {
-      "Hits": 0,
+      "Hits": 1,
       "IsBranchPoint": false
      },
      "126": {
-      "Hits": 0,
+      "Hits": 1,
+      "IsBranchPoint": false
+     }
+    },
+    "T DataSuit.Suit::GeneratePrimitive(System.String,DataSuit.Infrastructures.ISessionManager)": {
+     "129": {
+      "Hits": 1,
       "IsBranchPoint": false
      },
-     "127": {
-      "Hits": 0,
+     "130": {
+      "Hits": 1,
       "IsBranchPoint": false
+     },
+     "131": {
+      "Hits": 1,
+      "IsBranchPoint": true
      }
     }
    },
    "DataSuit.DataSuitRunner": {
-    "DataSuit.DataSuit DataSuit.DataSuitRunner::GetSuit()": {
-     "133": {
-      "Hits": 0,
-      "IsBranchPoint": false
-     },
-     "134": {
-      "Hits": 0,
-      "IsBranchPoint": false
-     },
-     "135": {
-      "Hits": 0,
-      "IsBranchPoint": false
-     },
-     "136": {
-      "Hits": 0,
-      "IsBranchPoint": false
-     },
-     "138": {
-      "Hits": 0,
-      "IsBranchPoint": false
-     },
-     "140": {
-      "Hits": 0,
-      "IsBranchPoint": false
-     },
+    "DataSuit.Suit DataSuit.DataSuitRunner::GetSuit()": {
      "141": {
-      "Hits": 0,
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "142": {
+      "Hits": 1,
       "IsBranchPoint": false
      },
      "143": {
-      "Hits": 0,
+      "Hits": 1,
       "IsBranchPoint": false
      },
-     "145": {
-      "Hits": 0,
+     "144": {
+      "Hits": 1,
       "IsBranchPoint": false
      },
      "146": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "148": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "149": {
       "Hits": 0,
       "IsBranchPoint": false
+     },
+     "151": {
+      "Hits": 1,
+      "IsBranchPoint": true
+     },
+     "153": {
+      "Hits": 1,
+      "IsBranchPoint": false
+     },
+     "154": {
+      "Hits": 1,
+      "IsBranchPoint": true
      }
     }
    }
   },
   "/Users/alimozdemir/Desktop/DataSuit/src/DataSuit/Generator.cs": {
    "DataSuit.Generator`1": {
-    "System.Void DataSuit.Generator`1::.ctor(DataSuit.DataSuit)": {
+    "System.Void DataSuit.Generator`1::.ctor(DataSuit.Suit)": {
      "11": {
-      "Hits": 0,
+      "Hits": 1,
       "IsBranchPoint": false
      },
      "12": {
-      "Hits": 0,
+      "Hits": 1,
       "IsBranchPoint": false
      },
      "13": {
-      "Hits": 0,
+      "Hits": 1,
       "IsBranchPoint": false
      },
      "14": {
-      "Hits": 0,
+      "Hits": 1,
       "IsBranchPoint": false
      },
      "15": {
-      "Hits": 0,
+      "Hits": 1,
       "IsBranchPoint": false
      }
     },
     "T DataSuit.Generator`1::Generate()": {
      "19": {
-      "Hits": 0,
+      "Hits": 1,
       "IsBranchPoint": false
      },
      "20": {
-      "Hits": 0,
+      "Hits": 1,
       "IsBranchPoint": false
      },
      "21": {
-      "Hits": 0,
+      "Hits": 1,
       "IsBranchPoint": false
      },
      "22": {
-      "Hits": 0,
+      "Hits": 1,
       "IsBranchPoint": false
      },
      "23": {
-      "Hits": 0,
-      "IsBranchPoint": false
+      "Hits": 1,
+      "IsBranchPoint": true
      }
     },
     "System.Collections.Generic.IEnumerable`1<T> DataSuit.Generator`1::Generate(System.Int32)": {
@@ -378,25 +378,25 @@
   },
   "/Users/alimozdemir/Desktop/DataSuit/src/DataSuit/PrimitiveGenerator.cs": {
    "DataSuit.PrimitiveGenerator": {
-    "System.Void DataSuit.PrimitiveGenerator::.ctor(DataSuit.DataSuit)": {
+    "System.Void DataSuit.PrimitiveGenerator::.ctor(DataSuit.Suit)": {
      "10": {
-      "Hits": 0,
+      "Hits": 1,
       "IsBranchPoint": false
      },
      "11": {
-      "Hits": 0,
+      "Hits": 1,
       "IsBranchPoint": false
      },
      "12": {
-      "Hits": 0,
+      "Hits": 1,
       "IsBranchPoint": false
      },
      "13": {
-      "Hits": 0,
+      "Hits": 1,
       "IsBranchPoint": false
      },
      "14": {
-      "Hits": 0,
+      "Hits": 1,
       "IsBranchPoint": false
      }
     },
@@ -482,16 +482,16 @@
     },
     "System.String DataSuit.PrimitiveGenerator::String(System.String)": {
      "47": {
-      "Hits": 0,
+      "Hits": 1,
       "IsBranchPoint": false
      },
      "48": {
-      "Hits": 0,
+      "Hits": 1,
       "IsBranchPoint": false
      },
      "49": {
-      "Hits": 0,
-      "IsBranchPoint": false
+      "Hits": 1,
+      "IsBranchPoint": true
      }
     },
     "System.Collections.Generic.IEnumerable`1<System.String> DataSuit.PrimitiveGenerator::String(System.String,System.Int32)": {
@@ -678,7 +678,7 @@
    "DataSuit.Settings": {
     "System.Collections.Generic.Dictionary`2<System.String,DataSuit.Providers.IDataProvider> DataSuit.Settings::get_Providers()": {
      "17": {
-      "Hits": 19,
+      "Hits": 20,
       "IsBranchPoint": false
      }
     },
@@ -690,49 +690,49 @@
     },
     "System.Void DataSuit.Settings::.ctor()": {
      "24": {
-      "Hits": 20,
+      "Hits": 22,
       "IsBranchPoint": false
      },
      "25": {
-      "Hits": 20,
+      "Hits": 22,
       "IsBranchPoint": false
      },
      "26": {
-      "Hits": 20,
+      "Hits": 22,
       "IsBranchPoint": false
      },
      "27": {
-      "Hits": 20,
+      "Hits": 22,
       "IsBranchPoint": false
      },
      "28": {
-      "Hits": 20,
+      "Hits": 22,
       "IsBranchPoint": false
      }
     },
     "System.Void DataSuit.Settings::AddProvider(System.String,DataSuit.Providers.IDataProvider)": {
      "31": {
-      "Hits": 12,
+      "Hits": 13,
       "IsBranchPoint": false
      },
      "32": {
-      "Hits": 12,
+      "Hits": 13,
       "IsBranchPoint": false
      },
      "33": {
-      "Hits": 12,
+      "Hits": 13,
       "IsBranchPoint": false
      },
      "35": {
-      "Hits": 60,
+      "Hits": 65,
       "IsBranchPoint": true
      },
      "36": {
-      "Hits": 12,
+      "Hits": 13,
       "IsBranchPoint": false
      },
      "37": {
-      "Hits": 12,
+      "Hits": 13,
       "IsBranchPoint": false
      },
      "38": {
@@ -740,41 +740,41 @@
       "IsBranchPoint": false
      },
      "40": {
-      "Hits": 10,
+      "Hits": 11,
       "IsBranchPoint": true
      },
      "41": {
-      "Hits": 12,
+      "Hits": 13,
       "IsBranchPoint": true
      },
      "43": {
-      "Hits": 12,
+      "Hits": 13,
       "IsBranchPoint": false
      }
     },
     "System.Void DataSuit.Settings::AddProvider(System.Collections.Generic.Dictionary`2<System.String,DataSuit.Providers.IDataProvider>)": {
      "46": {
-      "Hits": 3,
+      "Hits": 4,
       "IsBranchPoint": false
      },
      "47": {
-      "Hits": 15,
+      "Hits": 20,
       "IsBranchPoint": true
      },
      "48": {
-      "Hits": 3,
+      "Hits": 4,
       "IsBranchPoint": false
      },
      "49": {
-      "Hits": 3,
+      "Hits": 4,
       "IsBranchPoint": false
      },
      "50": {
-      "Hits": 3,
+      "Hits": 4,
       "IsBranchPoint": false
      },
      "51": {
-      "Hits": 3,
+      "Hits": 4,
       "IsBranchPoint": true
      }
     },
@@ -1136,25 +1136,25 @@
    "DataSuit.TestSetupAttribute": {
     "System.Void DataSuit.TestSetupAttribute::.ctor(System.Type)": {
      "8": {
-      "Hits": 0,
+      "Hits": 1,
       "IsBranchPoint": false
      },
      "9": {
-      "Hits": 0,
+      "Hits": 1,
       "IsBranchPoint": false
      },
      "10": {
-      "Hits": 0,
+      "Hits": 1,
       "IsBranchPoint": false
      },
      "11": {
-      "Hits": 0,
+      "Hits": 1,
       "IsBranchPoint": false
      }
     },
     "System.Type DataSuit.TestSetupAttribute::get_Suit()": {
      "13": {
-      "Hits": 0,
+      "Hits": 3,
       "IsBranchPoint": false
      }
     }
@@ -1498,34 +1498,34 @@
    "DataSuit.Reflection.Mapper": {
     "System.Void DataSuit.Reflection.Mapper::.ctor(DataSuit.ISettings)": {
      "19": {
-      "Hits": 0,
+      "Hits": 2,
       "IsBranchPoint": false
      },
      "20": {
-      "Hits": 0,
+      "Hits": 2,
       "IsBranchPoint": false
      },
      "21": {
-      "Hits": 0,
+      "Hits": 2,
       "IsBranchPoint": false
      },
      "22": {
-      "Hits": 0,
+      "Hits": 2,
       "IsBranchPoint": false
      }
     },
     "T DataSuit.Reflection.Mapper::Map(T,DataSuit.Infrastructures.ISessionManager,System.Boolean)": {
      "25": {
-      "Hits": 0,
+      "Hits": 1,
       "IsBranchPoint": false
      },
      "28": {
-      "Hits": 0,
+      "Hits": 1,
       "IsBranchPoint": false
      },
      "30": {
-      "Hits": 0,
-      "IsBranchPoint": false
+      "Hits": 3,
+      "IsBranchPoint": true
      },
      "31": {
       "Hits": 0,
@@ -1596,12 +1596,12 @@
       "IsBranchPoint": false
      },
      "52": {
-      "Hits": 0,
-      "IsBranchPoint": false
+      "Hits": 1,
+      "IsBranchPoint": true
      },
      "53": {
-      "Hits": 0,
-      "IsBranchPoint": false
+      "Hits": 1,
+      "IsBranchPoint": true
      }
     },
     "System.Void DataSuit.Reflection.Mapper::SetClass(System.Reflection.PropertyInfo,System.Reflection.TypeInfo,T,DataSuit.Infrastructures.ISessionManager)": {
@@ -1670,19 +1670,19 @@
     },
     "T DataSuit.Reflection.Mapper::GetPrimitive(System.String,DataSuit.Infrastructures.ISessionManager)": {
      "83": {
-      "Hits": 0,
+      "Hits": 1,
       "IsBranchPoint": false
      },
      "84": {
-      "Hits": 0,
+      "Hits": 1,
       "IsBranchPoint": false
      },
      "85": {
-      "Hits": 0,
+      "Hits": 2,
       "IsBranchPoint": false
      },
      "87": {
-      "Hits": 0,
+      "Hits": 1,
       "IsBranchPoint": false
      },
      "88": {
@@ -1694,37 +1694,37 @@
       "IsBranchPoint": false
      },
      "92": {
-      "Hits": 0,
-      "IsBranchPoint": false
+      "Hits": 1,
+      "IsBranchPoint": true
      },
      "94": {
-      "Hits": 0,
+      "Hits": 1,
       "IsBranchPoint": false
      },
      "96": {
-      "Hits": 0,
+      "Hits": 1,
       "IsBranchPoint": false
      },
      "97": {
-      "Hits": 0,
-      "IsBranchPoint": false
+      "Hits": 1,
+      "IsBranchPoint": true
      }
     },
     "System.Object DataSuit.Reflection.Mapper::ProviderGetValue(DataSuit.Providers.IDataProvider,System.String)": {
      "100": {
-      "Hits": 0,
+      "Hits": 1,
       "IsBranchPoint": false
      },
      "101": {
-      "Hits": 0,
+      "Hits": 1,
       "IsBranchPoint": false
      },
      "102": {
-      "Hits": 0,
+      "Hits": 1,
       "IsBranchPoint": false
      },
      "103": {
-      "Hits": 0,
+      "Hits": 1,
       "IsBranchPoint": false
      },
      "105": {
@@ -1764,8 +1764,8 @@
       "IsBranchPoint": false
      },
      "117": {
-      "Hits": 0,
-      "IsBranchPoint": false
+      "Hits": 1,
+      "IsBranchPoint": true
      }
     },
     "System.Void DataSuit.Reflection.Mapper::SetCollection(System.Reflection.PropertyInfo,T,DataSuit.Infrastructures.ISessionManager,System.Boolean)": {
@@ -2756,7 +2756,7 @@
     },
     "System.Object DataSuit.Providers.StaticProvider`1::DataSuit.Providers.IDataProvider.get_Current()": {
      "18": {
-      "Hits": 9,
+      "Hits": 10,
       "IsBranchPoint": false
      }
     },
@@ -2768,7 +2768,7 @@
     },
     "System.Type DataSuit.Providers.StaticProvider`1::get_TType()": {
      "21": {
-      "Hits": 6,
+      "Hits": 9,
       "IsBranchPoint": false
      }
     },
@@ -2788,29 +2788,29 @@
     },
     "System.Void DataSuit.Providers.StaticProvider`1::.ctor(T)": {
      "26": {
-      "Hits": 14,
+      "Hits": 15,
       "IsBranchPoint": false
      },
      "27": {
-      "Hits": 14,
+      "Hits": 15,
       "IsBranchPoint": false
      },
      "28": {
-      "Hits": 14,
+      "Hits": 15,
       "IsBranchPoint": false
      },
      "29": {
-      "Hits": 14,
+      "Hits": 15,
       "IsBranchPoint": false
      }
     },
     "System.Void DataSuit.Providers.StaticProvider`1::MoveNext(DataSuit.Infrastructures.ISessionManager)": {
      "36": {
-      "Hits": 0,
+      "Hits": 1,
       "IsBranchPoint": false
      },
      "38": {
-      "Hits": 0,
+      "Hits": 1,
       "IsBranchPoint": false
      }
     },
@@ -3112,29 +3112,29 @@
    "DataSuit.Infrastructures.Mapping": {
     "System.Collections.Generic.Dictionary`2<System.String,DataSuit.Providers.IDataProvider> DataSuit.Infrastructures.Mapping::get_GetFieldsWithProviders()": {
      "18": {
-      "Hits": 20,
+      "Hits": 21,
       "IsBranchPoint": false
      }
     },
     "DataSuit.Interfaces.IMapping DataSuit.Infrastructures.Mapping::Set(System.String,P)": {
      "21": {
-      "Hits": 2,
+      "Hits": 3,
       "IsBranchPoint": false
      },
      "22": {
-      "Hits": 2,
+      "Hits": 3,
       "IsBranchPoint": false
      },
      "24": {
-      "Hits": 2,
+      "Hits": 3,
       "IsBranchPoint": false
      },
      "26": {
-      "Hits": 2,
+      "Hits": 3,
       "IsBranchPoint": false
      },
      "27": {
-      "Hits": 2,
+      "Hits": 3,
       "IsBranchPoint": true
      }
     },
@@ -3336,7 +3336,7 @@
     },
     "System.Void DataSuit.Infrastructures.Mapping::.ctor()": {
      "16": {
-      "Hits": 20,
+      "Hits": 21,
       "IsBranchPoint": false
      }
     }
@@ -4026,19 +4026,19 @@
    "DataSuit.Infrastructures.SessionManager": {
     "System.Void DataSuit.Infrastructures.SessionManager::.ctor()": {
      "11": {
-      "Hits": 7,
+      "Hits": 9,
       "IsBranchPoint": false
      },
      "12": {
-      "Hits": 7,
+      "Hits": 9,
       "IsBranchPoint": false
      },
      "13": {
-      "Hits": 7,
+      "Hits": 9,
       "IsBranchPoint": false
      },
      "14": {
-      "Hits": 7,
+      "Hits": 9,
       "IsBranchPoint": false
      }
     },

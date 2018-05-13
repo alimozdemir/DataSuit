@@ -17,14 +17,14 @@ namespace DataSuit.Tests
         {
             public TestSetupExample()
             {
-                Suit = new DataSuit();
+                Suit = new Suit();
 
                 Suit.Build()
                     .Set("Singer", "Eminem");
 
                 Suit.EnsureNoPendingProviders();
             }
-            public DataSuit Suit { get; }
+            public Suit Suit { get; }
         }
     }
 }

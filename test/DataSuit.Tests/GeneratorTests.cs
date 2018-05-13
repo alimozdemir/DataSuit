@@ -14,7 +14,7 @@ namespace DataSuit.Tests
         [Fact]
         public void GenerateSingle()
         {
-            var mockSuit = new Mock<DataSuit>();
+            var mockSuit = new Mock<Suit>();
             Generator<TestClass> gen = new Generator<TestClass>(mockSuit.Object);
 
             var result = gen.Generate();

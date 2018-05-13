@@ -6,9 +6,9 @@ namespace DataSuit
 {
     public class Generator<T> : IGenerator<T> where T : class, new()
     {
-        private readonly DataSuit _dataSuit;
+        private readonly Suit _dataSuit;
         private readonly ISessionManager _sessionManager;
-        public Generator(DataSuit dataSuit)
+        public Generator(Suit dataSuit)
         {
             _dataSuit = dataSuit;
             _sessionManager = new SessionManager();

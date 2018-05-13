@@ -14,10 +14,10 @@ namespace DataSuit
             if (options != null)
                 options(configurationInstance);
 
-            serviceCollection.AddSingleton<DataSuit>(serviceProvider =>
+            serviceCollection.AddSingleton<Suit>(serviceProvider =>
             {
                 var config = DataSuitGlobalConfiguration.Configuration;
-                var suit = new DataSuit(config.Settings);
+                var suit = new Suit(config.Settings);
 
                 // load built-in data
                 if (config.DefaultData)

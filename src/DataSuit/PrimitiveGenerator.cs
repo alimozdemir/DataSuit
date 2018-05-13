@@ -5,9 +5,9 @@ namespace DataSuit
 {
     public class PrimitiveGenerator : IPrimitiveGenerator
     {
-        private readonly DataSuit _suit;
+        private readonly Suit _suit;
         private readonly ISessionManager _sessionManager;
-        public PrimitiveGenerator(DataSuit suit)
+        public PrimitiveGenerator(Suit suit)
         {
             _suit = suit;
             _sessionManager = new SessionManager();

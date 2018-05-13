@@ -15,6 +15,6 @@ namespace DataSuit
 
     public interface IAttributeSuit
     {
-        DataSuit Suit { get; }
+        Suit Suit { get; }
     }
 }

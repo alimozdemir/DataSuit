@@ -14,17 +14,17 @@ using System.Runtime.CompilerServices;
 namespace DataSuit
 {
 
-    public class DataSuit
+    public class Suit
     {
         private readonly ISettings _settings;
         private readonly Mapper _mapper;
         private Dictionary<string, IDataProvider> PendingFieldsWithProviders;
 
-        public DataSuit() : this(new Settings())
+        public Suit() : this(new Settings())
         {
 
         }
-        public DataSuit(ISettings settings)
+        public Suit(ISettings settings)
         {
             _settings = settings;
             _mapper = new Mapper(_settings);
@@ -133,7 +133,11 @@ namespace DataSuit
 
     public class DataSuitRunner
     {
-        public static DataSuit GetSuit()
+        /// <summary>
+        /// It works with TestSetupAttribute. Before calling this method. You have to set [TestSetup(typeof(YourSetupClass))]
+        /// </summary>
+        /// <returns></returns>
+        public static Suit GetSuit()
         {
             StackTrace stackTrace = new StackTrace();
             MethodBase method = stackTrace.GetFrame(1).GetMethod();
