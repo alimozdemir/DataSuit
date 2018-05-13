@@ -1,13 +1,15 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using DataSuit.Infrastructures;
 using DataSuit.Interfaces;
 using DataSuit.Providers;
 using DataSuit.Reflection;
+using System.Diagnostics;
+using System;
 
 namespace DataSuit
 {
-
     public sealed class DataSuit
     {
         private readonly ISettings _settings;
@@ -23,7 +25,7 @@ namespace DataSuit
             _settings = settings;
             _mapper = new Mapper(_settings);
         }
-        
+
         /// <summary>
         /// It loads built-in data for this suit.
         /// </summary>
@@ -82,7 +84,7 @@ namespace DataSuit
         public string Export()
         {
             SetFieldsWithProviders();
-            
+
             return _settings.Export();
         }
         /// <summary>
@@ -122,6 +124,25 @@ namespace DataSuit
         internal T GeneratePrimitive<T>(string name, ISessionManager manager)
         {
             return _mapper.GetPrimitive<T>(name, manager);
+        }
+    }
+
+    public class DataSuitRunner
+    {
+        public static DataSuit GetSuit()
+        {
+            StackTrace stackTrace = new StackTrace();
+            MethodBase method = stackTrace.GetFrame(1).GetMethod();
+            var attr = method.GetCustomAttribute<TestSetupAttribute>();
+
+            var inte = attr.Suit.GetInterface("IAttributeSuit");
+
+            if (inte == null)
+                throw new Exception("The type of class should be inherited from IAttributeSuit.");
+
+            var instance = (IAttributeSuit)Activator.CreateInstance(attr.Suit);
+            
+            return instance.Suit;
         }
     }
 }
