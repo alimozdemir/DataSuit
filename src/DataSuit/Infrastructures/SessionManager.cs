@@ -13,11 +13,6 @@ namespace DataSuit.Infrastructures
             _cdInteger = new ConcurrentDictionary<string, int>();
         }
 
-        public void Increase(string prop)
-        {
-
-        }
-
         public int IncreaseInteger(string prop)
         {
             if (_cdInteger.TryGetValue(prop, out int intValue))

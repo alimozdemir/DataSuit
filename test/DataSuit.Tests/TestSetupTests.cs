@@ -6,10 +6,10 @@ namespace DataSuit.Tests
     {
         [Fact]
         [TestSetup(typeof(TestSetupExample))]
-        public void TestName()
+        public void Example()
         {
-            var result = DataSuitRunner.GetSuit();
-            var data = result.GeneratorOfPrimitives().String("Singer");
+            var suit = DataSuitRunner.GetSuit();
+            var data = suit.GeneratorOfPrimitives().String("Singer");
             Assert.Equal("Eminem", data);
         }
 

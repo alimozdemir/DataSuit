@@ -8,9 +8,13 @@ using DataSuit.Reflection;
 using System.Diagnostics;
 using System;
 
+using System.Runtime.CompilerServices;
+[assembly: InternalsVisibleTo("DataSuit.Tests")]
+
 namespace DataSuit
 {
-    public sealed class DataSuit
+
+    public class DataSuit
     {
         private readonly ISettings _settings;
         private readonly Mapper _mapper;
@@ -114,7 +118,7 @@ namespace DataSuit
             return new PrimitiveGenerator(this);
         }
 
-        internal void Generate<T>(T item, ISessionManager manager) where T : class, new()
+        internal virtual void Generate<T>(T item, ISessionManager manager) where T : class, new()
         {
             SetFieldsWithProviders();
 
@@ -141,7 +145,7 @@ namespace DataSuit
                 throw new Exception("The type of class should be inherited from IAttributeSuit.");
 
             var instance = (IAttributeSuit)Activator.CreateInstance(attr.Suit);
-            
+
             return instance.Suit;
         }
     }
