@@ -23,11 +23,11 @@ Basis of the API is shown below. For more detailed examples, you can see at  [Sa
 |   |   |   |
 # Usage
 
-## DataSuit Class
-DataSuit class is necessary for every operation.
+## Suit Class
+Suit class is necessary for every operation.
 
 ```csharp
-DataSuit suit = new DataSuit();
+Suit suit = new Suit();
 ```
 
 DataSuit comes with built-in data. If you want to enable it, you have to call:
@@ -69,7 +69,7 @@ DataSuit API supports customizing very well. A fluent API design welcomes us her
 
 ```csharp
 ISettings settings = new Settings();
-DataSuit suit = new DataSuit(settings);
+Suit suit = new Suit(settings);
 
 var barList = new List<string>() { "Foo", "Bar", "Baz" };
 
@@ -111,8 +111,8 @@ suit.Build<T>()
 It requires integer or double range values
 ```csharp
 suit.Build<T>()
-    .Range(i => i.Field, 10, 20)
-    .Range(i => i.Field, 10.5, 20.3)
+    .Range(i => i.FieldInteger, 10, 20)
+    .Range(i => i.FieldDouble, 10.5, 20.3)
 ```
 
 ### Dummy
