@@ -232,7 +232,7 @@ public void Example()
 
 TestSetupExample.cs
 ```csharp
-public class TestSetupExample : IAttributeSuit
+public class TestSetupExample : ISetupSuit
 {
     public TestSetupExample()
     {
