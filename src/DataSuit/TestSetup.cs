@@ -13,7 +13,7 @@ namespace DataSuit
         public Type Suit { get; private set; }
     }
 
-    public interface IAttributeSuit
+    public interface ISetupSuit
     {
         Suit Suit { get; }
     }

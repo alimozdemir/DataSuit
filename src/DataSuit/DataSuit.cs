@@ -143,12 +143,12 @@ namespace DataSuit
             MethodBase method = stackTrace.GetFrame(1).GetMethod();
             var attr = method.GetCustomAttribute<TestSetupAttribute>();
 
-            var inte = attr.Suit.GetInterface("IAttributeSuit");
+            var inte = attr.Suit.GetInterface("ISetupSuit");
 
             if (inte == null)
-                throw new Exception("The type of class should be inherited from IAttributeSuit.");
+                throw new Exception("The type of class should be inherited from ISetupSuit.");
 
-            var instance = (IAttributeSuit)Activator.CreateInstance(attr.Suit);
+            var instance = (ISetupSuit)Activator.CreateInstance(attr.Suit);
 
             return instance.Suit;
         }

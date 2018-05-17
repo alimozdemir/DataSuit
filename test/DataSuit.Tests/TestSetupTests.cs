@@ -13,7 +13,7 @@ namespace DataSuit.Tests
             Assert.Equal("Eminem", data);
         }
 
-        public class TestSetupExample : IAttributeSuit
+        public class TestSetupExample : ISetupSuit
         {
             public TestSetupExample()
             {
