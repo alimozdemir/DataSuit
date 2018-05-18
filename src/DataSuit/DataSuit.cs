@@ -10,6 +10,7 @@ using System;
 
 using System.Runtime.CompilerServices;
 [assembly: InternalsVisibleTo("DataSuit.Tests")]
+[assembly: InternalsVisibleTo("DynamicProxyGenAssembly2")]
 
 namespace DataSuit
 {
@@ -125,7 +126,7 @@ namespace DataSuit
             _mapper.Map(item, manager);
         }
 
-        internal T GeneratePrimitive<T>(string name, ISessionManager manager)
+        internal virtual T GeneratePrimitive<T>(string name, ISessionManager manager)
         {
             return _mapper.GetPrimitive<T>(name, manager);
         }
